@@ -19,7 +19,7 @@ Next.js AI-chat work.
 | Page | Static source | Ported |
 |------|---------------|--------|
 | Home `/` | `index.html` | ✅ first pass |
-| Platform overview `/platform-overview` | `platform-overview.html` | ⬜ (large: pipeline / AI-native / CTA) |
+| Platform overview `/platform-overview` | `platform-overview.html` | ✅ first pass (pipeline / AI-native / CTA) |
 | Playbook `/playbook` | `playbook.html` | ⬜ |
 | GST landing `/gst-discovery` | `gst-discovery/index.html` | ⬜ (own visual world — separate fonts/tokens) |
 | GST chat `/gst-discovery/chat` | `gst-discovery/chat-interface.html` | ⬜ (static mock — devs replace with the real AI chat) |
@@ -30,8 +30,11 @@ The static source repo is the reference for anything not yet ported.
 
 - Next.js 16, App Router, TypeScript.
 - **Styling is the original hand-written CSS, not Tailwind.** It's all in
-  `app/globals.css` (design tokens + every component's rules, deduped from the
-  static pages). `next/font` loads the fonts and exposes them to the CSS as
+  `app/globals.css` (design tokens + every component's rules, folded in one
+  ported page at a time — so far `index.html` plus the `.po-*` / `.eng-*` /
+  `.pw-*` / `.ain-*` / `.axp-*` families from `platform-overview.html`, with
+  each page's new rules diffed in and duplicates dropped). `next/font` loads
+  the fonts and exposes them to the CSS as
   `--font-body` / `--font-mono`.
 - Theme: `data-theme="light"` on `<html>` (absent = dark). Toggled by the header
   button, persisted to `localStorage['dt-theme']`. A tiny inline script in the

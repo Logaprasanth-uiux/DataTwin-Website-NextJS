@@ -43,4 +43,11 @@ const SPRITE = `
 <symbol id="ic-globe" viewBox="0 0 24 24"><circle class="stroke" cx="12" cy="12" r="8.5"/><path class="stroke" d="M3.5 12h17M12 3.5c2.4 2.3 3.7 5.3 3.7 8.5s-1.3 6.2-3.7 8.5c-2.4-2.3-3.7-5.3-3.7-8.5S9.6 5.8 12 3.5Z"/></symbol>
 <symbol id="ic-linkedin" viewBox="0 0 24 24"><rect class="stroke" x="3.5" y="3.5" width="17" height="17" rx="3"/><circle cx="8" cy="8.3" r="1.1" fill="currentColor" stroke="none"/><path class="stroke" d="M8 11v6M12 17v-4c0-1.4 1-2.3 2.2-2.3S16 11.6 16 13v4"/></symbol>
 <symbol id="ic-doc" viewBox="0 0 24 24"><path class="stroke" d="M7 3h7l4 4v14H7z"/><path class="stroke" d="M9 12h6M9 16h6"/></symbol>
+<symbol id="ic-upload" viewBox="0 0 24 24"><path class="stroke" d="M12 20V8"/><path class="stroke" d="m7 13 5-5 5 5"/><path class="stroke" d="M5 4h14"/></symbol>
+<symbol id="ic-transfer" viewBox="0 0 24 24"><path class="stroke" d="M7 4v15"/><path class="stroke" d="m3.5 8 3.5-4 3.5 4"/><path class="stroke" d="M17 20V5"/><path class="stroke" d="m20.5 16-3.5 4-3.5-4"/></symbol>
+<symbol id="ic-swap" viewBox="0 0 24 24"><path class="stroke" d="M4 8h13"/><path class="stroke" d="m13 4 4 4-4 4"/><path class="stroke" d="M20 16H7"/><path class="stroke" d="m11 20-4-4 4-4"/></symbol>
+<symbol id="ic-flow" viewBox="0 0 24 24"><circle class="stroke" cx="6" cy="6" r="2.4"/><circle class="stroke" cx="6" cy="18" r="2.4"/><circle class="stroke" cx="18" cy="12" r="2.4"/><path class="stroke" d="M8.3 7.1 15.6 10.8"/><path class="stroke" d="M8.3 16.9 15.6 13.2"/></symbol>
+<symbol id="ic-bars" viewBox="0 0 24 24"><path class="stroke" d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+<symbol id="ic-frame" viewBox="0 0 24 24"><path class="stroke" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/><rect class="stroke" x="9" y="9" width="6" height="6" rx="1"/></symbol>
+<symbol id="ic-schema" viewBox="0 0 24 24"><path class="stroke" d="M12 3 20 12 12 21 4 12Z"/><path class="stroke" d="M12 8.5v7M8.5 12h7"/></symbol>
 </svg>`;
