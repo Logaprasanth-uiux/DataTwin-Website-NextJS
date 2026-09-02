@@ -20,7 +20,7 @@ Next.js AI-chat work.
 |------|---------------|--------|
 | Home `/` | `index.html` | ✅ first pass |
 | Platform overview `/platform-overview` | `platform-overview.html` | ✅ first pass (pipeline / AI-native / CTA) |
-| Playbook `/playbook` | `playbook.html` | ⬜ |
+| Playbook `/playbook` | `playbook.html` | ✅ first pass (internal reference — video / value / engine / integrations / trusted) |
 | GST landing `/gst-discovery` | `gst-discovery/index.html` | ⬜ (own visual world — separate fonts/tokens) |
 | GST chat `/gst-discovery/chat` | `gst-discovery/chat-interface.html` | ⬜ (static mock — devs replace with the real AI chat) |
 
@@ -33,7 +33,8 @@ The static source repo is the reference for anything not yet ported.
   `app/globals.css` (design tokens + every component's rules, folded in one
   ported page at a time — so far `index.html` plus the `.po-*` / `.eng-*` /
   `.pw-*` / `.ain-*` / `.axp-*` families from `platform-overview.html`, with
-  each page's new rules diffed in and duplicates dropped). `next/font` loads
+  each page's new rules diffed in and duplicates dropped. `playbook.html`
+  reused only existing rules, so it added nothing). `next/font` loads
   the fonts and exposes them to the CSS as
   `--font-body` / `--font-mono`.
 - Theme: `data-theme="light"` on `<html>` (absent = dark). Toggled by the header
