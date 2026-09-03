@@ -26,6 +26,8 @@ Next.js AI-chat work.
 | DARP Framework `/darp-framework` | *(no static source — new page)* | ✅ first pass — designed from `DARP-Page-Content.docx` (+ FAQ copy from a later `darp.html`), built on the main-site design system. Secondary "learn more" links are `#`. |
 | Security `/security` | `security.html` (external `QuickLaunch` mock) | ✅ first pass — **content-only port**: text is verbatim from `security.html`, re-visualised on the main-site design system (new `.sec-*` families) rather than reusing that file's styling. Shared final `.cta-section`. |
 | How AI is used `/how-ai-is-used` | `ai.html` (external `QuickLaunch` mock) | ✅ first pass — **content-only port**, same treatment as `/security`: copy verbatim from `ai.html`, rebuilt on the design system (new `.hai-*` families). Centre-piece is a real orchestration→lanes diagram; one continuous accent (the `.hai-wire` dataflow pulse). Secondary links point to existing pages / homepage anchors. Shared final `.cta-section`. |
+| **Products › Core Finance Operations** — `/accounts-payable`, `/accounts-receivable`, `/taxation-reconciliation`, `/reconciliation-audit` | `ap.html` / `ar.html` / `tax.html` / `recon.html` (`QuickLaunch`) | ✅ first pass — **content-only ports**, verbatim copy re-visualised per page on the design system. Each its own visual world + CSS family (`.ap-*` / `.ar-*` / `.tax-*` / `.recon-*`), all wrapped in `.cfo-page` (92px sections). Wired into Products menu. |
+| **Products › Rebates, incentives & payouts** — `/channel-rebates`, `/channel-rebates-manufacturers`, `/channel-rebates-distributors`, `/partner-payouts`, `/sales-commissions` | `rebates.html` / `rebates-manufacturers.html` / `rebates-distributors.html` / `payouts.html` / `commissions.html` (`QuickLaunch`) | ✅ first pass — **content-only ports**, verbatim copy re-visualised per page. Each its own visual world + CSS family (`.crb-*` / `.mfr-*` / `.dst-*` / `.ppo-*` / `.sci-*`), all wrapped in `.rip-page` (92px sections, like `.cfo-page`). `#solutions` placeholders in header / drawer / footer replaced with the real routes; `/channel-rebates` cross-links to the mfr/dst pages. |
 
 The static source repo is the reference for anything not yet ported. `/darp-framework`
 is the first page with no static predecessor: it's a new design, not a port, so
@@ -88,6 +90,8 @@ app/
     darp-framework/page.tsx        new design (from a .docx brief), not a port
     security/page.tsx             content-only port of security.html, re-visualised on the design system
     how-ai-is-used/page.tsx       content-only port of ai.html, re-visualised on the design system
+    accounts-payable/ · accounts-receivable/ · taxation-reconciliation/ · reconciliation-audit/   Products › Core Finance Operations (.cfo-page wrapper)
+    channel-rebates/ · channel-rebates-manufacturers/ · channel-rebates-distributors/ · partner-payouts/ · sales-commissions/   Products › Rebates, incentives & payouts (.rip-page wrapper)
   (gst)/
     layout.tsx        root: <html>/<body>, Plus Jakarta Sans + IBM Plex Mono, theme-init. No CSS — each page's
                       route group owns its stylesheet (landing & chat collide by class name, never coexist).
@@ -107,6 +111,8 @@ components/
   DarpFrameworkScripts.tsx  'use client' — reveal-on-scroll (+ failsafe) and the FAQ accordion
   SecurityScripts.tsx       'use client' — same reveal-on-scroll (+ failsafe) and FAQ accordion, per-page `wired`
   HowAIScripts.tsx          'use client' — reveal-on-scroll (+ failsafe) only (no FAQ on this page), per-page `wired`
+  ApScripts / ArScripts / TaxScripts / ReconScripts .tsx   'use client' — reveal-only, per-page `wired` (Core Finance Operations)
+  ChannelReb/ChannelRebManufacturers/ChannelRebDistributors/PartnerPayouts/SalesCommissions Scripts.tsx   'use client' — reveal-only, per-page `wired` (Rebates, incentives & payouts)
   GstDiscoveryScripts.tsx   'use client' — GST landing: theme toggle, marquee, leak tabs, ledger canvas, reveal
   GstChatScripts.tsx        'use client', @ts-nocheck — the whole chat mock (verbatim IIFE port; dev replaces it)
 public/datatwin-logo.png   the wordmark (was base64-inlined in the static files)

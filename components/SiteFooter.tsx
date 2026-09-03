@@ -30,9 +30,9 @@ export default function SiteFooter() {
               <li><a href="/accounts-receivable">Accounts Receivable</a></li>
               <li><a href="/taxation-reconciliation">Taxation Reconciliation</a></li>
               <li><a href="/reconciliation-audit">Reconciliation &amp; Audit</a></li>
-              <li><a href="#solutions">Channel Rebates</a></li>
-              <li><a href="#solutions">Partner Payouts</a></li>
-              <li><a href="#solutions">Sales Commissions</a></li>
+              <li><a href="/channel-rebates">Channel Rebates</a></li>
+              <li><a href="/partner-payouts">Partner Payouts</a></li>
+              <li><a href="/sales-commissions">Sales Commissions</a></li>
               <li><a href="#solutions">FSCP</a></li>
             </ul>
           </div>

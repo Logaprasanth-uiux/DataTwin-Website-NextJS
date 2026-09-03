@@ -80,23 +80,23 @@ export default function SiteHeader() {
                 </div>
                 <div className="mega-col">
                   <span className="mega-col-label">Rebates, incentives &amp; payouts</span>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/channel-rebates" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-badge" /></svg></span>
                     <span className="mega-row-text"><strong>Channel Rebates <span className="mega-tag amber">2 sides</span></strong><p>Ship &amp; debit, SPAs, POS validation</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row mega-row-sub">
-                    <span className="ic"><svg className="stroke"><use href="#ic-arrow-right" /></svg></span>
-                    <span className="mega-row-text"><strong>— for Manufacturers</strong><p>Pay only what's genuinely owed</p></span>
+                  <a href="/channel-rebates-manufacturers" className="mega-row">
+                    <span className="ic"><svg className="stroke"><use href="#ic-shield" /></svg></span>
+                    <span className="mega-row-text"><strong>For Manufacturers</strong><p>Pay only what's genuinely owed</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row mega-row-sub">
-                    <span className="ic"><svg className="stroke"><use href="#ic-arrow-right" /></svg></span>
-                    <span className="mega-row-text"><strong>— for Distributors</strong><p>Collect what you're owed, faster</p></span>
+                  <a href="/channel-rebates-distributors" className="mega-row">
+                    <span className="ic"><svg className="stroke"><use href="#ic-recover" /></svg></span>
+                    <span className="mega-row-text"><strong>For Distributors</strong><p>Collect what you're owed, faster</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/partner-payouts" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-user" /></svg></span>
                     <span className="mega-row-text"><strong>Partner Payouts</strong><p>Reseller, affiliate, franchise, referral</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/sales-commissions" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-gauge" /></svg></span>
                     <span className="mega-row-text"><strong>Sales Commissions &amp; Incentives</strong><p>Calculated from actual revenue</p></span>
                   </a>

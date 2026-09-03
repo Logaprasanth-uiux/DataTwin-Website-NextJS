@@ -28,7 +28,7 @@ export default function SiteDrawer() {
                   <a className="dp-link" href="/accounts-payable"><svg className="stroke"><use href="#ic-cash" /></svg>Accounts Payable</a>
                   <a className="dp-link" href="/accounts-receivable"><svg className="stroke"><use href="#ic-cash" /></svg>Accounts Receivable</a>
                   <a className="dp-link" href="/taxation-reconciliation"><svg className="stroke"><use href="#ic-tax" /></svg>Taxation Reconciliation</a>
-                  <a className="dp-link" href="#solutions"><svg className="stroke"><use href="#ic-badge" /></svg>Channel Rebates</a>
+                  <a className="dp-link" href="/channel-rebates"><svg className="stroke"><use href="#ic-badge" /></svg>Channel Rebates</a>
                 </div>
               </div>
             </div>
@@ -45,10 +45,12 @@ export default function SiteDrawer() {
                   <a className="dp-link" href="/reconciliation-audit"><svg className="stroke"><use href="#ic-search" /></svg>Reconciliation &amp; Audit</a>
                 </div>
                 <div className="dp-col">
-                  <span className="dp-col-label">Rebates &amp; payouts</span>
-                  <a className="dp-link" href="#solutions"><svg className="stroke"><use href="#ic-badge" /></svg>Channel Rebates</a>
-                  <a className="dp-link" href="#solutions"><svg className="stroke"><use href="#ic-user" /></svg>Partner Payouts</a>
-                  <a className="dp-link" href="#solutions"><svg className="stroke"><use href="#ic-gauge" /></svg>Sales Commissions</a>
+                  <span className="dp-col-label">Rebates, incentives &amp; payouts</span>
+                  <a className="dp-link" href="/channel-rebates"><svg className="stroke"><use href="#ic-badge" /></svg>Channel Rebates</a>
+                  <a className="dp-link" href="/channel-rebates-manufacturers"><svg className="stroke"><use href="#ic-shield" /></svg>For Manufacturers</a>
+                  <a className="dp-link" href="/channel-rebates-distributors"><svg className="stroke"><use href="#ic-recover" /></svg>For Distributors</a>
+                  <a className="dp-link" href="/partner-payouts"><svg className="stroke"><use href="#ic-user" /></svg>Partner Payouts</a>
+                  <a className="dp-link" href="/sales-commissions"><svg className="stroke"><use href="#ic-gauge" /></svg>Sales Commissions</a>
                 </div>
               </div>
             </div>
