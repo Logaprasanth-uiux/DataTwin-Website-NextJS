@@ -24,7 +24,7 @@ export default function SiteHeader() {
                 <span className="mega-pf-hero-cta">See the whole platform <svg className="stroke"><use href="#ic-arrow-right" /></svg></span>
               </a>
               <div className="mega-pf-body">
-                <a href="#darp" className="mega-pf-darp">
+                <a href="/darp-framework" className="mega-pf-darp">
                   <div className="mega-pf-darp-head">
                     <span className="mega-feature-ic violet"><svg className="stroke"><use href="#ic-loop" /></svg></span>
                     <div>
@@ -41,11 +41,11 @@ export default function SiteHeader() {
                 </a>
                 <div className="mega-pf-side">
                   <span className="mega-col-label">Across the platform</span>
-                  <a href="#" className="mega-row">
+                  <a href="/security" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-lock" /></svg></span>
                     <span className="mega-row-text"><strong>Security</strong><p>Read-only by default. ISO 27001 certified and SOC 2 attested, with role-based access and an immutable audit trail on every record. Cloud agnostic — runs on AWS, Azure, GCP or your own private cloud.</p></span>
                   </a>
-                  <a href="#" className="mega-row">
+                  <a href="/how-ai-is-used" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-spark" /></svg></span>
                     <span className="mega-row-text"><strong>How AI is used</strong><p>Where AI earns its place — reading documents, spotting anomalies, answering questions in plain language — and where deterministic rules run instead, because postings must be auditable.</p></span>
                   </a>

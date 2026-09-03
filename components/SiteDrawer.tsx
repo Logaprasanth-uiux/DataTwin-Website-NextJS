@@ -19,9 +19,9 @@ export default function SiteDrawer() {
                 <div className="dp-col">
                   <span className="dp-col-label">Overview</span>
                   <a className="dp-link" href="/platform-overview"><svg className="stroke"><use href="#ic-layers" /></svg>Platform Overview</a>
-                  <a className="dp-link" href="#darp"><svg className="stroke"><use href="#ic-loop" /></svg>DARP Framework</a>
-                  <a className="dp-link" href="#"><svg className="stroke"><use href="#ic-shield" /></svg>Security &amp; Compliance</a>
-                  <a className="dp-link" href="#"><svg className="stroke"><use href="#ic-spark" /></svg>How AI is Used</a>
+                  <a className="dp-link" href="/darp-framework"><svg className="stroke"><use href="#ic-loop" /></svg>DARP Framework</a>
+                  <a className="dp-link" href="/security"><svg className="stroke"><use href="#ic-shield" /></svg>Security &amp; Compliance</a>
+                  <a className="dp-link" href="/how-ai-is-used"><svg className="stroke"><use href="#ic-spark" /></svg>How AI is Used</a>
                 </div>
                 <div className="dp-col">
                   <span className="dp-col-label">Solutions</span>

@@ -18,9 +18,9 @@ export default function SiteFooter() {
             <h5>Platform</h5>
             <ul>
               <li><a href="/platform-overview">Platform Overview</a></li>
-              <li><a href="#darp">DARP Framework</a></li>
-              <li><a href="#">Security</a></li>
-              <li><a href="#">How AI is used</a></li>
+              <li><a href="/darp-framework">DARP Framework</a></li>
+              <li><a href="/security">Security</a></li>
+              <li><a href="/how-ai-is-used">How AI is used</a></li>
             </ul>
           </div>
           <div className="footer-col">

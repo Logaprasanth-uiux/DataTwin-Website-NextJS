@@ -23,8 +23,33 @@ Next.js AI-chat work.
 | Playbook `/playbook` | `playbook.html` | ✅ first pass (internal reference — video / value / engine / integrations / trusted) |
 | GST landing `/gst-discovery` | `gst-discovery/index.html` | ✅ first pass (own visual world — separate root layout, fonts, CSS) |
 | GST chat `/gst-discovery/chat` | `gst-discovery/chat-interface.html` | ✅ first pass — **static mock**, whole conversation built at runtime; dev handoff is to replace it with the real AI chat |
+| DARP Framework `/darp-framework` | *(no static source — new page)* | ✅ first pass — designed from `DARP-Page-Content.docx` (+ FAQ copy from a later `darp.html`), built on the main-site design system. Secondary "learn more" links are `#`. |
+| Security `/security` | `security.html` (external `QuickLaunch` mock) | ✅ first pass — **content-only port**: text is verbatim from `security.html`, re-visualised on the main-site design system (new `.sec-*` families) rather than reusing that file's styling. Shared final `.cta-section`. |
+| How AI is used `/how-ai-is-used` | `ai.html` (external `QuickLaunch` mock) | ✅ first pass — **content-only port**, same treatment as `/security`: copy verbatim from `ai.html`, rebuilt on the design system (new `.hai-*` families). Centre-piece is a real orchestration→lanes diagram; one continuous accent (the `.hai-wire` dataflow pulse). Secondary links point to existing pages / homepage anchors. Shared final `.cta-section`. |
 
-The static source repo is the reference for anything not yet ported.
+The static source repo is the reference for anything not yet ported. `/darp-framework`
+is the first page with no static predecessor: it's a new design, not a port, so
+"parity" doesn't apply — but it still reuses `app/globals.css` (new `.dfw-*`
+families) and the shared chrome. "DARP Framework" in the header / drawer / footer
+now points here instead of the homepage `#darp` anchor.
+
+`/security` is a different kind of port: a previous standalone `security.html`
+mock existed with its own look, but only its **copy** was carried over — the
+page was re-visualised on the main-site design system with minimal graphics
+(new `.sec-*` families in `app/globals.css`, plus the shared `.dfw-rise` /
+`.dfw-q` reveal + FAQ helpers). "Security" in the header / drawer / footer now
+points here instead of `#`.
+
+`/how-ai-is-used` is the same kind of port as `/security`: only the copy from
+the external `ai.html` mock was carried over, then every section was
+re-visualised on the design system (new `.hai-*` families, reuse of `.hero` /
+`.section` / `.eyebrow` / `.btn` / `.arc-glow` / `.ledger-grid` / `.grad-text`
+/ the shared `.cta-section`, and the `.dfw-rise` / `[data-reveal]` reveal
+family — no FAQ on this page). The agent architecture is drawn as an actual
+orchestration→three-lanes diagram; the only continuous motion is one slow
+dataflow pulse on the `.hai-wire` SVG connectors, gated by
+`prefers-reduced-motion`. "How AI is used" in the header / drawer / footer now
+points here instead of `#`.
 
 ## Stack
 
@@ -60,6 +85,9 @@ app/
     page.tsx          home
     platform-overview/page.tsx
     playbook/page.tsx
+    darp-framework/page.tsx        new design (from a .docx brief), not a port
+    security/page.tsx             content-only port of security.html, re-visualised on the design system
+    how-ai-is-used/page.tsx       content-only port of ai.html, re-visualised on the design system
   (gst)/
     layout.tsx        root: <html>/<body>, Plus Jakarta Sans + IBM Plex Mono, theme-init. No CSS — each page's
                       route group owns its stylesheet (landing & chat collide by class name, never coexist).
@@ -76,6 +104,9 @@ components/
   SiteHeader/Drawer/Footer.tsx   server components, static markup
   ChromeScripts.tsx   'use client' — theme toggle, mobile drawer, desktop mega-menu
   HomeScripts.tsx / PlatformOverviewScripts.tsx / PlaybookScripts.tsx   'use client' — per-page IIFE ports
+  DarpFrameworkScripts.tsx  'use client' — reveal-on-scroll (+ failsafe) and the FAQ accordion
+  SecurityScripts.tsx       'use client' — same reveal-on-scroll (+ failsafe) and FAQ accordion, per-page `wired`
+  HowAIScripts.tsx          'use client' — reveal-on-scroll (+ failsafe) only (no FAQ on this page), per-page `wired`
   GstDiscoveryScripts.tsx   'use client' — GST landing: theme toggle, marquee, leak tabs, ledger canvas, reveal
   GstChatScripts.tsx        'use client', @ts-nocheck — the whole chat mock (verbatim IIFE port; dev replaces it)
 public/datatwin-logo.png   the wordmark (was base64-inlined in the static files)
