@@ -61,19 +61,19 @@ export default function SiteHeader() {
               <div className="mega-grid mega-grid-4">
                 <div className="mega-col">
                   <span className="mega-col-label">Core finance operations</span>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/accounts-payable" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-cash" /></svg></span>
                     <span className="mega-row-text"><strong>Accounts Payable</strong><p>Invoice to payment, accounted right</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/accounts-receivable" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-cash" /></svg></span>
                     <span className="mega-row-text"><strong>Accounts Receivable</strong><p>Order to cash, collected and applied</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/taxation-reconciliation" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-tax" /></svg></span>
                     <span className="mega-row-text"><strong>Taxation Reconciliation</strong><p>Returns, credits and ledgers that agree</p></span>
                   </a>
-                  <a href="#solutions" className="mega-row">
+                  <a href="/reconciliation-audit" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-search" /></svg></span>
                     <span className="mega-row-text"><strong>Reconciliation &amp; Audit</strong><p>Continuous, across every system</p></span>
                   </a>

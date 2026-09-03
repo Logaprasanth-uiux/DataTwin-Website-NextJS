@@ -26,9 +26,10 @@ export default function SiteFooter() {
           <div className="footer-col">
             <h5>Product</h5>
             <ul>
-              <li><a href="#solutions">Accounts Payable</a></li>
-              <li><a href="#solutions">Accounts Receivable</a></li>
-              <li><a href="#solutions">Taxation Reconciliation</a></li>
+              <li><a href="/accounts-payable">Accounts Payable</a></li>
+              <li><a href="/accounts-receivable">Accounts Receivable</a></li>
+              <li><a href="/taxation-reconciliation">Taxation Reconciliation</a></li>
+              <li><a href="/reconciliation-audit">Reconciliation &amp; Audit</a></li>
               <li><a href="#solutions">Channel Rebates</a></li>
               <li><a href="#solutions">Partner Payouts</a></li>
               <li><a href="#solutions">Sales Commissions</a></li>
