@@ -107,15 +107,6 @@ export default function SiteHeader() {
                     <span className="ic"><svg className="stroke"><use href="#ic-gauge" /></svg></span>
                     <span className="mega-row-text"><strong>FSCP <span className="mega-tag blue">200+ KPIs</span></strong><p>Financial Statement Close Process — close integrity, scored continuously</p></span>
                   </a>
-                  <span className="mega-col-label spaced">By industry</span>
-                  <a href="#" className="mega-row">
-                    <span className="ic"><svg className="stroke"><use href="#ic-layers" /></svg></span>
-                    <span className="mega-row-text"><strong>Semiconductor</strong><p>Channel complexity, solved</p></span>
-                  </a>
-                  <a href="#" className="mega-row">
-                    <span className="ic"><svg className="stroke"><use href="#ic-badge" /></svg></span>
-                    <span className="mega-row-text"><strong>Distribution</strong><p>Multi-tier programs and claims</p></span>
-                  </a>
                 </div>
                 <div className="mega-col-promo">
                   <div className="mega-promo-card">
