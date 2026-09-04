@@ -52,6 +52,10 @@ export default function SiteDrawer() {
                   <a className="dp-link" href="/partner-payouts"><svg className="stroke"><use href="#ic-user" /></svg>Partner Payouts</a>
                   <a className="dp-link" href="/sales-commissions"><svg className="stroke"><use href="#ic-gauge" /></svg>Sales Commissions</a>
                 </div>
+                <div className="dp-col">
+                  <span className="dp-col-label">Close &amp; reporting</span>
+                  <a className="dp-link" href="/fscp"><svg className="stroke"><use href="#ic-gauge" /></svg>FSCP</a>
+                </div>
               </div>
             </div>
           </div>
@@ -69,6 +73,11 @@ export default function SiteDrawer() {
                   <span className="dp-col-label">Proof</span>
                   <a className="dp-link" href="#"><svg className="stroke"><use href="#ic-badge" /></svg>Case Studies</a>
                   <a className="dp-link" href="#trusted"><svg className="stroke"><use href="#ic-user" /></svg>Customers</a>
+                </div>
+                <div className="dp-col">
+                  <span className="dp-col-label">Tools &amp; downloads</span>
+                  <a className="dp-link" href="/close-kpi-catalogue"><svg className="stroke"><use href="#ic-doc" /></svg>The 200+ Close KPI Catalogue</a>
+                  <a className="dp-link" href="#"><svg className="stroke"><use href="#ic-gauge" /></svg>Recovery Estimator</a>
                 </div>
               </div>
             </div>

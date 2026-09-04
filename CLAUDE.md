@@ -28,6 +28,8 @@ Next.js AI-chat work.
 | How AI is used `/how-ai-is-used` | `ai.html` (external `QuickLaunch` mock) | ✅ first pass — **content-only port**, same treatment as `/security`: copy verbatim from `ai.html`, rebuilt on the design system (new `.hai-*` families). Centre-piece is a real orchestration→lanes diagram; one continuous accent (the `.hai-wire` dataflow pulse). Secondary links point to existing pages / homepage anchors. Shared final `.cta-section`. |
 | **Products › Core Finance Operations** — `/accounts-payable`, `/accounts-receivable`, `/taxation-reconciliation`, `/reconciliation-audit` | `ap.html` / `ar.html` / `tax.html` / `recon.html` (`QuickLaunch`) | ✅ first pass — **content-only ports**, verbatim copy re-visualised per page on the design system. Each its own visual world + CSS family (`.ap-*` / `.ar-*` / `.tax-*` / `.recon-*`), all wrapped in `.cfo-page` (92px sections). Wired into Products menu. |
 | **Products › Rebates, incentives & payouts** — `/channel-rebates`, `/channel-rebates-manufacturers`, `/channel-rebates-distributors`, `/partner-payouts`, `/sales-commissions` | `rebates.html` / `rebates-manufacturers.html` / `rebates-distributors.html` / `payouts.html` / `commissions.html` (`QuickLaunch`) | ✅ first pass — **content-only ports**, verbatim copy re-visualised per page. Each its own visual world + CSS family (`.crb-*` / `.mfr-*` / `.dst-*` / `.ppo-*` / `.sci-*`), all wrapped in `.rip-page` (92px sections, like `.cfo-page`). `#solutions` placeholders in header / drawer / footer replaced with the real routes; `/channel-rebates` cross-links to the mfr/dst pages. |
+| **Products › Close & reporting** — `/fscp` | `fscp.html` (`QuickLaunch`) | ✅ first pass — **content-only port**, verbatim copy re-visualised on the design system. Own CSS family `.fscp-*`, wrapped in `.cnr-page` (92px sections, like `.cfo-page` / `.rip-page`). Visual world: the close read as a register of blockers, each with an R/O/G colour, a count and a value. `kpi-catalogue.html` links → `#` placeholders (no such route); `chat.html` CTAs → `/#cta` · `/#top`. Header FSCP row (`#` → `/fscp`), drawer (new "Close & reporting" column added), footer (`#solutions` → `/fscp`). |
+| **Learning Center › Tools & downloads** — `/close-kpi-catalogue` | `kpi-catalogue.html` (`QuickLaunch`) | ✅ first pass — **content-only port**, verbatim copy re-visualised on the design system. Own CSS family `.ckc-*`, wrapped in `.ckc-page` (92px sections, like `.cfo-page` / `.rip-page` / `.cnr-page`). The 204 metrics live in a generated `metrics.ts` (from the source `<tr>` rows), rendered as an interactive table — domain filter + text search ported close to the original vanilla JS in `CloseKpiCatalogueScripts.tsx`. The downloadable PDF (`public/close-kpi-catalogue.pdf`) is a **faithful re-issue of the marketing team's original ReportLab export** — same content, cleaner presentation — built from the same `metrics.ts` by `tools/kpi-catalogue-pdf/generate.py`. `chat.html` CTAs → `/#cta`; `fscp.html` → `/fscp`. Header Learning Center "Tools & downloads" rows + promo (`#` → `/close-kpi-catalogue`), drawer (new "Tools & downloads" column added), footer Product list (added after FSCP). |
 
 The static source repo is the reference for anything not yet ported. `/darp-framework`
 is the first page with no static predecessor: it's a new design, not a port, so
@@ -92,6 +94,10 @@ app/
     how-ai-is-used/page.tsx       content-only port of ai.html, re-visualised on the design system
     accounts-payable/ · accounts-receivable/ · taxation-reconciliation/ · reconciliation-audit/   Products › Core Finance Operations (.cfo-page wrapper)
     channel-rebates/ · channel-rebates-manufacturers/ · channel-rebates-distributors/ · partner-payouts/ · sales-commissions/   Products › Rebates, incentives & payouts (.rip-page wrapper)
+    fscp/page.tsx                Products › Close & reporting — content-only port of fscp.html (.cnr-page wrapper, .fscp-* family)
+    close-kpi-catalogue/         Learning Center › Tools & downloads — content-only port of kpi-catalogue.html
+      page.tsx                   (.ckc-page wrapper, .ckc-* family)
+      metrics.ts                 generated: 8 domains + 204 close-blocker metrics, verbatim from the source. Drives the page table AND the PDF.
   (gst)/
     layout.tsx        root: <html>/<body>, Plus Jakarta Sans + IBM Plex Mono, theme-init. No CSS — each page's
                       route group owns its stylesheet (landing & chat collide by class name, never coexist).
@@ -113,9 +119,13 @@ components/
   HowAIScripts.tsx          'use client' — reveal-on-scroll (+ failsafe) only (no FAQ on this page), per-page `wired`
   ApScripts / ArScripts / TaxScripts / ReconScripts .tsx   'use client' — reveal-only, per-page `wired` (Core Finance Operations)
   ChannelReb/ChannelRebManufacturers/ChannelRebDistributors/PartnerPayouts/SalesCommissions Scripts.tsx   'use client' — reveal-only, per-page `wired` (Rebates, incentives & payouts)
+  FscpScripts.tsx           'use client' — reveal-only, per-page `wired` (Close & reporting)
+  CloseKpiCatalogueScripts.tsx   'use client' — reveal + the catalogue domain-filter / text-search (IIFE port), per-page `wired`
   GstDiscoveryScripts.tsx   'use client' — GST landing: theme toggle, marquee, leak tabs, ledger canvas, reveal
   GstChatScripts.tsx        'use client', @ts-nocheck — the whole chat mock (verbatim IIFE port; dev replaces it)
 public/datatwin-logo.png   the wordmark (was base64-inlined in the static files)
+public/close-kpi-catalogue.pdf   downloadable catalogue — regenerate with tools/kpi-catalogue-pdf/generate.py after editing metrics.ts
+tools/kpi-catalogue-pdf/   ReportLab generator + Inter subsets for the PDF above (faithful re-issue of the team's original export)
 ```
 
 ## Porting approach — read before refactoring

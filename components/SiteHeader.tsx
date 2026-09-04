@@ -103,7 +103,7 @@ export default function SiteHeader() {
                 </div>
                 <div className="mega-col">
                   <span className="mega-col-label">Close &amp; reporting</span>
-                  <a href="#" className="mega-row">
+                  <a href="/fscp" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-gauge" /></svg></span>
                     <span className="mega-row-text"><strong>FSCP <span className="mega-tag blue">200+ KPIs</span></strong><p>Financial Statement Close Process — close integrity, scored continuously</p></span>
                   </a>
@@ -155,7 +155,7 @@ export default function SiteHeader() {
                 </div>
                 <div className="mega-col">
                   <span className="mega-col-label">Tools &amp; downloads</span>
-                  <a href="#" className="mega-row">
+                  <a href="/close-kpi-catalogue" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-doc" /></svg></span>
                     <span className="mega-row-text"><strong>The 200+ Close KPI Catalogue <span className="mega-tag amber">PDF</span></strong><p>Every KPI we track, by process area</p></span>
                   </a>
@@ -168,7 +168,7 @@ export default function SiteHeader() {
                   <div className="mega-promo-card">
                     <strong>The Close KPI Catalogue</strong>
                     <p>All 200+ KPIs we score across inventory, rev rec, cash application and payments.</p>
-                    <a href="#" className="btn btn-primary btn-sm">Download free</a>
+                    <a href="/close-kpi-catalogue" className="btn btn-primary btn-sm">Download free</a>
                   </div>
                   <div className="mega-col-divider"></div>
                   <a href="#" className="mega-more-link">Latest articles <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>

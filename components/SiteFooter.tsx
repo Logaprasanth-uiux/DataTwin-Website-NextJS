@@ -33,7 +33,8 @@ export default function SiteFooter() {
               <li><a href="/channel-rebates">Channel Rebates</a></li>
               <li><a href="/partner-payouts">Partner Payouts</a></li>
               <li><a href="/sales-commissions">Sales Commissions</a></li>
-              <li><a href="#solutions">FSCP</a></li>
+              <li><a href="/fscp">FSCP</a></li>
+              <li><a href="/close-kpi-catalogue">Close KPI Catalogue</a></li>
             </ul>
           </div>
           <div className="footer-col">
