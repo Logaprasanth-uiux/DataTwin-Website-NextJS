@@ -2319,40 +2319,81 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .dfw-hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;}
 
 /* ---- D/A/R/P vertical progression (hero-right graphic) ---- */
-.dfw-track{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;}
-@media (max-width:960px){.dfw-track{max-width:420px;}}
-.dfw-track-rail{
-  position:absolute;left:32px;top:34px;bottom:40px;width:2px;z-index:0;pointer-events:none;border-radius:2px;
-  background:linear-gradient(180deg,color-mix(in srgb,var(--brand-2) 65%,transparent),color-mix(in srgb,var(--brand-violet) 55%,transparent));
-  transform:scaleY(0);transform-origin:top;transition:transform 1.1s cubic-bezier(.25,.6,.15,1) .1s;
+.dfw-track{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;
+  padding:10px;
+  border:1px solid var(--line-strong);border-radius:20px;
+  background:
+    radial-gradient(460px 200px at 100% 0%, color-mix(in srgb,var(--brand-2) 9%, transparent), transparent 62%),
+    var(--bg-panel);
+  box-shadow:0 34px 80px -54px rgba(0,0,0,.55);
 }
-.dfw-track.in .dfw-track-rail{transform:scaleY(1);}
+@media (max-width:960px){.dfw-track{max-width:440px;}}
+/* the standalone rail span is superseded by the per-step connectors below */
+.dfw-track-rail{display:none;}
+
 .dfw-step{
-  position:relative;display:grid;grid-template-columns:34px 1fr;gap:16px;align-items:start;
-  padding:14px 16px;border-radius:14px;border:1px solid transparent;
+  position:relative;display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:center;
+  min-height:76px;padding:13px 15px;border-radius:14px;border:1px solid transparent;
   opacity:0;transform:translateY(12px);
   transition:border-color .25s ease,background .25s ease;
 }
 .dfw-track.in .dfw-step{animation:darp-in .5s cubic-bezier(.2,.7,.2,1) forwards;}
-.dfw-track.in .dfw-step:nth-child(3){animation-delay:.07s;}
-.dfw-track.in .dfw-step:nth-child(4){animation-delay:.14s;}
-.dfw-track.in .dfw-step:nth-child(5){animation-delay:.21s;}
+.dfw-track.in .dfw-step:nth-child(2){animation-delay:.07s;}
+.dfw-track.in .dfw-step:nth-child(3){animation-delay:.14s;}
+.dfw-track.in .dfw-step:nth-child(4){animation-delay:.21s;}
 .dfw-step:hover{border-color:color-mix(in srgb,var(--brand-2) 26%,var(--line));background:var(--card-flat);}
-.dfw-step .l{
-  font-family:var(--font-body),sans-serif;font-weight:600;letter-spacing:-0.03em;
-  font-size:1.7rem;line-height:1;text-align:center;width:34px;
-  background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;
+
+/* connector: from this node's centre to the next node's centre, behind the badges */
+.dfw-step:not(:last-child)::before{
+  content:'';position:absolute;z-index:0;pointer-events:none;
+  left:38px;width:2px;top:50%;height:calc(100% + 6px);border-radius:2px;
+  background:linear-gradient(180deg,
+    color-mix(in srgb,var(--brand-2) 60%,transparent),
+    color-mix(in srgb,var(--brand-violet) 55%,transparent));
+  transform:scaleY(0);transform-origin:top;
+  transition:transform .5s cubic-bezier(.25,.6,.15,1);
 }
-.dfw-step.is-prevent .l{background:linear-gradient(135deg,var(--brand-violet),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.dfw-track.in .dfw-step:not(:last-child)::before{transform:scaleY(1);}
+.dfw-track.in .dfw-step:nth-child(2)::before{transition-delay:.1s;}
+.dfw-track.in .dfw-step:nth-child(3)::before{transition-delay:.2s;}
+/* the turn into Prevent (Recover → Prevent) reads as its own colour */
+.dfw-step:nth-child(3)::before{
+  background:linear-gradient(180deg,
+    color-mix(in srgb,var(--brand-violet) 55%,transparent),
+    color-mix(in srgb,var(--brand-violet) 28%,transparent));
+}
+
+.dfw-step .l{
+  position:relative;z-index:1;
+  width:46px;height:46px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-body),sans-serif;font-weight:700;letter-spacing:-0.02em;
+  font-size:1.3rem;line-height:1;
+  color:var(--brand-2);
+  background:color-mix(in srgb,var(--brand-2) 10%,var(--bg-panel));
+  border:1px solid color-mix(in srgb,var(--brand-2) 34%,var(--line));
+  box-shadow:0 6px 16px -8px var(--glow);
+}
+.dfw-step.is-prevent .l{
+  color:#fff;
+  background:linear-gradient(135deg,var(--brand-violet),var(--brand-2));
+  border-color:transparent;
+  box-shadow:0 8px 20px -8px color-mix(in srgb,var(--brand-violet) 60%,transparent);
+}
 .dfw-step-body{min-width:0;}
-.dfw-step h3{font-size:0.95rem;font-weight:600;}
-.dfw-step p{font-size:0.8rem;color:var(--ink-soft);line-height:1.45;margin-top:2px;}
+.dfw-step h3{font-size:1rem;font-weight:600;}
+.dfw-step p{font-size:0.82rem;color:var(--ink-soft);line-height:1.45;margin-top:3px;}
 .dfw-step .turn-tag{
-  display:inline-flex;align-items:center;gap:6px;margin-top:7px;
+  display:inline-flex;align-items:center;gap:6px;margin-top:8px;
   font-family:var(--font-mono),monospace;font-size:0.58rem;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-violet);
 }
 .dfw-step .turn-tag svg{width:11px;height:11px;}
-@media (prefers-reduced-motion:reduce){.dfw-track .dfw-step{opacity:1;transform:none;animation:none;}.dfw-track-rail{transform:scaleY(1);}}
+@media (prefers-reduced-motion:reduce){
+  .dfw-track .dfw-step{opacity:1;transform:none;animation:none;}
+  .dfw-track .dfw-step:not(:last-child)::before{transform:scaleY(1);}
+}
 
 /* ---- "you've been offered this before" : dim pitches vs bright DARP ---- */
 .dfw-offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,36px);align-items:start;margin-top:8px;max-width:1000px;margin-inline:auto;}

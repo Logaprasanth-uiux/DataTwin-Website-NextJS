@@ -44,7 +44,6 @@ export default function DarpFrameworkPage() {
           </div>
 
           <div className="dfw-track" data-reveal>
-            <span className="dfw-track-rail" aria-hidden="true"></span>
             <div className="dfw-step">
               <span className="l">D</span>
               <div className="dfw-step-body">
