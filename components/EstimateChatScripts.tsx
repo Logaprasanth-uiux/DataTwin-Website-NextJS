@@ -12,6 +12,7 @@
 
 import { useEffect } from "react";
 import { USE_CASES } from "@/components/homeMatch";
+import { answerFor } from "@/components/estimateAnswers";
 
 let wired = false;
 
@@ -19,6 +20,12 @@ export default function EstimateChatScripts() {
   useEffect(() => {
     if (wired) return;
     wired = true;
+
+    // If the page comes back from the bfcache (browser Back), reload so it
+    // starts fresh rather than showing a half-finished form / thread.
+    window.addEventListener("pageshow", function (e) {
+      if ((e as PageTransitionEvent).persisted) window.location.reload();
+    });
 
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -52,13 +59,20 @@ export default function EstimateChatScripts() {
       });
     }
 
-    /* ---------- recap from the homepage hand-off ---------- */
+    /* ---------- recap from the homepage hand-off ----------
+       One-shot: the hero flow drops a context here right before navigating, we
+       read it once and clear it. Every other CTA (and any reload) starts fresh.
+       A stale context (> 15 min, e.g. left over from an earlier session) is
+       ignored too. */
     var ctx: any = null;
     try {
       ctx = JSON.parse(sessionStorage.getItem("dt-estimate-context") || "null");
+      sessionStorage.removeItem("dt-estimate-context");
     } catch (e) {}
 
-    if (ctx && ctx.problem) {
+    var fresh = ctx && typeof ctx.ts === "number" && Date.now() - ctx.ts < 15 * 60 * 1000;
+
+    if (fresh && ctx.problem) {
       var recap = document.getElementById("estRecap");
       var problemEl = document.getElementById("estRecapProblem");
       var chipsEl = document.getElementById("estRecapChips");
@@ -80,6 +94,9 @@ export default function EstimateChatScripts() {
           .join("");
       }
       if (recap) recap.hidden = false;
+    } else {
+      var intro = document.getElementById("estIntro");
+      if (intro) intro.hidden = false;
     }
 
     /* ---------- thread bubbles ---------- */
@@ -101,6 +118,16 @@ export default function EstimateChatScripts() {
         "</p></div>";
       thread.appendChild(row);
       row.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
+    }
+    function addTyping() {
+      var row = document.createElement("div");
+      row.className = "hero-msg";
+      row.innerHTML =
+        '<div class="hero-ai-avatar" aria-hidden="true">DT</div>' +
+        '<div class="hero-msg-body"><span class="est-typing"><span></span><span></span><span></span></span></div>';
+      thread.appendChild(row);
+      row.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
+      return row;
     }
 
     /* ---------- contact form ---------- */
@@ -164,12 +191,10 @@ export default function EstimateChatScripts() {
         if (!val) return;
         cInput!.value = "";
         addUser(val);
-        wait(reduce ? 0 : 380).then(function () {
-          addAI(
-            submitted
-              ? "Noted — I've added that to your request."
-              : "Noted. Add your details in the form above and I'll get this, and everything else, to the team."
-          );
+        var pending = addTyping();
+        wait(reduce ? 200 : 650 + Math.random() * 500).then(function () {
+          pending.remove();
+          addAI(answerFor(val));
         });
       });
     }

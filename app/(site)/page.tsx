@@ -98,6 +98,10 @@ export default function HomePage() {
             </article>
           </div>
 
+          <div className="recov-cta">
+            <a href="/get-estimate" className="btn btn-primary">Get an estimate <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+          </div>
+
           <div className="recov-close">
             <h3 className="grad-text">Why failures repeat?</h3>
             <div className="recov-compare">
@@ -211,7 +215,7 @@ export default function HomePage() {
               <span className="problem-cta-kick">The order most systems get backwards</span>
               <h3 className="grad-text">Analyse first. Record later.</h3>
               <p>Every transaction is checked against everything that should agree with it before it becomes a number you have to defend.</p>
-              <a href="#cta" className="problem-cta-btn">Tell us your situation <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
+              <a href="/get-estimate" className="problem-cta-btn">Tell us your situation <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
             </div>
             <div className="order-flip" aria-hidden="true">
               <div className="of-line of-wrong">
@@ -300,7 +304,7 @@ export default function HomePage() {
             <span className="usecase-pill">Loyalty &amp; points liability</span>
             <span className="usecase-pill">Vendor master hygiene</span>
             <span className="usecase-pill">Statutory returns</span>
-            <a href="#cta" className="usecase-pill usecase-pill-cta">Tell us yours</a>
+            <a href="/get-estimate" className="usecase-pill usecase-pill-cta">Tell us yours</a>
             </div>
           </div>
         </div>
@@ -445,7 +449,7 @@ export default function HomePage() {
               <h2>Tell us your problem.<br />We'll tell you what we can recover.</h2>
               <p>Working from the transaction history your systems already hold, we run our discovery. Nothing changes in your systems, nobody in your team changes how they work, and you see what's recoverable before there's anything to sign. If the number isn’t worth acting on, at least you know you’re safe.</p>
               <div className="cta-buttons">
-                <a href="#top" className="btn btn-primary">Tell us your problem <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+                <a href="/get-estimate" className="btn btn-primary">Tell us your problem <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
                 <a href="mailto:solve@datatwin.ai" className="btn btn-ghost">Email us instead</a>
               </div>
               <div className="cta-email mono">solve@datatwin.ai</div>

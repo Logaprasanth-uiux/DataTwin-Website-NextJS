@@ -113,7 +113,7 @@ export default function SiteHeader() {
                     <span className="mega-promo-ic"><svg className="stroke"><use href="#ic-search" /></svg></span>
                     <strong>Not sure where you're leaking?</strong>
                     <p>Send a sample of your data. We'll come back with an estimate of what's recoverable.</p>
-                    <a href="#cta" className="btn btn-primary btn-sm">Get an estimate</a>
+                    <a href="/get-estimate" className="btn btn-primary btn-sm">Get an estimate</a>
                   </div>
                   <div className="mega-col-divider"></div>
                   <a href="#solutions" className="mega-more-link">All solutions <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
@@ -159,7 +159,7 @@ export default function SiteHeader() {
                     <span className="ic"><svg className="stroke"><use href="#ic-doc" /></svg></span>
                     <span className="mega-row-text"><strong>The 200+ Close KPI Catalogue <span className="mega-tag amber">PDF</span></strong><p>Every KPI we track, by process area</p></span>
                   </a>
-                  <a href="#" className="mega-row">
+                  <a href="/get-estimate" className="mega-row">
                     <span className="ic"><svg className="stroke"><use href="#ic-gauge" /></svg></span>
                     <span className="mega-row-text"><strong>Recovery Estimator</strong><p>Share a sample, get a number back</p></span>
                   </a>
@@ -177,7 +177,7 @@ export default function SiteHeader() {
             </div>
           </div>
           <a href="#trusted" className="mega-trigger">Customers</a>
-          <a href="#cta" className="mega-trigger">Contact</a>
+          <a href="/get-estimate" className="mega-trigger">Contact</a>
         </nav>
         <div className="nav-right">
           <a href="#recoverable" className="btn btn-primary btn-sm nav-cta">What can we recover?</a>

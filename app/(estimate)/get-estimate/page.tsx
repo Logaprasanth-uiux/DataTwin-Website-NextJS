@@ -63,6 +63,12 @@ export default function GetEstimatePage() {
             <div className="est-recap-chips" id="estRecapChips"></div>
           </div>
 
+          <p className="est-intro" id="estIntro" hidden>
+            Leave your details for a recoverable number, or ask a question below
+            &mdash; how DataTwin works, what it recovers, security, integrations,
+            timelines.
+          </p>
+
           <form className="est-form" id="estForm" autoComplete="off">
             <div className="est-form-eyebrow">Where do we send the estimate?</div>
             <p className="est-form-note" style={{ marginTop: 0 }}>

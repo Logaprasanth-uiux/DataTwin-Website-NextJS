@@ -83,7 +83,7 @@ export default function SiteDrawer() {
             </div>
           </div>
           <a href="#trusted" className="drawer-item-link">Customers</a>
-          <a href="#cta" className="drawer-item-link">Contact</a>
+          <a href="/get-estimate" className="drawer-item-link">Contact</a>
         </nav>
         <div className="drawer-foot">
           <a href="#recoverable" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>

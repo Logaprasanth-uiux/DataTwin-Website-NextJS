@@ -44,8 +44,8 @@ export default function SiteFooter() {
               <li><a href="#">Customers</a></li>
               <li><a href="#">Case Studies</a></li>
               <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#cta">Tell us your problem</a></li>
+              <li><a href="/get-estimate">Contact</a></li>
+              <li><a href="/get-estimate">Tell us your problem</a></li>
             </ul>
           </div>
         </div>
