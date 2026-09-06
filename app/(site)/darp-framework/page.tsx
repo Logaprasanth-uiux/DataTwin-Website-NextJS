@@ -38,7 +38,7 @@ export default function DarpFrameworkPage() {
             </div>
 
             <div className="dfw-hero-actions">
-              <a href="/#cta" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+              <a href="/get-estimate" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
               <a href="#how-it-works" className="btn btn-ghost">See the four stages</a>
             </div>
           </div>
@@ -167,12 +167,11 @@ export default function DarpFrameworkPage() {
             </div>
 
             <div className="dfw-flowline" aria-hidden="true">
-              <svg viewBox="0 0 600 26" preserveAspectRatio="none">
-                <path className="back" d="M300,13 L60,13 M60,13 l10,-5 M60,13 l10,5" />
-                <path className="fwd" d="M300,13 L540,13 M540,13 l-10,-5 M540,13 l-10,5" />
-                <text className="lbl" x="10" y="24">history</text>
-                <text className="lbl" x="512" y="24">at entry</text>
-              </svg>
+              <span className="fl-end">history</span>
+              <span className="fl-axis back"></span>
+              <span className="fl-hub">one rule set</span>
+              <span className="fl-axis fwd"></span>
+              <span className="fl-end">at entry</span>
             </div>
 
             <p className="dfw-engine-cap"><b>One rule set.</b> Built once in Recover, pointed backwards, then forwards. Nothing rebuilt between the two.</p>
@@ -212,16 +211,16 @@ export default function DarpFrameworkPage() {
                     <p>The total recoverable number in about two minutes of run time, yours before there is anything to sign. The waiting is access and NDA, not analysis.</p>
                   </div>
                 </div>
-                <div className="dfw-stage-cta">
-                  <a href="/#cta" className="btn btn-primary btn-sm">Get to this point <svg className="icon stroke" style={{ width: "14px", height: "14px" }}><use href="#ic-arrow-right" /></svg></a>
-                </div>
               </div>
             </div>
 
             {/* decision threshold */}
             <div className="dfw-decide">
               <span className="dfw-decide-gate"><span className="bar"></span>Contract</span>
-              <p><b>You decide here.</b> You have a quantified number and you have paid nothing. Everything above happened on your data, with no commitment. Everything below starts once a contract is in place.</p>
+              <div className="dfw-decide-main">
+                <p><b>You decide here.</b> You have a quantified number and you have paid nothing. Everything above happened on your data, with no commitment. Everything below starts once a contract is in place.</p>
+                <a href="/get-estimate" className="btn btn-primary btn-sm">Get to this point <svg className="icon stroke" style={{ width: "14px", height: "14px" }}><use href="#ic-arrow-right" /></svg></a>
+              </div>
             </div>
 
             {/* A */}
@@ -381,7 +380,7 @@ export default function DarpFrameworkPage() {
 
           <div className="dfw-find-close">
             <p>Recognise one of these? Tell us which, and we will show you where we would look.</p>
-            <a href="/#cta" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
           </div>
         </div>
       </section>
@@ -524,7 +523,7 @@ export default function DarpFrameworkPage() {
           </div>
 
           <div className="dfw-find-close" style={{ marginTop: "clamp(24px,3vw,34px)" }}>
-            <a href="/#cta" className="btn btn-primary">Start with Discover <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Start with Discover <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
           </div>
         </div>
       </section>
@@ -562,7 +561,7 @@ export default function DarpFrameworkPage() {
 
           <div className="dfw-pay-close dfw-rise" data-reveal>
             <p>The only figure that matters is yours. It takes one data export to find it.</p>
-            <a href="/#cta" className="btn btn-primary" style={{ marginTop: "18px" }}>Get an estimate <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary" style={{ marginTop: "18px" }}>Get an estimate <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
           </div>
         </div>
       </section>
@@ -620,8 +619,8 @@ export default function DarpFrameworkPage() {
               <span className="cap">N-way · where the money hides</span>
             </div>
             <p>The harder the reconciliation, the more DARP is worth. A two-way match between two clean systems is something a competent team already does. A reconciliation spanning five sources, in four formats, against terms that live in a contract nobody has opened since signing, that is where the money hides, and it is precisely the work that never gets done by hand.</p>
-            <div className="lnk-row" style={{ marginTop: "16px" }}>
-              <a href="/#cta" className="dfw-lnk">Whichever reconciliation is costing you most — tell us your situation <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
+            <div className="dfw-apply-cta">
+              <a href="/get-estimate" className="btn btn-primary">Tell us your situation <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
             </div>
           </div>
         </div>
@@ -701,7 +700,7 @@ export default function DarpFrameworkPage() {
 
           <div className="dfw-find-close" style={{ marginTop: "clamp(24px,3vw,34px)" }}>
             <p>Still something we have not answered?</p>
-            <a href="/#cta" className="dfw-lnk">Ask it directly <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Ask it directly <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
           </div>
         </div>
       </section>
@@ -718,7 +717,7 @@ export default function DarpFrameworkPage() {
               <h2>Tell us your problem.<br />We&rsquo;ll tell you what we can recover.</h2>
               <p>Working from the transaction history your systems already hold, we run our discovery. Nothing changes in your systems, nobody in your team changes how they work, and you see what&rsquo;s recoverable before there&rsquo;s anything to sign. If the number isn&rsquo;t worth acting on, at least you know you&rsquo;re safe.</p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">Tell us your problem <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+                <a href="/get-estimate" className="btn btn-primary">Tell us your problem <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
                 <a href="mailto:solve@datatwin.ai" className="btn btn-ghost">Email us instead</a>
               </div>
               <div className="cta-email mono">solve@datatwin.ai</div>
