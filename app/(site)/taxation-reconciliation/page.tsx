@@ -54,11 +54,11 @@ export default function TaxationReconciliationPage() {
               <p>Either they agree or they do not. The counterparty is a statute.</p>
             </div>
             <div className="tax-window">
-              <span className="tax-window-lbl">Claim window</span>
+              <span className="tax-window-lbl">Claim window &mdash; days left</span>
               <div className="tax-window-bars">
-                <i style={{ width: "78%" }}></i>
-                <i style={{ width: "46%" }}></i>
-                <i className="is-urgent" style={{ width: "19%" }}></i>
+                <span className="tax-window-bar"><i style={{ width: "84%" }}></i><b>184d</b></span>
+                <span className="tax-window-bar is-mid"><i style={{ width: "47%" }}></i><b>92d</b></span>
+                <span className="tax-window-bar is-urgent"><i style={{ width: "14%" }}></i><b>11d</b></span>
               </div>
               <span className="tax-window-note">Ranked by days left, not by amount</span>
             </div>
@@ -82,37 +82,30 @@ export default function TaxationReconciliationPage() {
               <span className="tax-flow-live"><i></i> Live process</span>
             </div>
 
-            <div className="tax-flow-feed">
-              <div className="tax-flow-col">
-                <span className="tax-flow-lbl">The four things that must agree</span>
-                <div className="tax-flow-in"><b>Returns as filed</b><em>per registration, per period</em></div>
-                <div className="tax-flow-in"><b>The ledger</b><em>what was actually booked</em></div>
-                <div className="tax-flow-in"><b>What counterparties filed</b><em>supplier returns and customer claims</em></div>
-                <div className="tax-flow-in"><b>Certificates and documents</b><em>withholding, exemption, shipping bills</em></div>
-              </div>
-
-              <div className="tax-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,24 C40,24 30,100 60,100" />
-                  <path className="ln" d="M0,74 C40,74 40,100 60,100" />
-                  <path className="ln" d="M0,126 C40,126 40,100 60,100" />
-                  <path className="ln" d="M0,176 C40,176 30,100 60,100" />
-                  <path className="fx" d="M0,24 C40,24 30,100 60,100" />
-                  <path className="fx" d="M0,126 C40,126 40,100 60,100" />
-                  <path className="fx" d="M0,176 C40,176 30,100 60,100" />
-                </svg>
-              </div>
-
-              <div className="tax-flow-engine">
-                <span className="tax-flow-engine-k"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-flow" /></svg></span>
-                <b>DataTwin</b>
-                <span className="tax-flow-engine-sub">Reads all four and names every difference</span>
-              </div>
+            <span className="tax-flow-lbl">The four things that must agree</span>
+            <div className="tax-flow-row">
+              <div className="tax-flow-in"><b>Returns as filed</b><em>per registration, per period</em><i></i></div>
+              <div className="tax-flow-in"><b>The ledger</b><em>what was actually booked</em><i></i></div>
+              <div className="tax-flow-in"><b>What counterparties filed</b><em>supplier returns and customer claims</em><i></i></div>
+              <div className="tax-flow-in"><b>Certificates and documents</b><em>withholding, exemption, shipping bills</em><i></i></div>
             </div>
 
+            <div className="tax-flow-drop" aria-hidden="true">
+              <i className="d-h1"></i><i className="d-h2"></i>
+              <i className="d-v"></i><i className="d-v"></i>
+            </div>
+
+            <div className="tax-flow-engine">
+              <span className="tax-flow-engine-k"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-flow" /></svg></span>
+              <b>DataTwin</b>
+              <span className="tax-flow-engine-sub">Reads all four and names every difference</span>
+            </div>
+
+            <div className="tax-flow-tap" aria-hidden="true"><i></i><i></i></div>
+
             <div className="tax-flow-out">
-              <span className="tax-flow-out-lbl">One difference register</span>
               <div className="tax-diffs">
+                <span className="tax-flow-out-lbl">One difference register</span>
                 <div className="tax-diff-head">
                   <span>Registration</span><span>Period</span><span>Heading</span><span>Reason</span><span className="is-r">Value</span>
                 </div>
@@ -224,7 +217,7 @@ export default function TaxationReconciliationPage() {
       </section>
 
       {/* ============================= 2 · INPUT CREDIT ============================= */}
-      <section className="section tax-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section tax-stage-sec">
         <div className="wrap">
           <div className="tax-stage-head" data-reveal>
             <span className="tax-stage-n">02</span>
@@ -317,26 +310,8 @@ export default function TaxationReconciliationPage() {
         </div>
       </section>
 
-      {/* ============================= HONEST LIMIT ============================= */}
-      <section className="section-tight tax-limit-sec">
-        <div className="wrap">
-          <div className="tax-limit" data-reveal>
-            <span className="tax-limit-k"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-lock" /></svg></span>
-            <div>
-              <b>What this is not.</b>
-              <span>
-                We reconcile and evidence. We do not file your returns, and we are not a substitute for your tax
-                advisers. Rules are configured per jurisdiction rather than assumed, so the honest question to ask us
-                early is which of your jurisdictions are already configured and which would be new work. We would
-                rather answer that before a contract than after one.
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ============================= 4 · WITHHOLDING ============================= */}
-      <section className="section tax-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section tax-stage-sec">
         <div className="wrap">
           <div className="tax-stage-head" data-reveal>
             <span className="tax-stage-n">04</span>
@@ -376,6 +351,18 @@ export default function TaxationReconciliationPage() {
                 <li>Expired certificates surfaced before the next payment run</li>
                 <li>Vendors with no certificate on file, listed before deduction</li>
               </ul>
+            </div>
+          </div>
+          <div className="tax-limit" data-reveal>
+            <span className="tax-limit-k"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-lock" /></svg></span>
+            <div>
+              <b>What this is not.</b>
+              <span>
+                We reconcile and evidence. We do not file your returns, and we are not a substitute for your tax
+                advisers. Rules are configured per jurisdiction rather than assumed, so the honest question to ask us
+                early is which of your jurisdictions are already configured and which would be new work. We would
+                rather answer that before a contract than after one.
+              </span>
             </div>
           </div>
         </div>
