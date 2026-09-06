@@ -136,6 +136,24 @@ export default function ChromeScripts() {
         if (!(e.target as Element).closest(".nav-desktop")) closeAll();
       });
     })();
+
+    /* ============================= ACTIVE NAV ============================= */
+    (function () {
+      var path = (location.pathname || "/").replace(/\/+$/, "") || "/";
+      var links = document.querySelectorAll(
+        '.nav-desktop a[href^="/"], #drawer a[href^="/"]'
+      );
+      links.forEach(function (a) {
+        var href = (a.getAttribute("href") || "").replace(/\/+$/, "") || "/";
+        if (href === "/" || href !== path) return;
+        a.classList.add("is-current");
+        a.setAttribute("aria-current", "page");
+        var mi = a.closest(".mega-item");
+        if (mi) mi.classList.add("has-current");
+        var di = a.closest(".drawer-item");
+        if (di) di.classList.add("has-current");
+      });
+    })();
   }, []);
 
   return null;

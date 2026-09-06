@@ -241,7 +241,7 @@ export default function AccountsReceivablePage() {
       </section>
 
       {/* ============================= 2 · SALES vs COLLECTIONS ============================= */}
-      <section className="section ar-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section ar-stage-sec">
         <div className="wrap">
           <div className="ar-stage-head" data-reveal>
             <span className="ar-stage-n">02</span>
@@ -252,11 +252,6 @@ export default function AccountsReceivablePage() {
                 and most of it is not bad debt. It is a deduction nobody evidenced, or a payment nobody applied.
               </p>
             </div>
-          </div>
-          <div className="ar-versus" data-reveal>
-            <span className="ar-versus-side">Sales</span>
-            <span className="ar-versus-vs">vs</span>
-            <span className="ar-versus-side">Collections</span>
           </div>
           <div className="ar-cards" data-reveal>
             <div className="ar-card dfw-rise">
@@ -304,11 +299,6 @@ export default function AccountsReceivablePage() {
               </p>
             </div>
           </div>
-          <div className="ar-versus" data-reveal>
-            <span className="ar-versus-side">Collections</span>
-            <span className="ar-versus-vs">vs</span>
-            <span className="ar-versus-side">Bank &amp; gateways</span>
-          </div>
           <div className="ar-cards" data-reveal>
             <div className="ar-card dfw-rise">
               <h3>Bank to book</h3><span className="ar-card-s">Line by line, both ways</span>
@@ -342,7 +332,7 @@ export default function AccountsReceivablePage() {
       </section>
 
       {/* ============================= 4 · CASH APPLICATION ============================= */}
-      <section className="section ar-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section ar-stage-sec">
         <div className="wrap">
           <div className="ar-stage-head" data-reveal>
             <span className="ar-stage-n">04</span>
@@ -400,11 +390,6 @@ export default function AccountsReceivablePage() {
               </p>
             </div>
           </div>
-          <div className="ar-versus" data-reveal>
-            <span className="ar-versus-side">Revenue filed</span>
-            <span className="ar-versus-vs">vs</span>
-            <span className="ar-versus-side">Revenue booked</span>
-          </div>
           <div className="ar-cards" data-reveal>
             <div className="ar-card dfw-rise">
               <h3>Return to ledger</h3><span className="ar-card-s">Filed against booked</span>
@@ -438,7 +423,7 @@ export default function AccountsReceivablePage() {
       </section>
 
       {/* ============================= 6 · REVENUE RECOGNITION ============================= */}
-      <section className="section ar-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section ar-stage-sec">
         <div className="wrap">
           <div className="ar-stage-head" data-reveal>
             <span className="ar-stage-n">06</span>
