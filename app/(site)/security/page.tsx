@@ -304,7 +304,7 @@ export default function SecurityPage() {
                 installed, nothing changes in your systems, and you decide everything that happens next.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>
               </div>

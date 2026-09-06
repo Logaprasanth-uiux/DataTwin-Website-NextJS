@@ -29,7 +29,7 @@ export default function HowAIIsUsedPage() {
             </p>
 
             <div className="hero-btns">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 What can we recover?{" "}
                 <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -220,7 +220,7 @@ export default function HowAIIsUsedPage() {
 
           <p className="hai-cta-lead" data-reveal>Easier to judge on your own data than from a description.</p>
           <div className="hai-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">
+            <a href="/get-estimate" className="btn btn-primary">
               What can we recover?{" "}
               <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
             </a>
@@ -280,7 +280,7 @@ export default function HowAIIsUsedPage() {
 
           <p className="hai-cta-lead" data-reveal>Which of your exceptions never get closed? That is usually where we start.</p>
           <div className="hai-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">
+            <a href="/get-estimate" className="btn btn-primary">
               Tell us your situation{" "}
               <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
             </a>
@@ -349,7 +349,7 @@ export default function HowAIIsUsedPage() {
 
           <p className="hai-cta-lead" data-reveal>Every finding we return can be traced to the rule and the document behind it. Test that on your data.</p>
           <div className="hai-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">
+            <a href="/get-estimate" className="btn btn-primary">
               Tell us your issue{" "}
               <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
             </a>
@@ -362,7 +362,7 @@ export default function HowAIIsUsedPage() {
         <div className="wrap">
           <div className="section-head-center">
             <span className="eyebrow">What changes</span>
-            <h2>Traditional operations vs agentic operations</h2>
+            <h2>Traditional operations vs <span className="grad-text">agentic</span> operations</h2>
           </div>
 
           <div className="hai-cmp" data-reveal>
@@ -389,7 +389,7 @@ export default function HowAIIsUsedPage() {
 
           <p className="hai-cta-lead" data-reveal>The fastest way to judge any of this is to point it at your own data.</p>
           <div className="hai-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">
+            <a href="/get-estimate" className="btn btn-primary">
               What can we recover?{" "}
               <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
             </a>
@@ -417,7 +417,7 @@ export default function HowAIIsUsedPage() {
                 there&rsquo;s anything to sign. If the number isn&rsquo;t worth acting on, at least you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>
