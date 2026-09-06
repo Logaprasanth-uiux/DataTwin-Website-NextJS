@@ -10,57 +10,57 @@
 <marker id="ahc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#9A9AA4"/></marker>
 </defs>
 <rect width="1600" height="900" fill="url(#bg)"/>
-<text x="56.0" y="62.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2.6">DATATWIN</text>
+<text x="56.0" y="62.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2.6">DATATWIN</text>
 <text x="56.0" y="100.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="33" font-weight="bold" fill="#FFFFFF" text-anchor="start">One engine, two views of the same object</text>
-<text x="56.0" y="126.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="normal" fill="#00D9FF" text-anchor="start">DataTwin sits between the systems you already run and the ledger they feed. Everything cyan is DataTwin; everything outside it is yours.</text>
+<text x="56.0" y="126.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="normal" fill="#00D9FF" text-anchor="start">DataTwin sits between the systems you already run and the ledger they feed. Everything cyan is DataTwin; everything outside it is yours.</text>
 <line x1="56" y1="146" x2="1544" y2="146" stroke="#2B2B34" stroke-width="1" opacity="0.7"/>
 <g id="planOnly">
-<text x="56.0" y="186.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2.4">INSIDE DATATWIN</text>
-<text x="56.0" y="203.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">six modules, one shared engine</text>
+<text x="56.0" y="186.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2.4">INSIDE DATATWIN</text>
+<text x="56.0" y="203.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#9A9AA4" text-anchor="start">six modules, one shared engine</text>
 <line x1="56" y1="215" x2="330" y2="215" stroke="#00D9FF" stroke-width="1.4" stroke-opacity="0.8"/>
 <rect x="56" y="226" width="23" height="19" fill="#00D9FF" rx="2"/>
-<text x="67.5" y="240.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#07080C" text-anchor="middle">AP</text>
-<text x="90.0" y="240.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start">Accounts Payable</text>
-<text x="90.0" y="256.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Duplicates, price and quantity variance,</text>
-<text x="90.0" y="268.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">tax eligibility, approval limits</text>
+<text x="67.5" y="240.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#07080C" text-anchor="middle">AP</text>
+<text x="90.0" y="240.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start">Accounts Payable</text>
+<text x="90.0" y="256.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Duplicates, price and quantity variance,</text>
+<text x="90.0" y="268.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">tax eligibility, approval limits</text>
 <rect x="56" y="298" width="23" height="19" fill="#00D9FF" rx="2"/>
-<text x="67.5" y="312.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#07080C" text-anchor="middle">AR</text>
-<text x="90.0" y="312.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start">Accounts Receivable</text>
-<text x="90.0" y="328.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Many-to-many receipt matching; withheld</text>
-<text x="90.0" y="340.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">tax split from genuine shortfall</text>
+<text x="67.5" y="312.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#07080C" text-anchor="middle">AR</text>
+<text x="90.0" y="312.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start">Accounts Receivable</text>
+<text x="90.0" y="328.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Many-to-many receipt matching; withheld</text>
+<text x="90.0" y="340.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">tax split from genuine shortfall</text>
 <rect x="56" y="370" width="23" height="19" fill="#00D9FF" rx="2"/>
-<text x="67.5" y="384.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#07080C" text-anchor="middle">PP</text>
-<text x="90.0" y="384.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start">Partner Payouts</text>
-<text x="90.0" y="400.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Payout and settlement tested against</text>
-<text x="90.0" y="412.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">the partner agreement</text>
+<text x="67.5" y="384.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#07080C" text-anchor="middle">PP</text>
+<text x="90.0" y="384.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start">Partner Payouts</text>
+<text x="90.0" y="400.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Payout and settlement tested against</text>
+<text x="90.0" y="412.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">the partner agreement</text>
 <rect x="56" y="442" width="23" height="19" fill="#00D9FF" rx="2"/>
-<text x="67.5" y="456.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#07080C" text-anchor="middle">SC</text>
-<text x="90.0" y="456.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start">Sales Commissions &amp; Incentives</text>
-<text x="90.0" y="472.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Plan-based calculation, validated before</text>
-<text x="90.0" y="484.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">the payout is released</text>
+<text x="67.5" y="456.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#07080C" text-anchor="middle">SC</text>
+<text x="90.0" y="456.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start">Sales Commissions &amp; Incentives</text>
+<text x="90.0" y="472.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Plan-based calculation, validated before</text>
+<text x="90.0" y="484.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">the payout is released</text>
 <rect x="56" y="514" width="23" height="19" fill="#00D9FF" rx="2"/>
-<text x="67.5" y="528.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#07080C" text-anchor="middle">CR</text>
-<text x="90.0" y="528.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start">Channel &amp; Distributor Rebates</text>
-<text x="90.0" y="544.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Claims re-priced against the terms in</text>
-<text x="90.0" y="556.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">force, tested before the credit</text>
+<text x="67.5" y="528.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#07080C" text-anchor="middle">CR</text>
+<text x="90.0" y="528.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start">Channel &amp; Distributor Rebates</text>
+<text x="90.0" y="544.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Claims re-priced against the terms in</text>
+<text x="90.0" y="556.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">force, tested before the credit</text>
 <rect x="56" y="586" width="23" height="19" fill="#00D9FF" rx="2"/>
-<text x="67.5" y="600.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="bold" fill="#07080C" text-anchor="middle">FC</text>
-<text x="90.0" y="600.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="start">Financial Statement Close</text>
-<text x="90.0" y="616.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">8 domains · 56 sub-processes ·</text>
-<text x="90.0" y="628.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">204 close-blocker indicators</text>
-<text x="56.0" y="680.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2">THE SHARED ENGINE</text>
-<text x="56.0" y="695.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="9.8" font-weight="normal" fill="#9A9AA4" text-anchor="start">every module runs the same three stages —</text>
-<text x="56.0" y="707.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="9.8" font-weight="normal" fill="#9A9AA4" text-anchor="start">the rings in this view, the bands in the other</text>
+<text x="67.5" y="600.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="bold" fill="#07080C" text-anchor="middle">FC</text>
+<text x="90.0" y="600.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="start">Financial Statement Close</text>
+<text x="90.0" y="616.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">8 domains · 56 sub-processes ·</text>
+<text x="90.0" y="628.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">204 close-blocker indicators</text>
+<text x="56.0" y="680.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2">THE SHARED ENGINE</text>
+<text x="56.0" y="695.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#9A9AA4" text-anchor="start">every module runs the same three stages —</text>
+<text x="56.0" y="707.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="normal" fill="#9A9AA4" text-anchor="start">the rings in this view, the bands in the other</text>
 <circle cx="86" cy="754" r="30" fill="none" stroke="#00D9FF" stroke-width="1.1" stroke-opacity="0.85"/>
 <circle cx="86" cy="754" r="20" fill="none" stroke="#00D9FF" stroke-width="1.1" stroke-opacity="0.6"/>
 <circle cx="86" cy="754" r="10" fill="none" stroke="#00D9FF" stroke-width="1.1" stroke-opacity="0.45"/>
 <circle cx="86" cy="754" r="4" fill="#9A9AA4" fill-opacity="0.7"/>
 <path d="M116,754 L124,754 L132,726" fill="none" stroke="#00D9FF" stroke-width="0.9" stroke-opacity="0.45"/>
-<text x="136.0" y="730.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.2" font-weight="normal" fill="#ECECF0" text-anchor="start">Acquire &amp; model</text>
+<text x="136.0" y="730.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#ECECF0" text-anchor="start">Acquire &amp; model</text>
 <path d="M106,754 L124,754 L132,743" fill="none" stroke="#00D9FF" stroke-width="0.9" stroke-opacity="0.45"/>
-<text x="136.0" y="747.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.2" font-weight="normal" fill="#ECECF0" text-anchor="start">Reconcile, clean &amp; process</text>
+<text x="136.0" y="747.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#ECECF0" text-anchor="start">Reconcile, clean &amp; process</text>
 <path d="M96,754 L124,754 L132,760" fill="none" stroke="#00D9FF" stroke-width="0.9" stroke-opacity="0.45"/>
-<text x="136.0" y="764.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.2" font-weight="normal" fill="#ECECF0" text-anchor="start">Workflow &amp; report</text>
+<text x="136.0" y="764.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#ECECF0" text-anchor="start">Workflow &amp; report</text>
 <g transform="rotate(-40.96 679.43 236.90)"><text x="679.43" y="236.90" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">E</text></g>
 <g transform="rotate(-39.30 686.17 231.22)"><text x="686.17" y="231.22" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">m</text></g>
 <g transform="rotate(-37.65 693.09 225.72)"><text x="693.09" y="225.72" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">a</text></g>
@@ -205,7 +205,7 @@
 <g transform="rotate(290.18 592.79 362.43)"><text x="592.79" y="362.43" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">n</text></g>
 <g transform="rotate(291.52 595.34 355.73)"><text x="595.34" y="355.73" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">k</text></g>
 <g transform="rotate(292.51 597.31 350.85)"><text x="597.31" y="350.85" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle"> </text></g>
-<g transform="rotate(293.69 599.78 345.07)"><text x="599.78" y="345.07" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">&amp;</text></g>
+<g transform="rotate(293.69 599.78 345.07)"><text x="599.78" y="345.07" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#9A9AA4" text-anchor="middle">&amp;</text></g>
 <g transform="rotate(294.86 602.36 339.35)"><text x="602.36" y="339.35" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle"> </text></g>
 <g transform="rotate(295.86 604.65 334.51)"><text x="604.65" y="334.51" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">g</text></g>
 <g transform="rotate(297.20 607.83 328.15)"><text x="607.83" y="328.15" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="bold" fill="#9A9AA4" text-anchor="middle">a</text></g>
@@ -230,12 +230,12 @@
 <path class="spoke" d="" fill="none" stroke="#00D9FF" stroke-width="1" stroke-opacity="0.3"/>
 </g>
 <g id="codes">
-<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">AP</text>
-<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">AR</text>
-<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">PP</text>
-<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">SC</text>
-<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">CR</text>
-<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">FC</text>
+<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">AP</text>
+<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">AR</text>
+<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">PP</text>
+<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">SC</text>
+<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">CR</text>
+<text class="code" x="0" y="0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="0.8">FC</text>
 </g>
 <g id="nameplate">
 <g transform="rotate(-30.25 830.62 383.35)"><text x="830.62" y="383.35" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="middle">D</text></g>
@@ -278,7 +278,7 @@
 <ellipse id="erpDisc" cx="880" cy="468" rx="54" ry="54" fill="#07080C" stroke="#9A9AA4" stroke-width="1.4" stroke-opacity="0.75"/>
 <g id="erpLabel">
 <text x="880.0" y="467.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="19" font-weight="bold" fill="#ECECF0" text-anchor="middle" letter-spacing="1.2">ERP</text>
-<text x="880.0" y="482.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="8" font-weight="normal" fill="#9A9AA4" text-anchor="middle">your system of record</text>
+<text x="880.0" y="482.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="middle">your system of record</text>
 </g>
 <ellipse id="dtRim" cx="880" cy="468" rx="237" ry="237" fill="none" stroke="#00D9FF" stroke-width="13" stroke-opacity="0.92"/>
 <ellipse id="dtOutlet" cx="880" cy="468" rx="54" ry="54" fill="none" stroke="#00D9FF" stroke-width="3"/>
@@ -286,73 +286,73 @@
 <g id="srcDots"></g>
 <g id="orbitFront" style="pointer-events:none"><g id="dtMark">
 <rect x="-53" y="-12.5" width="106" height="25" rx="4" fill="#07080C" stroke="#00D9FF" stroke-width="1.5"/>
-<text x="0" y="4.5" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="1.7">DATATWIN</text>
+<text x="0" y="4.5" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="1.7">DATATWIN</text>
 </g></g>
 </g>
 <g id="elevOnly" opacity="0">
-<text x="880.0" y="282.1" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="3.6">DATATWIN</text>
-<text x="880.0" y="299.1" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#9A9AA4" text-anchor="middle">everything between the rim and the outlet</text>
-<text x="880.0" y="388.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Acquire &amp; model</text>
-<text x="880.0" y="464.7" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Reconcile, clean</text>
-<text x="880.0" y="481.7" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle">&amp; process</text>
-<text x="880.0" y="574.5" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Workflow</text>
-<text x="880.0" y="591.5" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="bold" fill="#FFFFFF" text-anchor="middle">&amp; report</text>
-<text x="784.0" y="647.3" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10.8" font-weight="bold" fill="#00D9FF" text-anchor="end" letter-spacing="1.6">ONLY WHAT PASSED IS RECORDED</text>
+<text x="880.0" y="282.1" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="middle" letter-spacing="3.6">DATATWIN</text>
+<text x="880.0" y="299.1" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#9A9AA4" text-anchor="middle">everything between the rim and the outlet</text>
+<text x="880.0" y="388.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Acquire &amp; model</text>
+<text x="880.0" y="464.7" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Reconcile, clean</text>
+<text x="880.0" y="481.7" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">&amp; process</text>
+<text x="880.0" y="574.5" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">Workflow</text>
+<text x="880.0" y="591.5" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">&amp; report</text>
+<text x="784.0" y="647.3" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="end" letter-spacing="1.6">ONLY WHAT PASSED IS RECORDED</text>
 <line x1="790" y1="643" x2="820" y2="643" stroke="#00D9FF" stroke-width="1" opacity="0.6"/>
 <rect x="674" y="683" width="128" height="46" rx="3" fill="#12141B" stroke="#2B2B34" stroke-width="1" stroke-opacity="1"/>
-<text x="738" y="711" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#ECECF0" text-anchor="middle">Recovery reports</text>
-<text x="738" y="747" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="9.6" fill="#9A9AA4" text-anchor="middle">claims and dispute packs</text>
+<text x="738" y="711" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#ECECF0" text-anchor="middle">Recovery reports</text>
+<text x="738" y="747" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9A9AA4" text-anchor="middle">claims and dispute packs</text>
 <rect x="816" y="683" width="128" height="46" rx="3" fill="#12141B" stroke="#9A9AA4" stroke-width="1.6" stroke-opacity="0.85"/>
-<text x="880" y="704" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ERP / ledger</text>
-<text x="880" y="720" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="9.6" fill="#9A9AA4" text-anchor="middle">your system of record</text>
+<text x="880" y="704" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#FFFFFF" text-anchor="middle">ERP / ledger</text>
+<text x="880" y="720" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9A9AA4" text-anchor="middle">your system of record</text>
 <rect x="958" y="683" width="128" height="46" rx="3" fill="#12141B" stroke="#2B2B34" stroke-width="1" stroke-opacity="1"/>
-<text x="1022" y="711" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="bold" fill="#ECECF0" text-anchor="middle">Financial close</text>
-<text x="1022" y="747" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="9.6" fill="#9A9AA4" text-anchor="middle">8 domains · 204 indicators</text>
+<text x="1022" y="711" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="15" font-weight="bold" fill="#ECECF0" text-anchor="middle">Financial close</text>
+<text x="1022" y="747" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#9A9AA4" text-anchor="middle">8 domains · 204 indicators</text>
 <path d="M880,651 L880,679" stroke="#00D9FF" stroke-width="1.3" marker-end="url(#ah)"/>
 <path d="M858,653 C800,669 760,669 738,679" fill="none" stroke="#00D9FF" stroke-width="1.2" opacity="0.85" marker-end="url(#ah)"/>
 <path d="M902,653 C960,669 1000,669 1022,679" fill="none" stroke="#00D9FF" stroke-width="1.2" opacity="0.85" marker-end="url(#ah)"/>
-<text x="650.0" y="713.3" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="bold" fill="#9A9AA4" text-anchor="end" letter-spacing="2">YOUR LEDGER AND REPORTS</text>
+<text x="650.0" y="713.3" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#9A9AA4" text-anchor="end" letter-spacing="2">YOUR LEDGER AND REPORTS</text>
 <path d="M1009,495 C1090,495 1120,495 1152,495" fill="none" stroke="#00D9FF" stroke-width="1.3" opacity="0.85" marker-end="url(#ah)"/>
 <rect x="1158" y="470" width="284" height="50" rx="3" fill="#12141B" stroke="#00D9FF" stroke-width="1" stroke-opacity="0.45"/>
-<text x="1172.0" y="489.7" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.8" font-weight="normal" fill="#ECECF0" text-anchor="start">Exceptions routed to a named owner —</text>
-<text x="1172.0" y="505.7" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.8" font-weight="normal" fill="#ECECF0" text-anchor="start">during the period, not at the close.</text>
-<text x="56.0" y="200.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2.4">DARP</text>
-<text x="56.0" y="217.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">how every module is delivered</text>
+<text x="1172.0" y="489.7" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="normal" fill="#ECECF0" text-anchor="start">Exceptions routed to a named owner —</text>
+<text x="1172.0" y="505.7" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="normal" fill="#ECECF0" text-anchor="start">during the period, not at the close.</text>
+<text x="56.0" y="200.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="2.4">DARP</text>
+<text x="56.0" y="217.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" font-weight="normal" fill="#9A9AA4" text-anchor="start">how every module is delivered</text>
 <line x1="56" y1="229" x2="330" y2="229" stroke="#00D9FF" stroke-width="1.4" stroke-opacity="0.8"/>
 <circle cx="76" cy="300" r="17" fill="#00D9FF"/>
-<text x="76.0" y="306.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#07080C" text-anchor="middle">D</text>
-<text x="110.0" y="297.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Discover</text>
-<text x="110.0" y="314.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Read the whole population out of the</text>
-<text x="110.0" y="326.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">systems you run. Read-only.</text>
+<text x="76.0" y="306.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#07080C" text-anchor="middle">D</text>
+<text x="110.0" y="297.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Discover</text>
+<text x="110.0" y="314.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Read the whole population out of the</text>
+<text x="110.0" y="326.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">systems you run. Read-only.</text>
 <path d="M76,318 L76,388" stroke="#00D9FF" stroke-width="1.4" opacity="0.75" marker-end="url(#ah)"/>
 <circle cx="76" cy="412" r="17" fill="#00D9FF"/>
-<text x="76.0" y="418.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#07080C" text-anchor="middle">A</text>
-<text x="110.0" y="409.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Assess</text>
-<text x="110.0" y="426.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Value every finding and rank it by size</text>
-<text x="110.0" y="438.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">and by likelihood of collection.</text>
+<text x="76.0" y="418.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#07080C" text-anchor="middle">A</text>
+<text x="110.0" y="409.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Assess</text>
+<text x="110.0" y="426.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Value every finding and rank it by size</text>
+<text x="110.0" y="438.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">and by likelihood of collection.</text>
 <path d="M76,430 L76,500" stroke="#00D9FF" stroke-width="1.4" opacity="0.75" marker-end="url(#ah)"/>
 <circle cx="76" cy="524" r="17" fill="#00D9FF"/>
-<text x="76.0" y="530.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#07080C" text-anchor="middle">R</text>
-<text x="110.0" y="521.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Recover</text>
-<text x="110.0" y="538.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">Package the evidence into claims.</text>
-<text x="110.0" y="550.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">The cash comes back.</text>
+<text x="76.0" y="530.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#07080C" text-anchor="middle">R</text>
+<text x="110.0" y="521.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Recover</text>
+<text x="110.0" y="538.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">Package the evidence into claims.</text>
+<text x="110.0" y="550.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">The cash comes back.</text>
 <path d="M76,542 L76,612" stroke="#00D9FF" stroke-width="1.4" opacity="0.75" marker-end="url(#ah)"/>
 <circle cx="76" cy="636" r="17" fill="#00D9FF"/>
-<text x="76.0" y="642.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#07080C" text-anchor="middle">P</text>
-<text x="110.0" y="633.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Prevent</text>
-<text x="110.0" y="650.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">The same rules now run at entry,</text>
-<text x="110.0" y="662.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10" font-weight="normal" fill="#9A9AA4" text-anchor="start">on every transaction.</text>
+<text x="76.0" y="642.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="18" font-weight="bold" fill="#07080C" text-anchor="middle">P</text>
+<text x="110.0" y="633.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="bold" fill="#00D9FF" text-anchor="start" letter-spacing="0.6">Prevent</text>
+<text x="110.0" y="650.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">The same rules now run at entry,</text>
+<text x="110.0" y="662.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">on every transaction.</text>
 </g>
 <g id="capPlan">
-<text x="880.0" y="822.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" fill="#9A9AA4" text-anchor="middle">your systems around the outside · DataTwin between · your ledger at the centre</text>
+<text x="880.0" y="822.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="normal" fill="#9A9AA4" text-anchor="middle">your systems around the outside · DataTwin between · your ledger at the centre</text>
 </g>
 <g id="capElev" opacity="0">
-<text x="880.0" y="822.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" font-weight="normal" fill="#9A9AA4" text-anchor="middle">your systems at the top · DataTwin between · your ledger at the bottom</text>
+<text x="880.0" y="822.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="14" font-weight="normal" fill="#9A9AA4" text-anchor="middle">your systems at the top · DataTwin between · your ledger at the bottom</text>
 </g>
 <line x1="56" y1="856" x2="1544" y2="856" stroke="#2B2B34" stroke-width="1" opacity="0.7"/>
-<text x="56.0" y="878.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="normal" fill="#9A9AA4" text-anchor="start">ISO 27001 certified   ·   SOC 2 attested   ·   runs on top of SAP, NetSuite or any ERP, with no migration</text>
-<text x="1544.0" y="878.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="bold" fill="#00D9FF" text-anchor="end" letter-spacing="1.2">datatwin.ai</text>
-<text id="hint" x="1544" y="812" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="10.5" fill="#9A9AA4" text-anchor="end">click to rotate</text>
+<text x="56.0" y="878.0" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="normal" fill="#9A9AA4" text-anchor="start">ISO 27001 certified   ·   SOC 2 attested   ·   runs on top of SAP, NetSuite or any ERP, with no migration</text>
+<text x="1544.0" y="878.0" font-family="'DM Sans','Segoe UI',Helvetica,Arial,sans-serif" font-size="13.5" font-weight="bold" fill="#00D9FF" text-anchor="end" letter-spacing="1.2">datatwin.ai</text>
+<text id="hint" x="1544" y="812" font-family="Calibri,Carlito,'Segoe UI',Helvetica,Arial,sans-serif" font-size="13" fill="#9A9AA4" text-anchor="end">click to rotate</text>
 
 <script type="text/javascript"><![CDATA[
 (function(){

@@ -29,8 +29,8 @@ export default function PlatformOverviewPage() {
           </div>
 
           <div className="po-actions">
-            <a href="/#recoverable" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
-            <a href="/#darp" className="btn btn-ghost">The DARP framework.</a>
+            <a href="/get-estimate" className="btn btn-primary">What can we recover? <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/darp-framework" className="btn btn-ghost">The DARP framework.</a>
           </div>
 
           <div className="po-engine" aria-hidden="true">
@@ -379,7 +379,7 @@ export default function PlatformOverviewPage() {
                 <p className="pw-dash-note">Illustrative dashboards. Every figure shown is an example, not a customer result.</p>
                 <p className="pw-dash-outro">Reports are configured to the process, not to a template. Tell us what you need to see.</p>
                 <div className="pw-dash-cta">
-                  <a href="/#cta" className="btn btn-primary">Discover <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+                  <a href="/get-estimate" className="btn btn-primary">Discover <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
                 </div>
               </div>
             </div>
@@ -432,7 +432,7 @@ export default function PlatformOverviewPage() {
 
           <div className="ain-foot">
             <p>Agents, models, human-in-the-loop gates and the reasoning engine, in full.</p>
-            <a href="#" className="btn btn-ghost">How AI is used <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/how-ai-is-used" className="btn btn-ghost">How AI is used <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
           </div>
         </div>
       </section>
@@ -453,7 +453,7 @@ export default function PlatformOverviewPage() {
                 <span className="axp-ic"><svg className="stroke"><use href="#ic-lock" /></svg></span>
                 <h3>Security</h3>
                 <p>Read-only by default. ISO 27001 certified and SOC 2 attested, with role-based access, residency options and an immutable audit trail. AWS, Azure, GCP or your own cloud.</p>
-                <a href="#" className="axp-link">Read more <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
+                <a href="/security" className="axp-link">Read more <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
               </div>
             </article>
             <article className="axp-card">
@@ -462,14 +462,14 @@ export default function PlatformOverviewPage() {
                 <span className="axp-ic"><svg className="stroke"><use href="#ic-spark" /></svg></span>
                 <h3>How AI is used</h3>
                 <p>The full account of where AI earns its place: document understanding, source modelling, schema construction, reasoning on hard matches, natural-language query. And where deterministic rules run instead.</p>
-                <a href="#" className="axp-link">Read more <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
+                <a href="/how-ai-is-used" className="axp-link">Read more <svg className="stroke"><use href="#ic-arrow-right" /></svg></a>
               </div>
             </article>
           </div>
 
           <div className="axp-foot">
             <p>Prefer to see the engine working rather than described?</p>
-            <a href="/#darp" className="btn btn-ghost">See the DARP Framework <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/darp-framework" className="btn btn-ghost">See the DARP Framework <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
           </div>
         </div>
       </section>
@@ -486,7 +486,7 @@ export default function PlatformOverviewPage() {
               <h2>Tell us your problem.<br />We'll tell you what we can recover.</h2>
               <p>Working from the transaction history your systems already hold, we run our discovery. Nothing changes in your systems, nobody in your team changes how they work, and you see what's recoverable before there's anything to sign. If the number isn&rsquo;t worth acting on, at least you know you&rsquo;re safe.</p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">Tell us your problem <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+                <a href="/get-estimate" className="btn btn-primary">Tell us your problem <svg className="icon stroke" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
                 <a href="mailto:solve@datatwin.ai" className="btn btn-ghost">Email us instead</a>
               </div>
               <div className="cta-email mono">solve@datatwin.ai</div>
