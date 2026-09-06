@@ -50,7 +50,7 @@ export default function CloseKpiCataloguePage() {
               </span>
             </div>
             <div className="ckc-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 Score my last close{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -214,7 +214,7 @@ export default function CloseKpiCataloguePage() {
                 anything to sign.
               </p>
               <div className="cta-buttons">
-                <a href="/#cta" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Score my last close{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>

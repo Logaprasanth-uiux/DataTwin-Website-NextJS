@@ -34,7 +34,7 @@ export default function TaxationReconciliationPage() {
               <span className="tax-chip"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-gauge" /></svg>Every item ranked by its remaining window</span>
             </div>
             <div className="tax-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 See what tax has cost you{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -512,7 +512,7 @@ export default function TaxationReconciliationPage() {
             per jurisdiction, so ask us early which of yours are covered.
           </p>
           <div className="tax-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">Get an estimate for tax <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Get an estimate for tax <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
             <a href="/darp-framework" className="btn btn-ghost">How Discover works</a>
           </div>
         </div>
@@ -539,7 +539,7 @@ export default function TaxationReconciliationPage() {
                 you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>

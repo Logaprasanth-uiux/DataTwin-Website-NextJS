@@ -45,7 +45,7 @@ export default function FscpPage() {
               </span>
             </div>
             <div className="fscp-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 Score my last close{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -199,7 +199,7 @@ export default function FscpPage() {
           </div>
 
           <div className="fscp-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">
+            <a href="/get-estimate" className="btn btn-primary">
               Browse the 204 metrics{" "}
               <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
             </a>
@@ -581,7 +581,7 @@ export default function FscpPage() {
           </p>
 
           <div className="fscp-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">
+            <a href="/get-estimate" className="btn btn-primary">
               Score my last close{" "}
               <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
             </a>
@@ -612,7 +612,7 @@ export default function FscpPage() {
                 acting on, at least you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>

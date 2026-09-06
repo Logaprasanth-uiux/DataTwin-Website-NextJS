@@ -34,7 +34,7 @@ export default function SalesCommissionsPage() {
               <span className="sci-chip"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-lock" /></svg>Read-only until you turn computation on</span>
             </div>
             <div className="sci-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 See what commissions have cost you{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -473,7 +473,7 @@ export default function SalesCommissionsPage() {
           </p>
 
           <div className="sci-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">Get an estimate for commissions <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Get an estimate for commissions <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
             <a href="/darp-framework" className="btn btn-ghost">How Discover works</a>
           </div>
         </div>
@@ -500,7 +500,7 @@ export default function SalesCommissionsPage() {
                 you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>

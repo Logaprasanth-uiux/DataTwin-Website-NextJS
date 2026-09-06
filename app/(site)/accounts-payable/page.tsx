@@ -35,7 +35,7 @@ export default function AccountsPayablePage() {
               <span className="ap-chip"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-user" /></svg>Your approval matrix, unchanged</span>
             </div>
             <div className="ap-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 See what AP has cost you{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -108,8 +108,8 @@ export default function AccountsPayablePage() {
                     <svg className="stroke" viewBox="0 0 24 24"><use href="#ic-loop" /></svg>
                   </span>
                   <p>
-                    <b>Journal check.</b> The entry the ERP posts is read back and compared, in real time, against the
-                    entry we computed at validation. Differences are raised the same day.
+                    <b>Journal check:</b> every entry the ERP posts is compared, in real time, against the entry we
+                    expected at validation. Differences are raised the same day.
                   </p>
                 </div>
               </div>
@@ -374,7 +374,7 @@ export default function AccountsPayablePage() {
                   <li>Every comparison retained as evidence, attached to the invoice that started it</li>
                 </ul>
               </div>
-              <a href="/platform-overview" className="ap-learn on-dark"><i></i> The engine underneath this <svg className="stroke" viewBox="0 0 24 24"><use href="#ic-arrow-right" /></svg></a>
+              <a href="/platform-overview" className="ap-learn"><i></i> The engine underneath this <svg className="stroke" viewBox="0 0 24 24"><use href="#ic-arrow-right" /></svg></a>
             </div>
           </div>
         </div>
@@ -634,7 +634,7 @@ export default function AccountsPayablePage() {
           </div>
 
           <div className="ap-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">Get an estimate for AP <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Get an estimate for AP <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
             <a href="/darp-framework" className="btn btn-ghost">How Discover works</a>
           </div>
         </div>
@@ -660,7 +660,7 @@ export default function AccountsPayablePage() {
                 there&rsquo;s anything to sign. If the number isn&rsquo;t worth acting on, at least you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>

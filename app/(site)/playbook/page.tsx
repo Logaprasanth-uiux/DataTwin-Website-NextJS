@@ -66,7 +66,7 @@ export default function PlaybookPage() {
               <div className="value-left">
                 <span className="eyebrow">Why finance teams start here</span>
                 <h2>No adoption before you see the number.</h2>
-                <a href="#cta" className="btn btn-primary">Get started</a>
+                <a href="/get-estimate" className="btn btn-primary">Get started</a>
               </div>
               <div className="value-checklist">
                 <div className="value-item">

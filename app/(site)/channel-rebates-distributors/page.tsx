@@ -35,7 +35,7 @@ export default function ChannelRebatesDistributorsPage() {
               <span className="dst-chip"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-check" /></svg>Every finding carries its substantiation</span>
             </div>
             <div className="dst-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 See what the channel has cost you{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -443,7 +443,7 @@ export default function ChannelRebatesDistributorsPage() {
           </p>
 
           <div className="dst-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">Get an estimate for the channel <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Get an estimate for the channel <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
             <a href="/channel-rebates-manufacturers" className="btn btn-ghost">The manufacturer side</a>
           </div>
         </div>
@@ -470,7 +470,7 @@ export default function ChannelRebatesDistributorsPage() {
                 you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>

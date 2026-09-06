@@ -35,7 +35,7 @@ export default function ReconciliationAuditPage() {
               <span className="recon-chip"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-doc" /></svg>Every match linked to the document behind it</span>
             </div>
             <div className="recon-hero-actions">
-              <a href="/#cta" className="btn btn-primary">
+              <a href="/get-estimate" className="btn btn-primary">
                 See what is not reconciling{" "}
                 <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
               </a>
@@ -479,7 +479,7 @@ export default function ReconciliationAuditPage() {
             it can be configured.
           </p>
           <div className="recon-sec-cta" data-reveal>
-            <a href="/#cta" className="btn btn-primary">Get an estimate <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
+            <a href="/get-estimate" className="btn btn-primary">Get an estimate <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg></a>
             <a href="/darp-framework" className="btn btn-ghost">How Discover works</a>
           </div>
         </div>
@@ -505,7 +505,7 @@ export default function ReconciliationAuditPage() {
                 there&rsquo;s anything to sign. If the number isn&rsquo;t worth acting on, at least you know you&rsquo;re safe.
               </p>
               <div className="cta-buttons">
-                <a href="/#top" className="btn btn-primary">
+                <a href="/get-estimate" className="btn btn-primary">
                   Tell us your problem{" "}
                   <svg className="icon stroke" viewBox="0 0 24 24" style={{ width: "16px", height: "16px" }}><use href="#ic-arrow-right" /></svg>
                 </a>
