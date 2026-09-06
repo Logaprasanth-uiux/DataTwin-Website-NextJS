@@ -30,6 +30,7 @@ Next.js AI-chat work.
 | **Products › Rebates, incentives & payouts** — `/channel-rebates`, `/channel-rebates-manufacturers`, `/channel-rebates-distributors`, `/partner-payouts`, `/sales-commissions` | `rebates.html` / `rebates-manufacturers.html` / `rebates-distributors.html` / `payouts.html` / `commissions.html` (`QuickLaunch`) | ✅ first pass — **content-only ports**, verbatim copy re-visualised per page. Each its own visual world + CSS family (`.crb-*` / `.mfr-*` / `.dst-*` / `.ppo-*` / `.sci-*`), all wrapped in `.rip-page` (92px sections, like `.cfo-page`). `#solutions` placeholders in header / drawer / footer replaced with the real routes; `/channel-rebates` cross-links to the mfr/dst pages. |
 | **Products › Close & reporting** — `/fscp` | `fscp.html` (`QuickLaunch`) | ✅ first pass — **content-only port**, verbatim copy re-visualised on the design system. Own CSS family `.fscp-*`, wrapped in `.cnr-page` (92px sections, like `.cfo-page` / `.rip-page`). Visual world: the close read as a register of blockers, each with an R/O/G colour, a count and a value. `kpi-catalogue.html` links → `#` placeholders (no such route); `chat.html` CTAs → `/#cta` · `/#top`. Header FSCP row (`#` → `/fscp`), drawer (new "Close & reporting" column added), footer (`#solutions` → `/fscp`). |
 | **Learning Center › Tools & downloads** — `/close-kpi-catalogue` | `kpi-catalogue.html` (`QuickLaunch`) | ✅ first pass — **content-only port**, verbatim copy re-visualised on the design system. Own CSS family `.ckc-*`, wrapped in `.ckc-page` (92px sections, like `.cfo-page` / `.rip-page` / `.cnr-page`). The 204 metrics live in a generated `metrics.ts` (from the source `<tr>` rows), rendered as an interactive table — domain filter + text search ported close to the original vanilla JS in `CloseKpiCatalogueScripts.tsx`. The downloadable PDF (`public/close-kpi-catalogue.pdf`) is a **faithful re-issue of the marketing team's original ReportLab export** — same content, cleaner presentation — built from the same `metrics.ts` by `tools/kpi-catalogue-pdf/generate.py`. `chat.html` CTAs → `/#cta`; `fscp.html` → `/fscp`. Header Learning Center "Tools & downloads" rows + promo (`#` → `/close-kpi-catalogue`), drawer (new "Tools & downloads" column added), footer Product list (added after FSCP). |
+| **Home hero prompt flow + `/get-estimate`** | *(new — no static source)* | ✅ first pass — **front-end mock**. The homepage hero composer now responds: on submit it shows a processing checklist then matches the visitor's problem to 1–3 of the 11 use cases (`components/homeMatch.ts` — keyword scoring + drafted "what we'd test" blurbs, team edits in place), each linking to its product page. "Get an estimate" stashes `{problem, matches}` in `sessionStorage['dt-estimate-context']` and full-loads `/get-estimate` — a **third root layout group** `app/(estimate)/` (own `<html>`, slim `.est-header`, shared `globals.css` + fonts + `dt-theme`) that opens straight on the "where do we send the estimate?" contact form (no AI-agent intro). Form/composer are mocked (no network). New CSS: `.hero-thread/.hero-proc/.hero-match*` and `.est-*` in `app/globals.css`. Drawer "Recovery Estimator" → `/get-estimate`; the many product-page `Get an estimate → /#cta` CTAs are left for a follow-up. |
 
 The static source repo is the reference for anything not yet ported. `/darp-framework`
 is the first page with no static predecessor: it's a new design, not a port, so
@@ -109,11 +110,17 @@ app/
       layout.tsx      imports ./chat.css
       chat.css        verbatim from gst-discovery/chat-interface.html's <style>, font literals → --gst-* tokens
       gst-discovery/chat/page.tsx   /gst-discovery/chat — bare shell (#chatLog + composer); the conversation is all runtime
+  (estimate)/         third root layout — the homepage hero → estimate hand-off (front-end mock)
+    layout.tsx        root: <html>/<body>, same fonts + globals.css + dt-theme as (site); no shared chrome
+    get-estimate/page.tsx   /get-estimate — slim header + recap + "where do we send the estimate?" form + composer
 components/
   IconSprite.tsx      <symbol> sprite, injected as-is. Icons: <svg className="stroke"><use href="#ic-x"/></svg>
   SiteHeader/Drawer/Footer.tsx   server components, static markup
   ChromeScripts.tsx   'use client' — theme toggle, mobile drawer, desktop mega-menu
   HomeScripts.tsx / PlatformOverviewScripts.tsx / PlaybookScripts.tsx   'use client' — per-page IIFE ports
+                     (HomeScripts also owns the hero prompt → processing → matched use-case flow)
+  homeMatch.ts       plain .ts — the 11 use cases + keyword matcher + shared strings for the hero flow
+  EstimateChatScripts.tsx   'use client' — /get-estimate: recap hydrate, form validate/submit mock, composer (mock)
   DarpFrameworkScripts.tsx  'use client' — reveal-on-scroll (+ failsafe) and the FAQ accordion
   SecurityScripts.tsx       'use client' — same reveal-on-scroll (+ failsafe) and FAQ accordion, per-page `wired`
   HowAIScripts.tsx          'use client' — reveal-on-scroll (+ failsafe) only (no FAQ on this page), per-page `wired`

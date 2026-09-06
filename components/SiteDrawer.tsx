@@ -77,7 +77,7 @@ export default function SiteDrawer() {
                 <div className="dp-col">
                   <span className="dp-col-label">Tools &amp; downloads</span>
                   <a className="dp-link" href="/close-kpi-catalogue"><svg className="stroke"><use href="#ic-doc" /></svg>The 200+ Close KPI Catalogue</a>
-                  <a className="dp-link" href="#"><svg className="stroke"><use href="#ic-gauge" /></svg>Recovery Estimator</a>
+                  <a className="dp-link" href="/get-estimate"><svg className="stroke"><use href="#ic-gauge" /></svg>Recovery Estimator</a>
                 </div>
               </div>
             </div>
