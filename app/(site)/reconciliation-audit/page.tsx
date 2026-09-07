@@ -80,37 +80,30 @@ export default function ReconciliationAuditPage() {
               <span className="recon-flow-live"><i></i> Live process</span>
             </div>
 
-            <div className="recon-flow-feed">
-              <div className="recon-flow-col">
-                <span className="recon-flow-lbl">Whatever the two sides are</span>
-                <div className="recon-flow-in"><b>Your ledgers</b><em>GL, sub-ledgers, entities</em></div>
-                <div className="recon-flow-in"><b>Counterparty statements</b><em>banks, vendors, customers, portals</em></div>
-                <div className="recon-flow-in"><b>Operational systems</b><em>billing, WMS, CRM, payroll, gateways</em></div>
-                <div className="recon-flow-in"><b>The documents</b><em>contracts, POs, GRNs, certificates</em></div>
-              </div>
-
-              <div className="recon-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,24 C40,24 30,100 60,100" />
-                  <path className="ln" d="M0,74 C40,74 40,100 60,100" />
-                  <path className="ln" d="M0,126 C40,126 40,100 60,100" />
-                  <path className="ln" d="M0,176 C40,176 30,100 60,100" />
-                  <path className="fx" d="M0,24 C40,24 30,100 60,100" />
-                  <path className="fx" d="M0,126 C40,126 40,100 60,100" />
-                  <path className="fx" d="M0,176 C40,176 30,100 60,100" />
-                </svg>
-              </div>
-
-              <div className="recon-flow-engine">
-                <span className="recon-flow-engine-k"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-schema" /></svg></span>
-                <b>DataTwin</b>
-                <span className="recon-flow-engine-sub">Matches N-way, then names what did not match</span>
-              </div>
+            <span className="recon-flow-lbl">Whatever the two sides are</span>
+            <div className="recon-flow-row">
+              <div className="recon-flow-in"><b>Your ledgers</b><em>GL, sub-ledgers, entities</em><i></i></div>
+              <div className="recon-flow-in"><b>Counterparty statements</b><em>banks, vendors, customers, portals</em><i></i></div>
+              <div className="recon-flow-in"><b>Operational systems</b><em>billing, WMS, CRM, payroll, gateways</em><i></i></div>
+              <div className="recon-flow-in"><b>The documents</b><em>contracts, POs, GRNs, certificates</em><i></i></div>
             </div>
 
+            <div className="recon-flow-drop" aria-hidden="true">
+              <i className="d-h1"></i><i className="d-h2"></i>
+              <i className="d-v"></i><i className="d-v"></i>
+            </div>
+
+            <div className="recon-flow-engine">
+              <span className="recon-flow-engine-k"><svg className="stroke" viewBox="0 0 24 24"><use href="#ic-schema" /></svg></span>
+              <b>DataTwin</b>
+              <span className="recon-flow-engine-sub">Matches N-way, then names what did not match</span>
+            </div>
+
+            <div className="recon-flow-tap" aria-hidden="true"><i></i><i></i></div>
+
             <div className="recon-flow-out">
-              <span className="recon-flow-out-lbl">One exception register</span>
               <div className="recon-reg">
+                <span className="recon-flow-out-lbl">One exception register</span>
                 <div className="recon-reg-head">
                   <span>Reconciliation</span><span>Item</span><span>Reason</span><span>Age</span><span className="is-r">State</span>
                 </div>
@@ -211,7 +204,7 @@ export default function ReconciliationAuditPage() {
       </section>
 
       {/* ============================= 2 · MATCHING ============================= */}
-      <section className="section recon-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section recon-stage-sec">
         <div className="wrap">
           <div className="recon-stage-head" data-reveal>
             <span className="recon-stage-n">02</span>
