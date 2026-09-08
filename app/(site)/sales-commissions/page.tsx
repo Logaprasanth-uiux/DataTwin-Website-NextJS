@@ -105,7 +105,6 @@ export default function SalesCommissionsPage() {
 
               <div className="sci-flow-wire" aria-hidden="true">
                 <span className="sci-flow-wire-lbl">flattened to</span>
-                <i></i><i></i>
               </div>
 
               <div className="sci-rows" aria-hidden="true">

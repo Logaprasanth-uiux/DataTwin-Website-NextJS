@@ -112,7 +112,6 @@ export default function ChannelRebatesManufacturersPage() {
 
               <div className="mfr-flow-wire" aria-hidden="true">
                 <span className="mfr-flow-wire-lbl">flattened to</span>
-                <i></i><i></i>
               </div>
 
               <div className="mfr-rows" aria-hidden="true">

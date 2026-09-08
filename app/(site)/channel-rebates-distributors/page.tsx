@@ -107,7 +107,6 @@ export default function ChannelRebatesDistributorsPage() {
 
               <div className="dst-flow-wire" aria-hidden="true">
                 <span className="dst-flow-wire-lbl">flattened to</span>
-                <i></i><i></i>
               </div>
 
               <div className="dst-rows" aria-hidden="true">

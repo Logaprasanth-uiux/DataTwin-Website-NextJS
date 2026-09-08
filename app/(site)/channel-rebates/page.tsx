@@ -105,7 +105,6 @@ export default function ChannelRebatesPage() {
 
               <div className="crb-flow-wire" aria-hidden="true">
                 <span className="crb-flow-wire-lbl">flattened to</span>
-                <i></i><i></i>
               </div>
 
               <div className="crb-rows" aria-hidden="true">

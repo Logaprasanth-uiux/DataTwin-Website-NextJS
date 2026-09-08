@@ -4767,23 +4767,40 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .crb-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--bg-panel-2);}
 .crb-node.is-leaf b{color:var(--recover);}
 
-/* the "flattened to" cell (crb / mfr / dst / ppo / sci) — the tree->table
-   collector line is drawn in CSS on .XX-tree-cols (see the connector block
-   below); this cell only carries the label (sitting on that line, centred to
-   the tree columns via margin-top) and the two dots that run it into the table. */
+/* the "flattened to" cell (crb / mfr / dst / ppo / sci) — one straight arrow
+   from the tree's collector into the rows table, with the label as plain text
+   sitting ABOVE the line (no pill, no travelling dots). margin-top aligns the
+   cell's centre with the collector line (.XX-tree-cols is pushed down by the
+   tree label above it). */
 .crb-flow-wire,.mfr-flow-wire,.dst-flow-wire,.ppo-flow-wire,.sci-flow-wire{
-  align-self:center;position:relative;height:160px;margin-top:24px;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  align-self:center;position:relative;height:96px;margin-top:24px;
 }
 @media (max-width:1080px){
-  .crb-flow-wire,.mfr-flow-wire,.dst-flow-wire,.ppo-flow-wire,.sci-flow-wire{height:auto;margin-top:0;transform:none;}
+  .crb-flow-wire,.mfr-flow-wire,.dst-flow-wire,.ppo-flow-wire,.sci-flow-wire{height:40px;margin-top:0;}
+}
+/* the arrow shaft — bridges the gap on the left to the collector, and runs a
+   few px into the rows table on the right */
+.crb-flow-wire::before,.mfr-flow-wire::before,.dst-flow-wire::before,.ppo-flow-wire::before,.sci-flow-wire::before{
+  content:'';position:absolute;left:3px;right:-13px;top:50%;height:1px;
+  background:var(--line-strong);transform:translateY(-.5px);
+}
+/* the arrowhead, its tip a couple of px inside the rows table */
+.crb-flow-wire::after,.mfr-flow-wire::after,.dst-flow-wire::after,.ppo-flow-wire::after,.sci-flow-wire::after{
+  content:'';position:absolute;right:-13px;top:50%;width:0;height:0;
+  border:4px solid transparent;border-left-color:var(--line-strong);
+  transform:translate(0,-50%);
 }
 .crb-flow-wire-lbl,.mfr-flow-wire-lbl,.dst-flow-wire-lbl,.ppo-flow-wire-lbl,.sci-flow-wire-lbl{
-  position:relative;z-index:2;font-family:var(--font-mono),monospace;font-size:0.56rem;
-  font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-2);
-  background:var(--bg-panel);padding:3px 6px;border-radius:4px;text-align:center;line-height:1.35;
+  position:absolute;left:50%;bottom:calc(50% + 7px);transform:translateX(-50%);
+  font-family:var(--font-mono),monospace;font-size:0.5rem;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);
+  white-space:nowrap;line-height:1;
 }
-.dst-flow-wire-lbl{color:var(--accent-amber);}
+@media (max-width:1080px){
+  .crb-flow-wire-lbl,.mfr-flow-wire-lbl,.dst-flow-wire-lbl,.ppo-flow-wire-lbl,.sci-flow-wire-lbl{position:static;transform:none;display:block;text-align:center;margin-bottom:6px;}
+  .crb-flow-wire::before,.mfr-flow-wire::before,.dst-flow-wire::before,.ppo-flow-wire::before,.sci-flow-wire::before,
+  .crb-flow-wire::after,.mfr-flow-wire::after,.dst-flow-wire::after,.ppo-flow-wire::after,.sci-flow-wire::after{display:none;}
+}
 
 .crb-rows{border:1px solid var(--line-strong);border-radius:12px;padding:12px 13px;background:var(--bg-sunken);}
 .crb-rows-head,.crb-rows-row{display:grid;grid-template-columns:0.8fr 1fr 0.9fr 0.9fr 0.6fr;gap:6px;align-items:center;}
@@ -4863,15 +4880,12 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
   background:var(--line-strong);transform:translateY(-.5px);pointer-events:none;
 }
 
-/* the collector : vertical bus gathering the 3 leaf outputs */
+/* the collector : vertical bus gathering the 3 leaf outputs. The single line
+   out of the collector and into the rows table is the arrow drawn on
+   .XX-flow-wire (the "flattened to" cell) — see that block above. */
 .crb-tree-cols::after,.mfr-tree-cols::after,.dst-tree-cols::after,.ppo-tree-cols::after,.sci-tree-cols::after{
   content:'';position:absolute;right:-16px;top:30px;bottom:30px;width:1px;z-index:1;
   background:var(--line-strong);pointer-events:none;
-}
-/* the collector's single output line, running into the rows table */
-.crb-tree-cols::before,.mfr-tree-cols::before,.dst-tree-cols::before,.ppo-tree-cols::before,.sci-tree-cols::before{
-  content:'';position:absolute;right:-98px;width:82px;top:50%;height:1px;z-index:1;
-  background:var(--line-strong);transform:translateY(-.5px);pointer-events:none;
 }
 
 /* the travelling short-circle relay dots — one per node, each riding its own
@@ -4885,24 +4899,14 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .crb-tree-col:first-child > .crb-node > i,.mfr-tree-col:first-child > .mfr-node > i,.dst-tree-col:first-child > .dst-node > i,.ppo-tree-col:first-child > .ppo-node > i,.sci-tree-col:first-child > .sci-node > i{--cc-travel:11px;}
 .crb-tree-col:last-child > .crb-node > i,.mfr-tree-col:last-child > .mfr-node > i,.dst-tree-col:last-child > .dst-node > i,.ppo-tree-col:last-child > .ppo-node > i,.sci-tree-col:last-child > .sci-node > i{--cc-travel:17px;}
 
-/* dots on the collector output line (in the "flattened to" cell) */
-.crb-flow-wire > i,.mfr-flow-wire > i,.dst-flow-wire > i,.ppo-flow-wire > i,.sci-flow-wire > i{
-  position:absolute;left:4px;top:50%;width:7px;height:7px;z-index:2;
-  border-radius:50%;background:var(--brand-2);opacity:0;pointer-events:none;
-  transform:translate(0,-50%);box-shadow:0 0 9px color-mix(in srgb,var(--brand-2) 70%,transparent);
-}
-
 @media (prefers-reduced-motion:no-preference){
   .crb-node > i,.mfr-node > i,.dst-node > i,.ppo-node > i,.sci-node > i{animation:crb-relay 2.9s linear infinite;}
   .crb-tree-col:nth-child(2) > .crb-node > i,.mfr-tree-col:nth-child(2) > .mfr-node > i,.dst-tree-col:nth-child(2) > .dst-node > i,.ppo-tree-col:nth-child(2) > .ppo-node > i,.sci-tree-col:nth-child(2) > .sci-node > i{animation-delay:.45s;}
   .crb-tree-col:nth-child(3) > .crb-node > i,.mfr-tree-col:nth-child(3) > .mfr-node > i,.dst-tree-col:nth-child(3) > .dst-node > i,.ppo-tree-col:nth-child(3) > .ppo-node > i,.sci-tree-col:nth-child(3) > .sci-node > i{animation-delay:.9s;}
   .crb-tree-col:nth-child(4) > .crb-node > i,.mfr-tree-col:nth-child(4) > .mfr-node > i,.dst-tree-col:nth-child(4) > .dst-node > i,.ppo-tree-col:nth-child(4) > .ppo-node > i,.sci-tree-col:nth-child(4) > .sci-node > i{animation-delay:1.35s;}
-  .crb-flow-wire > i,.mfr-flow-wire > i,.dst-flow-wire > i,.ppo-flow-wire > i,.sci-flow-wire > i{animation:crb-collect-dot 2.9s linear infinite;animation-delay:1.8s;}
-  .crb-flow-wire > i:last-child,.mfr-flow-wire > i:last-child,.dst-flow-wire > i:last-child,.ppo-flow-wire > i:last-child,.sci-flow-wire > i:last-child{animation-delay:2.25s;}
 }
 @media (prefers-reduced-motion:reduce){
-  .crb-node > i,.mfr-node > i,.dst-node > i,.ppo-node > i,.sci-node > i,
-  .crb-flow-wire > i,.mfr-flow-wire > i,.dst-flow-wire > i,.ppo-flow-wire > i,.sci-flow-wire > i{display:none;}
+  .crb-node > i,.mfr-node > i,.dst-node > i,.ppo-node > i,.sci-node > i{display:none;}
 }
 @keyframes crb-relay{
   0%{transform:translateX(0);opacity:0;}
@@ -4910,21 +4914,13 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
   64%{transform:translateX(var(--cc-travel));opacity:1;}
   82%,100%{transform:translateX(var(--cc-travel));opacity:0;}
 }
-@keyframes crb-collect-dot{
-  0%{transform:translate(0,-50%);opacity:0;}
-  12%{opacity:1;}
-  86%{transform:translate(82px,-50%);opacity:1;}
-  100%{transform:translate(82px,-50%);opacity:0;}
-}
 @media (max-width:1080px){
   .crb-tree-cols,.mfr-tree-cols,.dst-tree-cols,.ppo-tree-cols,.sci-tree-cols{gap:9px;}
   .crb-tree-col > .crb-node::after,.mfr-tree-col > .mfr-node::after,.dst-tree-col > .dst-node::after,.ppo-tree-col > .ppo-node::after,.sci-tree-col > .sci-node::after,
   .crb-tree-col > .crb-node::before,.mfr-tree-col > .mfr-node::before,.dst-tree-col > .dst-node::before,.ppo-tree-col > .ppo-node::before,.sci-tree-col > .sci-node::before,
   .crb-tree-col:nth-child(2)::before,.mfr-tree-col:nth-child(2)::before,.dst-tree-col:nth-child(2)::before,.ppo-tree-col:nth-child(2)::before,.sci-tree-col:nth-child(2)::before,
-  .crb-tree-cols::before,.mfr-tree-cols::before,.dst-tree-cols::before,.ppo-tree-cols::before,.sci-tree-cols::before,
   .crb-tree-cols::after,.mfr-tree-cols::after,.dst-tree-cols::after,.ppo-tree-cols::after,.sci-tree-cols::after,
-  .crb-node > i,.mfr-node > i,.dst-node > i,.ppo-node > i,.sci-node > i,
-  .crb-flow-wire > i,.mfr-flow-wire > i,.dst-flow-wire > i,.ppo-flow-wire > i,.sci-flow-wire > i{display:none;}
+  .crb-node > i,.mfr-node > i,.dst-node > i,.ppo-node > i,.sci-node > i{display:none;}
 }
 
 /* ---- both-ways mirror : three cards ---- */

@@ -105,7 +105,6 @@ export default function PartnerPayoutsPage() {
 
               <div className="ppo-flow-wire" aria-hidden="true">
                 <span className="ppo-flow-wire-lbl">flattened to</span>
-                <i></i><i></i>
               </div>
 
               <div className="ppo-rows" aria-hidden="true">
