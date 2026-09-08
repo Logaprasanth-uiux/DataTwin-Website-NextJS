@@ -180,7 +180,7 @@ export default function SiteHeader() {
           <a href="/get-estimate" className="mega-trigger">Contact</a>
         </nav>
         <div className="nav-right">
-          <a href="#recoverable" className="btn btn-primary btn-sm nav-cta">What can we recover?</a>
+          <a href="/chat-check" className="btn btn-primary btn-sm nav-cta">What can we recover?</a>
           <button className="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
             <svg className="icon-moon stroke"><use href="#ic-moon" /></svg>
             <svg className="icon-sun stroke"><use href="#ic-sun" /></svg>
