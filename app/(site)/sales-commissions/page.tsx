@@ -83,32 +83,29 @@ export default function SalesCommissionsPage() {
                 <span className="sci-tree-lbl">The plan, as it was written</span>
                 <div className="sci-tree-cols">
                   <div className="sci-tree-col">
-                    <div className="sci-node"><b>Rep</b><em>and role</em></div>
+                    <div className="sci-node"><b>Rep</b><em>and role</em><i></i></div>
                   </div>
                   <div className="sci-tree-col">
-                    <div className="sci-node"><b>Territory</b><em>region, segment, named</em></div>
-                    <div className="sci-node"><b>Offering</b><em>product or line</em></div>
-                    <div className="sci-node"><b>Credit</b><em>full, split, overlay</em></div>
+                    <div className="sci-node"><b>Territory</b><em>region, segment, named</em><i></i></div>
+                    <div className="sci-node"><b>Offering</b><em>product or line</em><i></i></div>
+                    <div className="sci-node"><b>Credit</b><em>full, split, overlay</em><i></i></div>
                   </div>
                   <div className="sci-tree-col">
-                    <div className="sci-node"><b>Attainment</b><em>against quota</em></div>
-                    <div className="sci-node"><b>Rate form</b><em>flat, tiered, accelerated</em></div>
-                    <div className="sci-node"><b>Period</b><em>month, quarter, year</em></div>
+                    <div className="sci-node"><b>Attainment</b><em>against quota</em><i></i></div>
+                    <div className="sci-node"><b>Rate form</b><em>flat, tiered, accelerated</em><i></i></div>
+                    <div className="sci-node"><b>Period</b><em>month, quarter, year</em><i></i></div>
                   </div>
                   <div className="sci-tree-col">
-                    <div className="sci-node is-leaf"><b>Rate</b><em>percent or per deal</em></div>
-                    <div className="sci-node is-leaf"><b>Accelerator</b><em>above target</em></div>
-                    <div className="sci-node is-leaf"><b>Draw</b><em>a floor, then recovered</em></div>
+                    <div className="sci-node is-leaf"><b>Rate</b><em>percent or per deal</em><i></i></div>
+                    <div className="sci-node is-leaf"><b>Accelerator</b><em>above target</em><i></i></div>
+                    <div className="sci-node is-leaf"><b>Draw</b><em>a floor, then recovered</em><i></i></div>
                   </div>
                 </div>
               </div>
 
               <div className="sci-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
                 <span className="sci-flow-wire-lbl">flattened to</span>
+                <i></i><i></i>
               </div>
 
               <div className="sci-rows" aria-hidden="true">
@@ -218,7 +215,7 @@ export default function SalesCommissionsPage() {
       </section>
 
       {/* ============================= 2 CREDITING ============================= */}
-      <section className="section sci-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section sci-stage-sec">
         <div className="wrap">
           <div className="sci-stage-head" data-reveal>
             <span className="sci-stage-n">2</span>
@@ -330,7 +327,7 @@ export default function SalesCommissionsPage() {
       </section>
 
       {/* ============================= 4 THE STATEMENT ============================= */}
-      <section className="section sci-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section sci-stage-sec">
         <div className="wrap">
           <div className="sci-stage-head" data-reveal>
             <span className="sci-stage-n">4</span>

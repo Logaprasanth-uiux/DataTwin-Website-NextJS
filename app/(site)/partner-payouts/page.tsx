@@ -83,32 +83,29 @@ export default function PartnerPayoutsPage() {
                 <span className="ppo-tree-lbl">The scheme, as it was agreed</span>
                 <div className="ppo-tree-cols">
                   <div className="ppo-tree-col">
-                    <div className="ppo-node"><b>Customer</b><em>and business model</em></div>
+                    <div className="ppo-node"><b>Customer</b><em>business model</em><i></i></div>
                   </div>
                   <div className="ppo-tree-col">
-                    <div className="ppo-node"><b>Territory</b><em>station, cluster, block</em></div>
-                    <div className="ppo-node"><b>Category</b><em>and offering</em></div>
-                    <div className="ppo-node"><b>Resource class</b><em>the asset used</em></div>
+                    <div className="ppo-node"><b>Territory</b><em>station, cluster, block</em><i></i></div>
+                    <div className="ppo-node"><b>Category</b><em>and offering</em><i></i></div>
+                    <div className="ppo-node"><b>Resource class</b><em>the asset used</em><i></i></div>
                   </div>
                   <div className="ppo-tree-col">
-                    <div className="ppo-node"><b>Partner class</b><em>direct or vendor</em></div>
-                    <div className="ppo-node"><b>Rate form</b><em>fixed, variable, tiered</em></div>
-                    <div className="ppo-node"><b>Period</b><em>month, day, slot, season</em></div>
+                    <div className="ppo-node"><b>Partner class</b><em>direct or vendor</em><i></i></div>
+                    <div className="ppo-node"><b>Rate form</b><em>fixed, variable, tiered</em><i></i></div>
+                    <div className="ppo-node"><b>Period</b><em>month, day, slot, season</em><i></i></div>
                   </div>
                   <div className="ppo-tree-col">
-                    <div className="ppo-node is-leaf"><b>Rate</b><em>per unit or per day</em></div>
-                    <div className="ppo-node is-leaf"><b>Slab rate</b><em>by band</em></div>
-                    <div className="ppo-node is-leaf"><b>Guarantee</b><em>a floor, not a rate</em></div>
+                    <div className="ppo-node is-leaf"><b>Rate</b><em>per unit or per day</em><i></i></div>
+                    <div className="ppo-node is-leaf"><b>Slab rate</b><em>by band</em><i></i></div>
+                    <div className="ppo-node is-leaf"><b>Guarantee</b><em>a floor, not a rate</em><i></i></div>
                   </div>
                 </div>
               </div>
 
               <div className="ppo-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
                 <span className="ppo-flow-wire-lbl">flattened to</span>
+                <i></i><i></i>
               </div>
 
               <div className="ppo-rows" aria-hidden="true">
@@ -217,7 +214,7 @@ export default function PartnerPayoutsPage() {
       </section>
 
       {/* ============================= 2 THE MEASURE ============================= */}
-      <section className="section ppo-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section ppo-stage-sec">
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
             <span className="ppo-stage-n">2</span>
@@ -329,7 +326,7 @@ export default function PartnerPayoutsPage() {
       </section>
 
       {/* ============================= 4 OVERLAP ============================= */}
-      <section className="section ppo-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section ppo-stage-sec">
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
             <span className="ppo-stage-n">4</span>

@@ -85,32 +85,29 @@ export default function ChannelRebatesDistributorsPage() {
                 <span className="dst-tree-lbl">What you are entitled to claim</span>
                 <div className="dst-tree-cols">
                   <div className="dst-tree-col">
-                    <div className="dst-node"><b>Vendor line</b><em>and your tier</em></div>
+                    <div className="dst-node"><b>Vendor line</b><em>and your tier</em><i></i></div>
                   </div>
                   <div className="dst-tree-col">
-                    <div className="dst-node"><b>Territory</b><em>region or end-market</em></div>
-                    <div className="dst-node"><b>Product</b><em>line, family, SKU</em></div>
-                    <div className="dst-node"><b>Programme</b><em>ship &amp; debit, rebate, rotation</em></div>
+                    <div className="dst-node"><b>Territory</b><em>region or end-market</em><i></i></div>
+                    <div className="dst-node"><b>Product</b><em>line, family, SKU</em><i></i></div>
+                    <div className="dst-node"><b>Programme</b><em>ship &amp; debit, rebate, rotation</em><i></i></div>
                   </div>
                   <div className="dst-tree-col">
-                    <div className="dst-node"><b>Authorisation</b><em>registration or SPA</em></div>
-                    <div className="dst-node"><b>Rate form</b><em>off-invoice, tiered, retro</em></div>
-                    <div className="dst-node"><b>Filing window</b><em>days from the sale</em></div>
+                    <div className="dst-node"><b>Authorisation</b><em>registration or SPA</em><i></i></div>
+                    <div className="dst-node"><b>Rate form</b><em>off-invoice, tiered, retro</em><i></i></div>
+                    <div className="dst-node"><b>Filing window</b><em>days from the sale</em><i></i></div>
                   </div>
                   <div className="dst-tree-col">
-                    <div className="dst-node is-leaf"><b>Claimable</b><em>cost less authorised price</em></div>
-                    <div className="dst-node is-leaf"><b>Rebate due</b><em>on qualifying volume</em></div>
-                    <div className="dst-node is-leaf"><b>Credit due</b><em>price protection, rotation</em></div>
+                    <div className="dst-node is-leaf"><b>Claimable</b><em>cost less authorised price</em><i></i></div>
+                    <div className="dst-node is-leaf"><b>Rebate due</b><em>on qualifying volume</em><i></i></div>
+                    <div className="dst-node is-leaf"><b>Credit due</b><em>price protection, rotation</em><i></i></div>
                   </div>
                 </div>
               </div>
 
               <div className="dst-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
                 <span className="dst-flow-wire-lbl">flattened to</span>
+                <i></i><i></i>
               </div>
 
               <div className="dst-rows" aria-hidden="true">
@@ -219,7 +216,7 @@ export default function ChannelRebatesDistributorsPage() {
       </section>
 
       {/* ============================= 2 CLAIMED VS RECEIVED ============================= */}
-      <section className="section dst-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section dst-stage-sec">
         <div className="wrap">
           <div className="dst-stage-head" data-reveal>
             <span className="dst-stage-n">2</span>

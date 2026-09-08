@@ -83,32 +83,29 @@ export default function ChannelRebatesPage() {
                 <span className="crb-tree-lbl">The programme, as it was agreed</span>
                 <div className="crb-tree-cols">
                   <div className="crb-tree-col">
-                    <div className="crb-node"><b>Counterparty</b><em>vendor or customer</em></div>
+                    <div className="crb-node"><b>Counterparty</b><em>vendor or customer</em><i></i></div>
                   </div>
                   <div className="crb-tree-col">
-                    <div className="crb-node"><b>Territory</b><em>region or channel</em></div>
-                    <div className="crb-node"><b>Product</b><em>line, family, SKU</em></div>
-                    <div className="crb-node"><b>Programme</b><em>ship &amp; debit, SPA, rebate</em></div>
+                    <div className="crb-node"><b>Territory</b><em>region or channel</em><i></i></div>
+                    <div className="crb-node"><b>Product</b><em>line, family, SKU</em><i></i></div>
+                    <div className="crb-node"><b>Programme</b><em>ship &amp; debit, SPA, rebate</em><i></i></div>
                   </div>
                   <div className="crb-tree-col">
-                    <div className="crb-node"><b>Eligibility</b><em>who and what qualifies</em></div>
-                    <div className="crb-node"><b>Rate form</b><em>off-invoice, tiered, retro</em></div>
-                    <div className="crb-node"><b>Window</b><em>period and filing deadline</em></div>
+                    <div className="crb-node"><b>Eligibility</b><em>who and what qualifies</em><i></i></div>
+                    <div className="crb-node"><b>Rate form</b><em>off-invoice, tiered, retro</em><i></i></div>
+                    <div className="crb-node"><b>Window</b><em>period and filing deadline</em><i></i></div>
                   </div>
                   <div className="crb-tree-col">
-                    <div className="crb-node is-leaf"><b>Deviated price</b><em>the claimable difference</em></div>
-                    <div className="crb-node is-leaf"><b>Slab rate</b><em>by volume band</em></div>
-                    <div className="crb-node is-leaf"><b>Allowance</b><em>co-op, MDF, rotation</em></div>
+                    <div className="crb-node is-leaf"><b>Deviated price</b><em>the claimable difference</em><i></i></div>
+                    <div className="crb-node is-leaf"><b>Slab rate</b><em>by volume band</em><i></i></div>
+                    <div className="crb-node is-leaf"><b>Allowance</b><em>co-op, MDF, rotation</em><i></i></div>
                   </div>
                 </div>
               </div>
 
               <div className="crb-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
                 <span className="crb-flow-wire-lbl">flattened to</span>
+                <i></i><i></i>
               </div>
 
               <div className="crb-rows" aria-hidden="true">
@@ -229,7 +226,7 @@ export default function ChannelRebatesPage() {
       </section>
 
       {/* ============================= 2 RECOMPUTE ============================= */}
-      <section className="section crb-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section crb-stage-sec">
         <div className="wrap">
           <div className="crb-stage-head" data-reveal>
             <span className="crb-stage-n">2</span>
@@ -341,7 +338,7 @@ export default function ChannelRebatesPage() {
       </section>
 
       {/* ============================= 4 ACCRUALS ============================= */}
-      <section className="section crb-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section crb-stage-sec">
         <div className="wrap">
           <div className="crb-stage-head" data-reveal>
             <span className="crb-stage-n">4</span>

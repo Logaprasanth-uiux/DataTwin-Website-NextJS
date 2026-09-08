@@ -90,32 +90,29 @@ export default function ChannelRebatesManufacturersPage() {
                 <span className="mfr-tree-lbl">What you authorised</span>
                 <div className="mfr-tree-cols">
                   <div className="mfr-tree-col">
-                    <div className="mfr-node"><b>Distributor</b><em>and their tier</em></div>
+                    <div className="mfr-node"><b>Distributor</b><em>and their tier</em><i></i></div>
                   </div>
                   <div className="mfr-tree-col">
-                    <div className="mfr-node"><b>Territory</b><em>region or end-market</em></div>
-                    <div className="mfr-node"><b>Product</b><em>line, family, SKU</em></div>
-                    <div className="mfr-node"><b>Programme</b><em>ship &amp; debit, SPA, rotation</em></div>
+                    <div className="mfr-node"><b>Territory</b><em>region or end-market</em><i></i></div>
+                    <div className="mfr-node"><b>Product</b><em>line, family, SKU</em><i></i></div>
+                    <div className="mfr-node"><b>Programme</b><em>ship &amp; debit, SPA, rotation</em><i></i></div>
                   </div>
                   <div className="mfr-tree-col">
-                    <div className="mfr-node"><b>Registration</b><em>design win, named account</em></div>
-                    <div className="mfr-node"><b>Authorised price</b><em>and its window</em></div>
-                    <div className="mfr-node"><b>Eligibility</b><em>stock, tier, end customer</em></div>
+                    <div className="mfr-node"><b>Registration</b><em>design win, named account</em><i></i></div>
+                    <div className="mfr-node"><b>Authorised price</b><em>and its window</em><i></i></div>
+                    <div className="mfr-node"><b>Eligibility</b><em>stock, tier, end customer</em><i></i></div>
                   </div>
                   <div className="mfr-tree-col">
-                    <div className="mfr-node is-leaf"><b>Debit allowed</b><em>cost less authorised</em></div>
-                    <div className="mfr-node is-leaf"><b>Credit allowed</b><em>on repriced stock</em></div>
-                    <div className="mfr-node is-leaf"><b>Rebate earned</b><em>on qualifying volume</em></div>
+                    <div className="mfr-node is-leaf"><b>Debit allowed</b><em>cost less authorised</em><i></i></div>
+                    <div className="mfr-node is-leaf"><b>Credit allowed</b><em>on repriced stock</em><i></i></div>
+                    <div className="mfr-node is-leaf"><b>Rebate earned</b><em>on qualifying volume</em><i></i></div>
                   </div>
                 </div>
               </div>
 
               <div className="mfr-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
                 <span className="mfr-flow-wire-lbl">flattened to</span>
+                <i></i><i></i>
               </div>
 
               <div className="mfr-rows" aria-hidden="true">
@@ -224,7 +221,7 @@ export default function ChannelRebatesManufacturersPage() {
       </section>
 
       {/* ============================= 2 VALIDATION ============================= */}
-      <section className="section mfr-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
+      <section className="section mfr-stage-sec">
         <div className="wrap">
           <div className="mfr-stage-head" data-reveal>
             <span className="mfr-stage-n">2</span>
