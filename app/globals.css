@@ -4764,7 +4764,7 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 
 .crb-flow-body,.mfr-flow-body,.dst-flow-body,.ppo-flow-body,.sci-flow-body{position:relative;z-index:1;padding:clamp(20px,2.8vw,30px);display:grid;grid-template-columns:1fr 58px minmax(280px,0.86fr);gap:12px;align-items:center;}
 @media (max-width:1080px){.crb-flow-body,.mfr-flow-body,.dst-flow-body,.ppo-flow-body,.sci-flow-body{grid-template-columns:1fr;gap:18px;}}
-.crb-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--card-flat);}
+.crb-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--bg-panel-2);}
 .crb-node.is-leaf b{color:var(--recover);}
 
 /* the "flattened to" cell (crb / mfr / dst / ppo / sci) — the tree->table
@@ -4810,7 +4810,12 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .crb-tree-cols,.mfr-tree-cols,.dst-tree-cols,.ppo-tree-cols,.sci-tree-cols{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
 @media (max-width:560px){.crb-tree-cols,.mfr-tree-cols,.dst-tree-cols,.ppo-tree-cols,.sci-tree-cols{grid-template-columns:repeat(2,1fr);}}
 .crb-tree-col,.mfr-tree-col,.dst-tree-col,.ppo-tree-col,.sci-tree-col{position:relative;display:flex;flex-direction:column;gap:7px;justify-content:center;}
-.crb-node,.mfr-node,.dst-node,.ppo-node,.sci-node{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:var(--card-flat);}
+/* position:relative is load-bearing — every node's connector line (::after),
+   fan-in stub (::before) and relay dot (> i) is absolutely positioned and must
+   anchor to the NODE, not the column. Without it they all collapse onto the
+   column's mid-point, landing on the middle box's text. Background must be
+   opaque so the .ledger-grid behind the panel doesn't read through the box. */
+.crb-node,.mfr-node,.dst-node,.ppo-node,.sci-node{position:relative;border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:var(--bg-panel-2);}
 /* titles stay on one line and descriptions to two, so every node is the same
    height and the column-to-column connectors line up dead straight */
 .crb-node b,.mfr-node b,.dst-node b,.ppo-node b,.sci-node b{display:block;width:100%;font-size:0.76rem;font-weight:600;color:var(--ink);line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:clip;}
@@ -5059,7 +5064,7 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .mfr-flow-live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono),monospace;font-size:0.62rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);}
 .mfr-flow-live i{width:6px;height:6px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;}
 @media (prefers-reduced-motion:no-preference){.mfr-flow-live i{animation:ap-blip 2s ease-in-out infinite;}}
-.mfr-node.is-leaf{border-color:color-mix(in srgb,var(--brand) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--brand) 10%,transparent),transparent 60%),var(--card-flat);}
+.mfr-node.is-leaf{border-color:color-mix(in srgb,var(--brand) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--brand) 10%,transparent),transparent 60%),var(--bg-panel-2);}
 .mfr-node.is-leaf b{color:var(--brand);}
 .mfr-rows{border:1px solid var(--line-strong);border-radius:12px;padding:12px 13px;background:var(--bg-sunken);}
 .mfr-rows-head,.mfr-rows-row{display:grid;grid-template-columns:0.85fr 0.7fr 1fr 0.95fr 0.6fr;gap:6px;align-items:center;}
@@ -5223,7 +5228,7 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .dst-flow-live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono),monospace;font-size:0.62rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);}
 .dst-flow-live i{width:6px;height:6px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;}
 @media (prefers-reduced-motion:no-preference){.dst-flow-live i{animation:ap-blip 2s ease-in-out infinite;}}
-.dst-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--card-flat);}
+.dst-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--bg-panel-2);}
 .dst-node.is-leaf b{color:var(--recover);}
 .dst-rows{border:1px solid var(--line-strong);border-radius:12px;padding:12px 13px;background:var(--bg-sunken);}
 .dst-rows-head,.dst-rows-row{display:grid;grid-template-columns:0.8fr 0.65fr 1fr 0.9fr 0.65fr;gap:6px;align-items:center;}
@@ -5277,7 +5282,7 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .ppo-flow-live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono),monospace;font-size:0.62rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);}
 .ppo-flow-live i{width:6px;height:6px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;}
 @media (prefers-reduced-motion:no-preference){.ppo-flow-live i{animation:ap-blip 2s ease-in-out infinite;}}
-.ppo-node.is-leaf{border-color:color-mix(in srgb,var(--brand) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--brand) 10%,transparent),transparent 60%),var(--card-flat);}
+.ppo-node.is-leaf{border-color:color-mix(in srgb,var(--brand) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--brand) 10%,transparent),transparent 60%),var(--bg-panel-2);}
 .ppo-node.is-leaf b{color:var(--brand);}
 .ppo-rows{border:1px solid var(--line-strong);border-radius:12px;padding:12px 13px;background:var(--bg-sunken);}
 .ppo-rows-head,.ppo-rows-row{display:grid;grid-template-columns:0.85fr 0.9fr 0.7fr 0.9fr 0.55fr;gap:6px;align-items:center;}
@@ -5351,7 +5356,7 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .sci-flow-live{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono),monospace;font-size:0.62rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);}
 .sci-flow-live i{width:6px;height:6px;border-radius:50%;background:var(--accent-lime);flex-shrink:0;}
 @media (prefers-reduced-motion:no-preference){.sci-flow-live i{animation:ap-blip 2s ease-in-out infinite;}}
-.sci-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--card-flat);}
+.sci-node.is-leaf{border-color:color-mix(in srgb,var(--recover) 36%,var(--line-strong));background:radial-gradient(120% 120% at 100% 50%,color-mix(in srgb,var(--recover) 10%,transparent),transparent 60%),var(--bg-panel-2);}
 .sci-node.is-leaf b{color:var(--recover);}
 .sci-rows{border:1px solid var(--line-strong);border-radius:12px;padding:12px 13px;background:var(--bg-sunken);}
 .sci-rows-head,.sci-rows-row{display:grid;grid-template-columns:0.7fr 1fr 0.75fr 0.9fr 0.5fr;gap:6px;align-items:center;}
