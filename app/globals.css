@@ -5435,21 +5435,47 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 
 .fscp-flow-body{position:relative;z-index:1;padding:clamp(20px,2.8vw,30px);display:grid;grid-template-columns:1fr 44px minmax(150px,0.62fr) 44px minmax(240px,0.9fr);gap:10px;align-items:center;}
 @media (max-width:900px){.fscp-flow-body{grid-template-columns:1fr;gap:18px;}}
+/* the eight domains read as ONE panel — same weight as the engine and the
+   register, so the diagram is three panels: domains -> DataTwin -> register */
+.fscp-flow-domains{align-self:center;border:1px solid var(--line-strong);border-radius:12px;padding:13px 13px 15px;background:var(--bg-sunken);}
 .fscp-flow-lbl{display:block;font-family:var(--font-mono),monospace;font-size:0.56rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:10px;}
 .fscp-flow-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
 @media (max-width:560px){.fscp-flow-tiles{grid-template-columns:repeat(3,1fr);}}
-.fscp-tile{text-align:center;border:1px solid var(--line);border-radius:9px;padding:9px 6px;background:var(--card-flat);}
+.fscp-tile{text-align:center;border:1px solid var(--line);border-radius:9px;padding:9px 6px;background:var(--bg-panel);}
 .fscp-tile b{display:block;font-family:var(--font-mono),monospace;font-size:0.82rem;font-weight:800;color:var(--brand-2);}
 .fscp-tile em{display:block;font-style:normal;font-size:0.6rem;color:var(--ink-soft);margin-top:2px;}
 
-.fscp-flow-wire{align-self:center;height:120px;display:flex;align-items:center;justify-content:center;}
-@media (max-width:900px){.fscp-flow-wire{height:auto;transform:rotate(90deg);}}
-.fscp-flow-wire svg{width:100%;height:44px;display:block;overflow:visible;}
-.fscp-flow-wire path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;}
-.fscp-flow-wire path.ln{stroke:var(--line-strong);stroke-width:1.4;}
-.fscp-flow-wire path.fx{stroke:var(--brand-2);stroke-width:6;stroke-linecap:round;opacity:.85;stroke-dasharray:0.01 999;stroke-dashoffset:0;}
-.fscp-flow-wire path.fx.is-g{stroke:var(--accent-lime);}
-@media (prefers-reduced-motion:no-preference){.fscp-flow-wire path.fx{animation:ar-flow 2.6s linear infinite;}}
+/* connector : a straight arrow bridging the 10px grid gap on each side, with
+   one calm travelling dot (matches the rebate-page cadence) */
+.fscp-flow-wire{align-self:center;position:relative;height:56px;}
+.fscp-flow-wire::before{
+  content:'';position:absolute;left:-12px;right:-13px;top:50%;height:1px;
+  background:var(--line-strong);transform:translateY(-.5px);
+}
+.fscp-flow-wire::after{
+  content:'';position:absolute;right:-13px;top:50%;width:0;height:0;
+  border:4px solid transparent;border-left-color:var(--line-strong);transform:translate(0,-50%);
+}
+.fscp-flow-wire > i{
+  position:absolute;left:-12px;top:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;
+  border-radius:50%;background:var(--brand-2);opacity:0;pointer-events:none;
+  box-shadow:0 0 9px color-mix(in srgb,var(--brand-2) 70%,transparent);--fscp-travel:69px;
+}
+.fscp-flow-wire.is-g > i{background:var(--accent-lime);box-shadow:0 0 9px color-mix(in srgb,var(--accent-lime) 70%,transparent);}
+@media (prefers-reduced-motion:no-preference){
+  .fscp-flow-wire > i{animation:fscp-relay 2.9s linear infinite;}
+  .fscp-flow-wire.is-g > i{animation-delay:1.1s;}
+}
+@keyframes fscp-relay{
+  0%{transform:translateX(0);opacity:0;}
+  14%{opacity:1;}
+  60%{transform:translateX(var(--fscp-travel));opacity:1;}
+  80%,100%{transform:translateX(var(--fscp-travel));opacity:0;}
+}
+@media (max-width:900px){
+  .fscp-flow-wire{height:0;}
+  .fscp-flow-wire::before,.fscp-flow-wire::after,.fscp-flow-wire > i{display:none;}
+}
 
 .fscp-flow-engine{align-self:center;text-align:center;border-radius:14px;padding:16px 14px;border:1px solid color-mix(in srgb,var(--brand-2) 32%,var(--line-strong));background:radial-gradient(200px 130px at 50% 0,color-mix(in srgb,var(--brand-2) 16%,transparent),transparent 66%),var(--bg-sunken);}
 .fscp-flow-engine-k{width:38px;height:38px;margin:0 auto 8px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;}

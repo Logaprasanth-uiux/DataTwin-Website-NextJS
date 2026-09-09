@@ -128,10 +128,7 @@ export default function FscpPage() {
               </div>
 
               <div className="fscp-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
+                <i></i>
               </div>
 
               <div className="fscp-flow-engine" aria-hidden="true">
@@ -140,11 +137,8 @@ export default function FscpPage() {
                 <span className="fscp-flow-engine-sub">Scores 204 metrics against your close</span>
               </div>
 
-              <div className="fscp-flow-wire" aria-hidden="true">
-                <svg viewBox="0 0 60 200" preserveAspectRatio="none">
-                  <path className="ln" d="M0,100 C30,100 30,100 60,100" />
-                  <path className="fx is-g" d="M0,100 C30,100 30,100 60,100" />
-                </svg>
+              <div className="fscp-flow-wire is-g" aria-hidden="true">
+                <i></i>
               </div>
 
               <div className="fscp-flow-reg" aria-hidden="true">
