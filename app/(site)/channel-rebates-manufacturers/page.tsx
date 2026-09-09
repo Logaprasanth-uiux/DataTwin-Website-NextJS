@@ -173,7 +173,7 @@ export default function ChannelRebatesManufacturersPage() {
       <section className="section mfr-stage-sec">
         <div className="wrap">
           <div className="mfr-stage-head" data-reveal>
-            <span className="mfr-stage-n">1</span>
+            <span className="mfr-stage-n">01</span>
             <div>
               <h2>It starts with what you actually authorised</h2>
               <p>
@@ -223,7 +223,7 @@ export default function ChannelRebatesManufacturersPage() {
       <section className="section mfr-stage-sec">
         <div className="wrap">
           <div className="mfr-stage-head" data-reveal>
-            <span className="mfr-stage-n">2</span>
+            <span className="mfr-stage-n">02</span>
             <div>
               <h2>Then every claim is tested, not sampled</h2>
               <p>
@@ -286,7 +286,7 @@ export default function ChannelRebatesManufacturersPage() {
         <div className="arc-glow g-violet"></div>
         <div className="wrap">
           <div className="mfr-stage-head" data-reveal>
-            <span className="mfr-stage-n">3</span>
+            <span className="mfr-stage-n">03</span>
             <div>
               <h2>The reserve is the number your auditor will actually test</h2>
               <p>

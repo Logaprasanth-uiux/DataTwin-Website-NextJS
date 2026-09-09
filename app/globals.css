@@ -5511,11 +5511,13 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .fscp-cnt.is-g b{color:var(--accent-lime);}
 .fscp-cnt span{display:block;margin-top:9px;font-family:var(--font-mono),monospace;font-size:0.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
 
-/* ---- stage head : number + text ---- */
-.fscp-stage-head{display:flex;gap:18px;align-items:flex-start;max-width:900px;margin:0 auto 30px;}
-.fscp-stage-n{font-family:var(--font-mono),monospace;font-size:1rem;font-weight:700;color:var(--brand-2);border:1px solid color-mix(in srgb,var(--brand-2) 32%,var(--line));border-radius:9px;padding:6px 11px;flex-shrink:0;}
-.fscp-stage-head h2{font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.16;margin-bottom:10px;}
-.fscp-stage-head p{font-size:1rem;color:var(--ink-soft);line-height:1.64;}
+/* ---- stage sections : bordered card + gradient-square number, left-aligned
+   head — same treatment as the AR / Taxation / Reconciliation / Rebates pages ---- */
+.fscp-stage-sec > .wrap{max-width:1000px;border:1px solid var(--line);border-radius:20px;background:var(--bg-panel);padding:clamp(22px,3vw,32px);}
+.fscp-stage-head{display:flex;gap:16px;align-items:flex-start;max-width:none;margin:0 0 22px;}
+.fscp-stage-n{width:44px;height:44px;flex-shrink:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono),monospace;font-weight:700;font-size:1.05rem;color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:0 8px 20px -10px color-mix(in srgb,var(--brand-2) 55%,transparent);}
+.fscp-stage-head h2{font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:8px;}
+.fscp-stage-head p{font-size:0.95rem;color:var(--ink-soft);line-height:1.62;}
 
 /* ---- sub cards : icon, kicker, body, bulleted list ---- */
 .fscp-subs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1080px;margin:0 auto;}

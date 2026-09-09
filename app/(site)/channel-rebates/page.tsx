@@ -178,7 +178,7 @@ export default function ChannelRebatesPage() {
       <section className="section crb-stage-sec">
         <div className="wrap">
           <div className="crb-stage-head" data-reveal>
-            <span className="crb-stage-n">1</span>
+            <span className="crb-stage-n">01</span>
             <div>
               <h2>The terms live outside the ledger, so that is where we start</h2>
               <p>
@@ -228,7 +228,7 @@ export default function ChannelRebatesPage() {
       <section className="section crb-stage-sec">
         <div className="wrap">
           <div className="crb-stage-head" data-reveal>
-            <span className="crb-stage-n">2</span>
+            <span className="crb-stage-n">02</span>
             <div>
               <h2>Then the true gross-to-net is rebuilt, transaction by transaction</h2>
               <p>
@@ -290,7 +290,7 @@ export default function ChannelRebatesPage() {
         <div className="arc-glow g-blue"></div>
         <div className="wrap">
           <div className="crb-stage-head" data-reveal>
-            <span className="crb-stage-n is-amber">3</span>
+            <span className="crb-stage-n is-amber">03</span>
             <div>
               <h2>Some of this money has an expiry date</h2>
               <p>
@@ -340,7 +340,7 @@ export default function ChannelRebatesPage() {
       <section className="section crb-stage-sec">
         <div className="wrap">
           <div className="crb-stage-head" data-reveal>
-            <span className="crb-stage-n">4</span>
+            <span className="crb-stage-n">04</span>
             <div>
               <h2>And the accrual is a number the auditor will ask about</h2>
               <p>

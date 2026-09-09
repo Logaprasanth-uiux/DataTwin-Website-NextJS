@@ -166,7 +166,7 @@ export default function PartnerPayoutsPage() {
       <section className="section ppo-stage-sec">
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
-            <span className="ppo-stage-n">1</span>
+            <span className="ppo-stage-n">01</span>
             <div>
               <h2>The scheme becomes a sheet, and the sheet is checked before it pays</h2>
               <p>
@@ -216,7 +216,7 @@ export default function PartnerPayoutsPage() {
       <section className="section ppo-stage-sec">
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
-            <span className="ppo-stage-n">2</span>
+            <span className="ppo-stage-n">02</span>
             <div>
               <h2>The measure has to be right before the rate matters</h2>
               <p>
@@ -267,7 +267,7 @@ export default function PartnerPayoutsPage() {
         <div className="arc-glow g-blue"></div>
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
-            <span className="ppo-stage-n">3</span>
+            <span className="ppo-stage-n">03</span>
             <div>
               <h2>Then the computation, in the shape your contract actually uses</h2>
               <p>
@@ -328,7 +328,7 @@ export default function PartnerPayoutsPage() {
       <section className="section ppo-stage-sec">
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
-            <span className="ppo-stage-n">4</span>
+            <span className="ppo-stage-n">04</span>
             <div>
               <h2>One partner can qualify under four schemes in the same month</h2>
               <p>
@@ -389,7 +389,7 @@ export default function PartnerPayoutsPage() {
       <section className="section ppo-stage-sec">
         <div className="wrap">
           <div className="ppo-stage-head" data-reveal>
-            <span className="ppo-stage-n">5</span>
+            <span className="ppo-stage-n">05</span>
             <div>
               <h2>What comes off, before anything goes out</h2>
               <p>

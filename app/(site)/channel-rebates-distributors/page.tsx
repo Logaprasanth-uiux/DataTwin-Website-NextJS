@@ -168,7 +168,7 @@ export default function ChannelRebatesDistributorsPage() {
       <section className="section dst-stage-sec">
         <div className="wrap">
           <div className="dst-stage-head" data-reveal>
-            <span className="dst-stage-n">1</span>
+            <span className="dst-stage-n">01</span>
             <div>
               <h2>First, what were you actually entitled to claim</h2>
               <p>
@@ -218,7 +218,7 @@ export default function ChannelRebatesDistributorsPage() {
       <section className="section dst-stage-sec">
         <div className="wrap">
           <div className="dst-stage-head" data-reveal>
-            <span className="dst-stage-n">2</span>
+            <span className="dst-stage-n">02</span>
             <div>
               <h2>Then, what was claimed, and what actually arrived</h2>
               <p>
@@ -282,7 +282,7 @@ export default function ChannelRebatesDistributorsPage() {
         <div className="arc-glow g-blue"></div>
         <div className="wrap">
           <div className="dst-stage-head" data-reveal>
-            <span className="dst-stage-n">3</span>
+            <span className="dst-stage-n">03</span>
             <div>
               <h2>And your own customer agreements leak in both directions</h2>
               <p>

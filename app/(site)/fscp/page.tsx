@@ -206,7 +206,7 @@ export default function FscpPage() {
       <section className="section fscp-stage-sec">
         <div className="wrap">
           <div className="fscp-stage-head" data-reveal>
-            <span className="fscp-stage-n">1</span>
+            <span className="fscp-stage-n">01</span>
             <div>
               <h2>The design rule: show only what is blocking the close</h2>
               <p>
@@ -257,7 +257,7 @@ export default function FscpPage() {
       <section className="section fscp-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
         <div className="wrap">
           <div className="fscp-stage-head" data-reveal>
-            <span className="fscp-stage-n">2</span>
+            <span className="fscp-stage-n">02</span>
             <div>
               <h2>Every metric declares the same six things</h2>
               <p>
@@ -405,7 +405,7 @@ export default function FscpPage() {
       <section className="section fscp-stage-sec" style={{ background: "var(--bg-panel-2)" }}>
         <div className="wrap">
           <div className="fscp-stage-head" data-reveal>
-            <span className="fscp-stage-n">3</span>
+            <span className="fscp-stage-n">03</span>
             <div>
               <h2>The same four stages the rest of the platform runs on</h2>
               <p>

@@ -167,7 +167,7 @@ export default function SalesCommissionsPage() {
       <section className="section sci-stage-sec">
         <div className="wrap">
           <div className="sci-stage-head" data-reveal>
-            <span className="sci-stage-n">1</span>
+            <span className="sci-stage-n">01</span>
             <div>
               <h2>The plan becomes a sheet, and the sheet is tested before anyone is paid on it</h2>
               <p>
@@ -217,7 +217,7 @@ export default function SalesCommissionsPage() {
       <section className="section sci-stage-sec">
         <div className="wrap">
           <div className="sci-stage-head" data-reveal>
-            <span className="sci-stage-n">2</span>
+            <span className="sci-stage-n">02</span>
             <div>
               <h2>Most disputes are about credit, not about rate</h2>
               <p>
@@ -268,7 +268,7 @@ export default function SalesCommissionsPage() {
         <div className="arc-glow g-blue"></div>
         <div className="wrap">
           <div className="sci-stage-head" data-reveal>
-            <span className="sci-stage-n">3</span>
+            <span className="sci-stage-n">03</span>
             <div>
               <h2>Then the computation, in the shape your plan actually uses</h2>
               <p>
@@ -329,7 +329,7 @@ export default function SalesCommissionsPage() {
       <section className="section sci-stage-sec">
         <div className="wrap">
           <div className="sci-stage-head" data-reveal>
-            <span className="sci-stage-n">4</span>
+            <span className="sci-stage-n">04</span>
             <div>
               <h2>The statement is the product, and it should answer the question before it is asked</h2>
               <p>
