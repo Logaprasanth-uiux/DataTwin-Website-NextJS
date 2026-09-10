@@ -1146,8 +1146,8 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 .cc-log :where(svg){width:14px;height:14px;}
 .cc-card .hero-proc-mark svg{width:12px;height:12px;}
 .cc-card-h{
-  font-family:var(--font-mono),monospace;font-size:0.68rem;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px;
+  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;
+  color:var(--ink-faint);margin-bottom:12px;
 }
 
 /* ---- service picker ---- */
@@ -1243,8 +1243,8 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 }
 .cc-report-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
 .cc-report-eyebrow{
-  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-faint);
+  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;
+  color:var(--ink-faint);
 }
 .cc-band{
   font-family:var(--font-mono),monospace;font-size:0.68rem;font-weight:700;letter-spacing:.06em;
@@ -1289,8 +1289,8 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
   padding:12px;border-radius:11px;border:1px solid var(--line);background:var(--bg-sunken);
 }
 .cc-metric-k{
-  display:block;font-family:var(--font-mono),monospace;font-size:0.66rem;letter-spacing:.05em;
-  text-transform:uppercase;color:var(--ink-faint);line-height:1.3;
+  display:block;font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;
+  color:var(--ink-faint);line-height:1.3;
 }
 .cc-metric-v{
   display:block;margin-top:6px;font-family:var(--font-mono),monospace;font-weight:600;
@@ -1311,8 +1311,8 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 /* inline contact form */
 .cc-form{display:flex;flex-direction:column;}
 .cc-form-eyebrow{
-  font-family:var(--font-mono),monospace;font-size:0.7rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--brand-2);margin-bottom:6px;
+  font-family:var(--font-mono),monospace;font-size:0.75rem;letter-spacing:.01em;
+  color:var(--brand-2);margin-bottom:6px;
 }
 .cc-field{margin-top:11px;}
 .cc-field label{display:block;font-size:0.8rem;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
@@ -1377,8 +1377,8 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 }
 .cc-suggest:hover{border-color:var(--brand-2);background:var(--card-flat-hover);}
 .cc-suggest-k{
-  flex-shrink:0;font-family:var(--font-mono),monospace;font-size:0.58rem;font-weight:700;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--brand-2);
+  flex-shrink:0;font-family:var(--font-mono),monospace;font-size:0.64rem;font-weight:700;letter-spacing:.01em;
+  color:var(--brand-2);
   border:1px solid color-mix(in srgb,var(--brand-2) 40%,transparent);border-radius:4px;padding:2px 6px;
 }
 .cc-suggest > span:nth-child(2){flex:1;min-width:0;}
@@ -1393,7 +1393,7 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 }
 .cc-exposure-hd{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
 .cc-exposure-eyebrow{
-  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;color:var(--ink-faint);
 }
 .cc-exposure .cc-band{
   font-family:var(--font-mono),monospace;font-size:0.66rem;font-weight:700;letter-spacing:.06em;
@@ -1414,7 +1414,7 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
   margin-top:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg-sunken);padding:12px 14px;
 }
 .cc-proj-h{
-  font-family:var(--font-mono),monospace;font-size:0.64rem;letter-spacing:.06em;text-transform:uppercase;
+  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;
   color:var(--ink-faint);margin-bottom:8px;
 }
 .cc-proj-row{
@@ -1467,7 +1467,7 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
   box-shadow:0 26px 64px -42px color-mix(in srgb,var(--accent-lime) 26%,rgba(0,0,0,.5));
 }
 .cc-reveal-eyebrow{
-  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);
+  font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;color:var(--ink-faint);
 }
 .cc-reveal-k{
   display:block;font-family:var(--font-mono),monospace;font-size:0.62rem;font-weight:700;letter-spacing:.07em;

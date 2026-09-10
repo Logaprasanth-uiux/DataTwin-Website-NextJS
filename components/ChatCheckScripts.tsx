@@ -656,6 +656,7 @@ export default function ChatCheckScripts() {
       phase = "report";
       setStatus("Results ready", true);
       const bandClass = r.band === "GREEN" ? "is-green" : r.band === "RED" ? "is-red" : "is-yellow";
+      const bandLabel = r.band.charAt(0) + r.band.slice(1).toLowerCase(); // "YELLOW" -> "Yellow"
       const gauge = r.breakdown
         .filter((b) => b.count > 0)
         .map((b) => '<span class="cc-seg is-' + b.tone + '" style="flex-grow:' + b.count + '"></span>')
@@ -675,7 +676,7 @@ export default function ChatCheckScripts() {
       const card = turnAI(
         '<div class="cc-report">' +
           '<div class="cc-report-head"><span class="cc-report-eyebrow">' + esc(r.title) + "</span>" +
-          '<span class="cc-band ' + bandClass + '">' + esc(r.band) + " risk band</span></div>" +
+          '<span class="cc-band ' + bandClass + '">' + esc(bandLabel) + " risk band</span></div>" +
           '<div class="cc-report-score"><span class="cc-score-num" data-to="' + r.score + '">0.00</span>' +
           '<span class="cc-score-cap">Overall score &middot; ' + r.total + " validations executed</span></div>" +
           '<div class="cc-gauge">' + gauge + "</div>" +

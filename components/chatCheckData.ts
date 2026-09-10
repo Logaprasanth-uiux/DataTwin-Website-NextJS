@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
 // screenshot exactly; the others are shaped the same with domain labels.
 export const RESULTS: Record<string, Report> = {
   gst: {
-    title: "GST Health Score",
+    title: "GST health score",
     score: 83.86,
     band: "YELLOW",
     total: 140,
@@ -130,7 +130,7 @@ export const RESULTS: Record<string, Report> = {
     ],
   },
   ap: {
-    title: "Payables Health Score",
+    title: "Payables health score",
     score: 78.4,
     band: "YELLOW",
     total: 132,
@@ -151,7 +151,7 @@ export const RESULTS: Record<string, Report> = {
     ],
   },
   rebates: {
-    title: "Rebate Health Score",
+    title: "Rebate health score",
     score: 71.2,
     band: "RED",
     total: 118,
@@ -172,7 +172,7 @@ export const RESULTS: Record<string, Report> = {
     ],
   },
   recon: {
-    title: "Close Health Score",
+    title: "Close health score",
     score: 88.9,
     band: "GREEN",
     total: 146,
@@ -256,8 +256,7 @@ export type ConvoTurn = { ai?: string; user?: string };
    "signed" (SCN2_REVEAL). */
 export const SCN2_CONVO: ConvoTurn[] = [
   {
-    ai:
-      "I'm the DataTwin assistant. I check whether your products are filed under the right GST classification and rate. Tell me a bit about your business.",
+    ai: "I'm the DataTwin assistant. Tell me a bit about your business.",
   },
   {
     user:
