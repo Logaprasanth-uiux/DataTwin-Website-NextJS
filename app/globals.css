@@ -1508,19 +1508,23 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 .cc-act-primary{border-color:transparent;color:var(--brand-ink);background:linear-gradient(135deg,var(--brand),var(--brand-2));}
 .cc-act-primary:hover:not(:disabled){color:var(--brand-ink);}
 
-/* ---- "more below" hint (shown when a tall response lands at its top) ---- */
+/* ---- "scroll down for more" hint (shown while the last message runs off the
+   bottom of the view). Visibility is driven by the [hidden] attribute alone —
+   no transition/class timing to get stuck in a throttled tab. ---- */
 .cc-more{
-  position:fixed;left:50%;bottom:96px;transform:translate(-50%,6px);z-index:24;
-  display:inline-flex;align-items:center;gap:5px;
-  padding:5px 12px;border-radius:100px;
-  font-size:0.74rem;font-weight:600;color:var(--ink-soft);
-  background:var(--bg-panel);border:1px solid var(--line-strong);
-  box-shadow:0 10px 30px -12px rgba(0,0,0,.35);
-  opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;
+  position:fixed;left:50%;bottom:94px;transform:translateX(-50%);z-index:24;
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;cursor:pointer;
+  padding:7px 16px;border-radius:100px;
+  font-size:0.76rem;font-weight:600;color:var(--ink);opacity:1;
+  background:var(--bg-panel);border:1px solid color-mix(in srgb,var(--brand-2) 40%,var(--line-strong));
+  box-shadow:0 12px 34px -12px color-mix(in srgb,var(--brand-2) 35%,rgba(0,0,0,.4));
 }
-.cc-more.is-in{opacity:1;transform:translate(-50%,0);pointer-events:auto;cursor:pointer;}
+.cc-more:hover{border-color:var(--brand-2);}
 .cc-more svg{color:var(--brand-2);}
-@media (prefers-reduced-motion:reduce){.cc-more{transition:none;}}
+@media (prefers-reduced-motion:no-preference){
+  .cc-more svg{animation:cc-more-bob 1.4s ease-in-out infinite;}
+}
+@keyframes cc-more-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(2px);}}
 
 /* ---- flagged-rows viewer : right-side drawer with a mock sheet ---- */
 .cc-docview{position:fixed;inset:0;z-index:60;}

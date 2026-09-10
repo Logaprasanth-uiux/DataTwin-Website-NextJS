@@ -81,8 +81,9 @@ export default function ChatCheckScripts() {
     /* ---------- scroll placement ----------
        Short responses scroll to the bottom, as usual. A response taller than
        the viewport lands with its TOP just under the header and then stops
-       chasing — the user reads it top-down at their own pace. Auto-scroll
-       resumes on the user's next action (see the shell click listener). */
+       chasing — the reader works down it at their own pace. A "scroll down for
+       more detail" chip shows whenever the bottom of the last message sits
+       below the fold, and clears itself once it comes into view. */
     let holdScroll = false;
     let moreHint: HTMLButtonElement | null = null;
 
@@ -90,9 +91,12 @@ export default function ChatCheckScripts() {
       const h = document.querySelector(".est-header") as HTMLElement | null;
       return (h?.offsetHeight || 58) + 8;
     }
-    function viewRoom() {
+    function composerH() {
       const c = document.querySelector(".est-composer") as HTMLElement | null;
-      return window.innerHeight - chromeTop() - (c?.offsetHeight || 96) - 16;
+      return c?.offsetHeight || 96;
+    }
+    function viewRoom() {
+      return window.innerHeight - chromeTop() - composerH() - 16;
     }
     function toBottom() {
       window.scrollTo({ top: document.body.scrollHeight, behavior: reduce ? "auto" : "smooth" });
@@ -100,27 +104,30 @@ export default function ChatCheckScripts() {
     function place(el: HTMLElement) {
       const r = el.getBoundingClientRect();
       if (r.height > viewRoom()) {
+        // taller than the viewport: snap its top under the header (instant — an
+        // animated jump here is more disorienting than helpful) and hold there
         const target = Math.max(0, window.scrollY + r.top - chromeTop());
-        if (Math.abs(window.scrollY - target) > 4)
-          window.scrollTo({ top: target, behavior: reduce ? "auto" : "smooth" });
+        if (Math.abs(window.scrollY - target) > 4) window.scrollTo({ top: target, behavior: "auto" });
         holdScroll = true;
-        toggleMore(true);
       } else if (!holdScroll) {
         toBottom();
       }
+      refreshHint();
     }
     function toggleMore(show: boolean) {
-      if (!moreHint) return;
-      if (show) {
-        moreHint.hidden = false;
-        requestAnimationFrame(() => moreHint && moreHint.classList.add("is-in"));
-      } else {
-        moreHint.classList.remove("is-in");
-        setTimeout(() => moreHint && !moreHint.classList.contains("is-in") && (moreHint.hidden = true), 260);
-      }
+      if (moreHint) moreHint.hidden = !show;
     }
-    function scrollDown() {
-      if (!holdScroll) toBottom();
+    // show the chip whenever the bottom of the last message runs off the view
+    function refreshHint() {
+      const last = log.lastElementChild as HTMLElement | null;
+      if (!moreHint || !last) return;
+      const visibleBottom = window.innerHeight - composerH() - 6;
+      toggleMore(last.getBoundingClientRect().bottom > visibleBottom + 40);
+    }
+    let hintTick = 0;
+    function scheduleHint() {
+      clearTimeout(hintTick);
+      hintTick = window.setTimeout(refreshHint, 120);
     }
     (function () {
       const shell = document.querySelector(".est-shell") || document.body;
@@ -129,19 +136,19 @@ export default function ChatCheckScripts() {
       moreHint.className = "cc-more";
       moreHint.hidden = true;
       moreHint.innerHTML =
-        'more below <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+        'Scroll down to view more detail <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
       shell.appendChild(moreHint);
       moreHint.addEventListener("click", () =>
         window.scrollBy({ top: viewRoom() * 0.82, behavior: "smooth" })
       );
-      // any real scroll dismisses the hint; a button/link/choice click resumes auto-scroll
-      window.addEventListener("scroll", () => toggleMore(false), { passive: true });
+      window.addEventListener("scroll", scheduleHint, { passive: true });
+      window.addEventListener("resize", scheduleHint);
       shell.addEventListener(
         "click",
         (e) => {
           if ((e.target as HTMLElement).closest("button:not(.cc-more), .cc-choice, .cc-suggest, a")) {
             holdScroll = false;
-            toggleMore(false);
+            scheduleHint();
           }
         },
         true
@@ -186,13 +193,15 @@ export default function ChatCheckScripts() {
       row.innerHTML = '<div class="cc-bubble">' + esc(text) + "</div>";
       log.appendChild(row);
       holdScroll = false;
-      toggleMore(false);
       place(row);
     }
     function streamScroll(row: HTMLElement | null) {
       if (!row || holdScroll) return;
       if (row.getBoundingClientRect().height > viewRoom()) place(row);
-      else window.scrollTo({ top: document.body.scrollHeight });
+      else {
+        window.scrollTo({ top: document.body.scrollHeight });
+        refreshHint();
+      }
     }
     function bubbleAI(text: string) {
       return turnAI(esc(text));
@@ -855,7 +864,7 @@ export default function ChatCheckScripts() {
     async function scn2Contact() {
       phase = "contact";
       await wait(reduce ? 1 : 600);
-      await say("To turn this into the exact code change and a refund claim, the DataTwin team needs to review your file. Leave your details and they'll take it from here.");
+      await say("The specific correction — and everything it recovers — opens up once the DataTwin team has reviewed your file. Leave your details and they'll take it from here.");
       const card = turnAI(
         '<div class="cc-card"><form class="cc-form" id="ccForm2" autocomplete="off">' +
           '<div class="cc-form-eyebrow">Connect with the DataTwin team</div>' +
