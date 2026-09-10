@@ -1511,6 +1511,7 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 /* ---- "scroll down for more" hint (shown while the last message runs off the
    bottom of the view). Visibility is driven by the [hidden] attribute alone —
    no transition/class timing to get stuck in a throttled tab. ---- */
+.cc-more[hidden]{display:none;}
 .cc-more{
   position:fixed;left:50%;bottom:94px;transform:translateX(-50%);z-index:24;
   display:inline-flex;align-items:center;gap:6px;white-space:nowrap;cursor:pointer;

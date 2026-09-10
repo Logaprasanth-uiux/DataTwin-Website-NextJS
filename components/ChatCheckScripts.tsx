@@ -109,20 +109,29 @@ export default function ChatCheckScripts() {
         const target = Math.max(0, window.scrollY + r.top - chromeTop());
         if (Math.abs(window.scrollY - target) > 4) window.scrollTo({ top: target, behavior: "auto" });
         holdScroll = true;
+        refreshHint();
       } else if (!holdScroll) {
-        toBottom();
+        toBottom(); // scrolling to the bottom — the new turn will be in view
+        toggleMore(false);
+      } else {
+        refreshHint(); // holding on a tall card, more added below it
       }
-      refreshHint();
     }
     function toggleMore(show: boolean) {
       if (moreHint) moreHint.hidden = !show;
     }
-    // show the chip whenever the bottom of the last message runs off the view
+    // show the chip only when the page can actually scroll AND the bottom of the
+    // last message sits below the fold (the composer covers the lowest strip)
     function refreshHint() {
       const last = log.lastElementChild as HTMLElement | null;
-      if (!moreHint || !last) return;
-      const visibleBottom = window.innerHeight - composerH() - 6;
-      toggleMore(last.getBoundingClientRect().bottom > visibleBottom + 40);
+      const vh = window.innerHeight;
+      const canScroll = document.documentElement.scrollHeight - vh > 8;
+      if (!moreHint || !last || !canScroll || vh < 240) {
+        toggleMore(false);
+        return;
+      }
+      const foldY = vh - composerH() - 6;
+      toggleMore(last.getBoundingClientRect().bottom - foldY > 40);
     }
     let hintTick = 0;
     function scheduleHint() {
