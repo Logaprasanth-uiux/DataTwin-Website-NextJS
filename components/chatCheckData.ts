@@ -368,3 +368,130 @@ export const SCN2_SHEET = {
     { cells: ["INV-4482", "16 Aug", "Coconut oil — sachet", "3305 90", "100 ml", "1,180", "23,600", "18%"] },
   ],
 };
+
+/* ============================================================================
+   DEMO Scenario 3 — "coaching institute" (recipient & e-invoice compliance)
+   Loosely inspired by a real Rajasthan AAR order on coaching-institute
+   invoicing — used only as the legal/business basis for the scenario. Every
+   name, count, date and figure below is an illustrative demo value, not a
+   fact from that order.
+   ========================================================================= */
+
+/* Neutral fact-gathering, same voice as Scenario 2: who receives the
+   coaching, who pays, whose GSTIN ends up on the invoice. No verdict yet. */
+export const SCN3_CONVO: ConvoTurn[] = [
+  { ai: "I'm the DataTwin assistant. Tell me a bit about your business." },
+  {
+    user:
+      "We're a coaching institute — we prepare students for competitive exams like IIT-JEE and NEET.",
+  },
+  { ai: "Thanks. How are your coaching fees usually paid, and who do you invoice?" },
+  {
+    user:
+      "Usually the student or their parents pay us directly. Sometimes a company sponsors a student and gives us its GSTIN to bill against.",
+  },
+  { ai: "And in those cases, who actually receives the coaching — the student, or whoever's paying?" },
+  {
+    user:
+      "The student always receives the coaching. The parent or the sponsor is just paying, and they want the invoice issued to their GSTIN.",
+  },
+  {
+    ai:
+      "Got it. Send me a few sample invoices, your registration details and your enrolment records, and I'll check how those are being handled.",
+  },
+];
+
+export const SCN3_DOCS: DocSpec[] = [
+  {
+    id: "coaching-invoices",
+    label: "Sample coaching invoices",
+    hint: "a mix of student, parent and sponsor-billed invoices",
+    needs:
+      "a few of these show a GSTIN that doesn't match the student's enrolment or file — I'll flag the inconsistent ones and take the rest",
+  },
+  { id: "gst-registration", label: "GST registration certificate", hint: "your current registration details" },
+  { id: "enrolment-records", label: "Admission / enrolment records", hint: "who's enrolled, and for which course" },
+  { id: "fee-records", label: "Fee & payment records", hint: "who actually paid, per student" },
+  { id: "sponsorship-agreements", label: "Sponsorship / payment agreements", hint: "where a business pays on a student's behalf" },
+  { id: "e-invoice-sample", label: "Sample e-invoices (IRN records)", hint: "a few recent e-invoices, where applicable" },
+];
+
+export const SCN3_CHECK_STEPS = [
+  "Reading the invoices and registration details",
+  "Identifying who's liable to pay",
+  "Checking the GSTIN used against enrolment records",
+  "Checking e-invoice applicability",
+];
+
+/* Result the user sees BEFORE connecting: a count of invoices that need a
+   closer look and why, with no legal conclusion or specific provision. */
+export const SCN3_FINDING = {
+  eyebrow: "GST position · coaching institute",
+  band: "Needs review",
+  bigNumber: 24,
+  headline: "coaching invoices potentially need review",
+  sub:
+    "Some invoices carry the GSTIN of a parent, guardian or sponsoring business, while the student is who actually receives the coaching. That raises a question on the correct recipient and e-invoice treatment — the detail is below.",
+  breakdown: [
+    { k: "review period", v: "Apr 2025 – Mar 2026" },
+    { k: "invoice population", v: "24 of 340 validated" },
+    { k: "sponsor / third-party paid", v: "9 invoices" },
+  ],
+  note: "Illustrative demo figures — confirmed against your filings once our team reviews.",
+};
+
+// shown blurred behind the lock — the shape of the findings, not the answer
+export const SCN3_LOCKED = [
+  { label: "Recipient determination", amount: "review needed" },
+  { label: "GSTIN usage vs. enrolment", amount: "9 flagged" },
+  { label: "E-invoice applicability", amount: "check required" },
+  { label: "Corrective documentation", amount: "required" },
+  { label: "Filing alignment", amount: "pending" },
+];
+
+export const SCN3_LOCK_NOTE =
+  "The detailed assessment, the applicable provisions and the recommended next steps open up once the DataTwin team has reviewed your file and the engagement is signed.";
+
+export const SCN3_REVEAL = {
+  eyebrow: "Recipient & e-invoice assessment",
+  today: {
+    label: "Coaching invoice raised to the payer's GSTIN, on request",
+    meta: "No documented basis for treating the payer as recipient",
+  },
+  corrected: {
+    label: "Recipient determined and documented against the student's enrolment",
+    meta: "GSTIN usage and e-invoice treatment aligned to that basis",
+  },
+  adjustment:
+    "Under Section 2(93) of the CGST Act, the recipient is whoever is liable to pay the consideration — that can be the parent, guardian or a sponsoring business, even though the student is who receives the coaching. Section 31 and Rule 48(4) then govern how the tax invoice and e-invoice are raised against that recipient. Where a payer supplies a GSTIN and asks for the invoice against it, you're not required to independently verify that they'll use the service for business purposes or that they're eligible to claim ITC — that sits between the recipient and their own filings. What matters is documenting who is paying, on what basis, and applying Notification No. 13/2020-Central Tax (as amended) consistently for every invoice raised that way.",
+  worth: [
+    { k: "invoices reviewed", v: "24 of 340" },
+    { k: "recipient basis documented", v: "Sec 2(93), CGST Act" },
+    { k: "e-invoice treatment", v: "Reviewed & aligned" },
+  ],
+  closing: "a corrective-filing checklist",
+  closingNote: "prepared for the affected invoices",
+};
+
+/* Mock invoice register shown when the user clicks "View the flagged rows"
+   on Scenario 3's sample invoices. Flags are all about the GSTIN column —
+   missing, mismatched or invalid — never a verdict on the transaction. */
+export const SCN3_SHEET = {
+  file: "coaching_invoices.xlsx",
+  sheet: "FY 2025-26",
+  note:
+    "3 invoices flagged — the GSTIN used doesn't match the student's enrolment or a sponsor on file. These are set aside; the rest is used as-is.",
+  cols: ["Invoice", "Date", "Student", "Payer", "GSTIN used", "Amount ₹"],
+  rows: [
+    { cells: ["INV-2201", "04 Apr 2025", "A. Sharma", "Parent", "08ABCPX1234F1Z5", "1,20,000"] },
+    { cells: ["INV-2202", "07 Apr 2025", "R. Iyer", "Self", "", "95,000"] },
+    { cells: ["INV-2203", "09 Apr 2025", "K. Verma", "Sponsor — Nova Edu Pvt Ltd", "09NOVAX5678K1Z2", "1,40,000"] },
+    { cells: ["INV-2204", "12 Apr 2025", "S. Rao", "Parent", "", "95,000"], flag: true, flagCol: 4, note: "GSTIN missing, sponsor claimed verbally" },
+    { cells: ["INV-2205", "15 Apr 2025", "T. Bose", "Self", "", "95,000"] },
+    { cells: ["INV-2206", "18 Apr 2025", "M. Nair", "Sponsor — Bright Future Ltd", "27BRIGF9012L1Z8", "1,40,000"], flag: true, flagCol: 4, note: "GSTIN belongs to an unrelated entity" },
+    { cells: ["INV-2207", "21 Apr 2025", "P. Desai", "Parent", "", "95,000"] },
+    { cells: ["INV-2208", "24 Apr 2025", "V. Menon", "Self", "", "95,000"] },
+    { cells: ["INV-2209", "27 Apr 2025", "J. Khan", "Sponsor — Nova Edu Pvt Ltd", "09NOVAX567K1Z2", "1,40,000"], flag: true, flagCol: 4, note: "GSTIN checksum invalid" },
+    { cells: ["INV-2210", "30 Apr 2025", "H. Gupta", "Parent", "", "95,000"] },
+  ],
+};

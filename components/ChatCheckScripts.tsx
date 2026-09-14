@@ -26,6 +26,14 @@ import {
   SCN2_LOCK_NOTE,
   SCN2_REVEAL,
   SCN2_SHEET,
+  SCN3_CONVO,
+  SCN3_DOCS,
+  SCN3_CHECK_STEPS,
+  SCN3_FINDING,
+  SCN3_LOCKED,
+  SCN3_LOCK_NOTE,
+  SCN3_REVEAL,
+  SCN3_SHEET,
   type Service,
   type DocSpec,
   type Report,
@@ -281,6 +289,8 @@ export default function ChatCheckScripts() {
       attempts: number;
       _file?: string;
       _note?: string;
+      _changeNote?: string; // Scenario 3 files panel: "Replaced" / "Removed" note
+      _everUploaded?: boolean; // Scenario 3 files panel: has this doc been added at least once this run
     };
     let docs: DocRow[] = [];
     let panel: HTMLElement | null = null;
@@ -417,6 +427,7 @@ export default function ChatCheckScripts() {
         panel.innerHTML = html;
       }
       wirePanel();
+      if (activeScenario === 3) renderFilesPanel();
     }
 
     function wirePanel() {
@@ -465,6 +476,7 @@ export default function ChatCheckScripts() {
         await wait(reduce ? 1 : 820);
         d._file = fakeName(d);
         d.status = "ready";
+        d._everUploaded = true;
         renderPanel();
       } finally {
         uploadsInFlight--;
@@ -493,6 +505,7 @@ export default function ChatCheckScripts() {
           d.status = "ok";
           d._note = "";
         }
+        d._changeNote = undefined; // settled — clear any "replaced/removed" note
         renderPanel();
         await wait(reduce ? 1 : 160);
       }
@@ -518,7 +531,9 @@ export default function ChatCheckScripts() {
     }
 
     function showFlagActions(d: DocRow) {
-      const canView = activeScenario === 2 && d.id === "sales-register";
+      const canView =
+        (activeScenario === 2 && d.id === "sales-register") ||
+        (activeScenario === 3 && d.id === "coaching-invoices");
       const card = turnAI(
         '<div class="cc-card cc-flag-acts">' +
           '<div class="cc-card-h">' + esc(d.label) + " — how do you want to handle it?</div>" +
@@ -572,7 +587,7 @@ export default function ChatCheckScripts() {
     function openDocView() {
       // drop any drawer that's mid-close so a fresh one can't stack behind it
       document.querySelectorAll(".cc-docview").forEach((n) => n.remove());
-      const S = SCN2_SHEET;
+      const S = activeScenario === 3 ? SCN3_SHEET : SCN2_SHEET;
       const hasFlags = S.rows.some((r) => r.flag);
       const head =
         "<tr>" + S.cols.map((c) => "<th>" + esc(c) + "</th>").join("") + (hasFlags ? "<th>Flag</th>" : "") + "</tr>";
@@ -768,6 +783,129 @@ export default function ChatCheckScripts() {
     }
 
     /* ======================================================================
+       Scenario 3 only — the uploaded-files side panel
+       A running list of everything in `docs`, with Replace / Remove per row.
+       Reuses the same `docs` array the main chat upload panel drives, so the
+       two always agree. Replacing re-runs the normal upload animation
+       (`uploadDoc`), which on its own re-triggers auto-verify once every
+       required document is back to ready/ok. Removing resets that row to
+       "not uploaded" — the check won't auto-run again until it's re-added.
+       ==================================================================== */
+    const filesPanel = document.getElementById("ccFiles") as HTMLElement | null;
+    const filesList = document.getElementById("ccFilesList") as HTMLElement | null;
+    const filesTab = document.getElementById("ccFilesTab") as HTMLButtonElement | null;
+    const filesClose = document.getElementById("ccFilesClose") as HTMLButtonElement | null;
+    const filesCountEls = [
+      document.getElementById("ccFilesCount"),
+      document.getElementById("ccFilesTabCount"),
+    ].filter(Boolean) as HTMLElement[];
+    const INFO_IC =
+      '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>';
+
+    // stays true for the rest of this scenario run once anything has been
+    // uploaded — so a doc removed later still shows a row (with an Upload
+    // button) instead of the panel vanishing or the row disappearing
+    let filesActivated = false;
+
+    function showFilesPanel() {
+      filesPanel?.removeAttribute("hidden");
+      filesTab?.removeAttribute("hidden");
+      document.querySelector(".est-shell")?.classList.add("cc-has-files");
+    }
+    function hideFilesPanel() {
+      filesActivated = false;
+      filesPanel?.setAttribute("hidden", "");
+      filesPanel?.classList.remove("is-open");
+      filesTab?.setAttribute("hidden", "");
+      document.querySelector(".est-shell")?.classList.remove("cc-has-files");
+    }
+    function renderFilesPanel() {
+      if (!filesList) return;
+      const touched = docs.filter((d) => d._everUploaded);
+      if (!filesActivated) {
+        if (!touched.length) return; // nothing uploaded yet — stay hidden
+        filesActivated = true;
+      }
+      showFilesPanel();
+      const uploadedCount = docs.filter((d) => d.status !== "empty").length;
+      filesCountEls.forEach((el) => (el.textContent = String(uploadedCount)));
+      // only documents touched at least once this run appear here — never the
+      // ones still sitting untouched in the main upload panel
+      filesList.innerHTML = touched
+        .map((d) => {
+          const isEmpty = d.status === "empty";
+          const cls = d.status === "ok" ? " is-ok" : d.status === "flag" ? " is-flag" : isEmpty ? " is-pending" : "";
+          const mark =
+            d.status === "ok" ? CHECK
+            : d.status === "flag" ? "!"
+            : '<svg class="stroke" width="13" height="13" viewBox="0 0 24 24"><use href="#ic-doc" /></svg>';
+          const stateTxt =
+            isEmpty ? "Not uploaded"
+            : d.status === "ok" ? (d._note ? "Taken" : "Verified")
+            : d.status === "flag" ? "Needs a look"
+            : d.status === "checking" ? "Checking…"
+            : "Added";
+          const disabled = d.status === "checking" ? " disabled" : "";
+          const note = d._changeNote
+            ? '<p class="cc-file-note">' + INFO_IC + esc(d._changeNote) + "</p>"
+            : "";
+          const acts = isEmpty
+            ? '<button class="cc-file-act" type="button" data-act="upload">Upload</button>'
+            : '<button class="cc-file-act" type="button" data-act="replace"' + disabled + ">Replace</button>" +
+              '<button class="cc-file-act is-danger" type="button" data-act="remove"' + disabled + ">Remove</button>";
+          return (
+            '<div class="cc-file' + cls + '" data-id="' + d.id + '">' +
+            '<div class="cc-file-row"><span class="cc-file-ic">' + mark + "</span>" +
+            '<span class="cc-file-tx"><b>' + esc(d.label) + "</b><span>" +
+            (isEmpty ? esc(d.hint) : esc(d._file || "") + " · " + stateTxt) + "</span></span></div>" +
+            '<div class="cc-file-acts">' + acts + "</div>" + note +
+            "</div>"
+          );
+        })
+        .join("");
+    }
+    // one file changed from the panel — tell the user, in the chat and on the row
+    function noteFileChange(d: DocRow, kind: "replaced" | "removed") {
+      const willRecheck = kind === "replaced" && docs.every((x) => x.status === "ready" || x.status === "ok");
+      d._changeNote =
+        kind === "replaced"
+          ? "Replaced" + (willRecheck ? " — re-checking this file now." : " — picked up once every document is back in.")
+          : "Removed — use Upload on this row (or the chat above) to add it again.";
+      renderFilesPanel();
+      const msg =
+        kind === "replaced"
+          ? "You replaced " + d.label.toLowerCase() + "." + (willRecheck ? " I'll factor the new file into the check now." : " I'll pick it up once the rest are back in.")
+          : "You removed " + d.label.toLowerCase() + " from the set. It'll need to be re-added before I can run the check again.";
+      turnAI('<div class="cc-card"><div class="cc-card-h">File updated</div><p class="cc-card-p">' + esc(msg) + "</p></div>", true);
+    }
+    if (filesList) {
+      filesList.addEventListener("click", function (e) {
+        const btn = (e.target as HTMLElement).closest<HTMLButtonElement>(".cc-file-act");
+        if (!btn || btn.disabled) return;
+        const id = btn.closest<HTMLElement>(".cc-file")?.getAttribute("data-id");
+        const d = id ? docs.find((x) => x.id === id) : undefined;
+        if (!d || d.status === "checking") return;
+        const act = btn.getAttribute("data-act");
+        if (act === "remove") {
+          d.status = "empty";
+          d._file = undefined;
+          d._note = undefined;
+          noteFileChange(d, "removed");
+          renderPanel();
+        } else if (act === "replace") {
+          uploadDoc(d.id).then(() => noteFileChange(d, "replaced"));
+        } else if (act === "upload") {
+          uploadDoc(d.id);
+        }
+      });
+    }
+    filesTab?.addEventListener("click", () => filesPanel?.classList.add("is-open"));
+    filesClose?.addEventListener("click", () => filesPanel?.classList.remove("is-open"));
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && filesPanel?.classList.contains("is-open")) filesPanel.classList.remove("is-open");
+    });
+
+    /* ======================================================================
        DEMO Scenario 2 — "coconut oil"
        ==================================================================== */
     function suggestUser(text: string) {
@@ -955,31 +1093,189 @@ export default function ChatCheckScripts() {
       await say("The team will send the filing pack — the revised product master, the label wording, and the GSTR amendments ready to lodge.");
     }
 
-    /* ---------- DEMO : scenario placeholder + switcher ---------- */
-    async function scenarioPending(label: string) {
+    /* ======================================================================
+       DEMO Scenario 3 — "coaching institute" (recipient & e-invoice)
+       Same shape as Scenario 2: neutral fact-gathering -> documents (auto-run,
+       one flags) -> a pre-connect finding (a count, not a verdict) -> contact
+       -> simulated signature -> the detailed assessment. Only this scenario
+       shows the uploaded-files side panel.
+       ==================================================================== */
+    async function scenario3() {
       const g = runGen;
-      await wait(300);
+      setStatus("Getting started");
+      // the files panel stays hidden until the first document is uploaded —
+      // renderFilesPanel() reveals it lazily, once docs actually has one
+      for (const turn of SCN3_CONVO) {
+        if (turn.ai) await say(turn.ai);
+        else if (turn.user) await suggestUser(turn.user);
+        if (stale(g)) return;
+      }
+
+      phase = "upload";
+      setStatus("Collecting documents");
+      afterDocs = scn3AfterDocs;
+      docs = SCN3_DOCS.map((d) => ({ ...d, status: "empty", attempts: 0 }));
+      await say("I'll need these — Excel, CSV or PDF is fine, add them in any order. When they're all in I'll check the compliance position.");
       if (stale(g)) return;
-      await say(
-        "This is the " + label + " scenario. Its conversation is still being designed — " +
-          "switch to Scenario 1 above to see the working flow."
-      );
+      renderPanel();
+    }
+
+    async function scn3AfterDocs() {
+      const g = runGen;
+      phase = "analysing";
+      setStatus("Checking compliance");
+      await runChecklist(SCN3_CHECK_STEPS, "Running the compliance check");
       if (stale(g)) return;
+      await say("Here's what I'm seeing.");
+      if (stale(g)) return;
+      scn3Finding();
+    }
+
+    function scn3Finding() {
+      phase = "report";
+      setStatus("Results ready", true);
+      const F = SCN3_FINDING;
+      const rows = F.breakdown
+        .map((p) => '<div class="cc-proj-row"><span>' + esc(p.k) + '</span><b>' + esc(p.v) + "</b></div>")
+        .join("");
+      const locked = SCN3_LOCKED
+        .map(
+          (f) =>
+            '<div class="cc-lock-row"><span>' + esc(f.label) + '</span><span class="cc-lock-amt">' + esc(f.amount) + "</span></div>"
+        )
+        .join("");
       turnAI(
-        '<div class="cc-card cc-stub"><div class="cc-card-h">' + esc(label) + " scenario</div>" +
-          '<p>Placeholder. The real flow drops in here once it’s specified.</p></div>',
+        '<div class="cc-exposure">' +
+          '<div class="cc-exposure-hd">' +
+          '<span class="cc-exposure-eyebrow">' + esc(F.eyebrow) + "</span>" +
+          '<span class="cc-band is-amber">' + esc(F.band) + "</span></div>" +
+          '<div class="cc-exposure-big"><span class="cc-exposure-num" data-to="' + F.bigNumber + '">0</span>' +
+          '<span class="cc-exposure-cap">' + esc(F.headline) + "</span></div>" +
+          '<p class="cc-exposure-sub">' + esc(F.sub) + "</p>" +
+          '<div class="cc-proj"><div class="cc-proj-h">What we’re seeing</div>' + rows + "</div>" +
+          '<p class="cc-report-note">' + esc(F.note) + "</p>" +
+          '<div class="cc-locked"><div class="cc-lock-list">' + locked + "</div>" +
+          '<div class="cc-lock-over"><span class="cc-lock-ic"><svg class="stroke" width="15" height="15" viewBox="0 0 24 24"><use href="#ic-lock" /></svg></span>' +
+          "<p>" + esc(SCN3_LOCK_NOTE) + "</p></div></div>" +
+          "</div>",
         true
       );
+
+      const numEl = document.querySelector<HTMLElement>(".cc-exposure-num");
+      if (numEl) {
+        const myGen = runGen;
+        const land = () => { if (runGen === myGen && numEl.isConnected) numEl.textContent = String(F.bigNumber); };
+        if (reduce) land();
+        else {
+          const t0 = performance.now();
+          const tick = (now: number) => {
+            if (runGen !== myGen || !numEl.isConnected) return;
+            const p = Math.min(1, (now - t0) / 1100);
+            numEl.textContent = String(Math.round(F.bigNumber * (1 - Math.pow(1 - p, 3))));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+          setTimeout(land, 1400);
+        }
+      }
+      scn3Contact();
     }
+
+    async function scn3Contact() {
+      phase = "contact";
+      await wait(reduce ? 1 : 600);
+      await say("The detailed assessment needs a closer look at the affected invoices. Leave your details and the DataTwin team can take it from here.");
+      const card = turnAI(
+        '<div class="cc-card"><form class="cc-form" id="ccForm3" autocomplete="off">' +
+          '<div class="cc-form-eyebrow">Connect with the DataTwin team</div>' +
+          '<div class="cc-field"><label for="cc3Name">Name</label><input id="cc3Name" type="text" placeholder="Your name" /></div>' +
+          '<div class="cc-field"><label for="cc3Email">Work email</label><input id="cc3Email" type="email" placeholder="you@company.com" /></div>' +
+          '<div class="cc-field"><label for="cc3Co">Company</label><input id="cc3Co" type="text" placeholder="Your institute" /></div>' +
+          '<button class="cc-form-submit" id="cc3Submit" type="submit" disabled>Send this to DataTwin</button>' +
+          '<p class="cc-form-note">Read-only. Nothing changes in your filings, and there is no contract at this stage.</p>' +
+          "</form></div>",
+        true
+      );
+      const form = card.querySelector<HTMLFormElement>("#ccForm3")!;
+      const nm = card.querySelector<HTMLInputElement>("#cc3Name")!;
+      const em = card.querySelector<HTMLInputElement>("#cc3Email")!;
+      const sb = card.querySelector<HTMLButtonElement>("#cc3Submit")!;
+      const ok = (v: string) => /^\S+@\S+\.\S+$/.test(v.trim());
+      const chk = () => (sb.disabled = !(nm.value.trim().length > 1 && ok(em.value)));
+      nm.addEventListener("input", chk);
+      em.addEventListener("input", chk);
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        if (sb.disabled) return;
+        const who = nm.value.trim().split(" ")[0] || "there";
+        [nm, em, card.querySelector<HTMLInputElement>("#cc3Co")!].forEach((f) => (f.disabled = true));
+        sb.outerHTML =
+          '<div class="cc-form-ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="8 12 11 15 16 9"/></svg><span>Sent to DataTwin</span></div>';
+        setStatus("With our team", true);
+        phase = "done";
+        await wait(reduce ? 1 : 420);
+        await say(
+          "Thanks, " + who + " — that's with our team. The next step is a short review with the DataTwin team; that part is handled offline. Once the engagement is confirmed, the detailed assessment appears here automatically — you don't need to do anything."
+        );
+        await wait(reduce ? 1 : 500);
+        const simRow = turnAI(
+          '<button class="cc-sim" type="button"><span class="cc-sim-tag">Demo</span>' +
+            '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>' +
+            "Simulate: agreement signed<span>real flow updates on its own</span></button>",
+          true
+        );
+        simRow.querySelector<HTMLButtonElement>(".cc-sim")!.addEventListener("click", function () {
+          simRow.remove();
+          turnUser("[agreement signed]");
+          scn3Reveal().catch((err) => { if (err !== CANCEL) console.error(err); });
+        });
+      });
+    }
+
+    async function scn3Reveal() {
+      const g = runGen;
+      setStatus("Agreement signed", true);
+      await wait(reduce ? 1 : 300);
+      if (stale(g)) return;
+      await say("Agreement's in. Here's the detailed assessment.");
+      if (stale(g)) return;
+      const R = SCN3_REVEAL;
+      const worth = R.worth
+        .map((w) => '<div class="cc-worth-row"><span>' + esc(w.k) + '</span><b>' + esc(w.v) + "</b></div>")
+        .join("");
+      turnAI(
+        '<div class="cc-reveal">' +
+          '<div class="cc-reveal-eyebrow">' + esc(R.eyebrow) + "</div>" +
+          '<div class="cc-reveal-cmp">' +
+          '<div class="cc-reveal-col is-now"><span class="cc-reveal-k">Today</span>' +
+          "<b>" + esc(R.today.label) + "</b>" +
+          '<span class="cc-reveal-meta">' + esc(R.today.meta) + "</span></div>" +
+          '<svg class="cc-reveal-arrow stroke" width="18" height="18" viewBox="0 0 24 24"><use href="#ic-arrow-right" /></svg>' +
+          '<div class="cc-reveal-col is-fix"><span class="cc-reveal-k">Corrected</span>' +
+          "<b>" + esc(R.corrected.label) + "</b>" +
+          '<span class="cc-reveal-meta">' + esc(R.corrected.meta) + "</span></div>" +
+          "</div>" +
+          '<div class="cc-reveal-adj"><span class="cc-reveal-k">The framework</span><p>' + esc(R.adjustment) + "</p></div>" +
+          '<div class="cc-reveal-worth"><span class="cc-reveal-k">What this means</span>' + worth +
+          '<div class="cc-worth-refund">plus <b>' + esc(R.closing) + "</b> " + esc(R.closingNote) + "</div></div>" +
+          "</div>",
+        true
+      );
+      await wait(reduce ? 1 : 400);
+      if (stale(g)) return;
+      await say("The team can now review the affected invoices and confirm any corrective action.");
+    }
+
     function runScenario(n: number) {
       runGen++;
       activeScenario = n;
       log.innerHTML = "";
       resetState();
+      hideFilesPanel(); // reset to hidden; scenario 3 reveals it once something's uploaded
       document.querySelectorAll<HTMLButtonElement>("#ccScenarios .cc-demo-b").forEach((b) => {
         b.classList.toggle("is-on", b.getAttribute("data-scn") === String(n));
       });
-      const run = n === 1 ? scenario1() : n === 2 ? scenario2() : scenarioPending("Demo");
+      const run = n === 1 ? scenario1() : n === 2 ? scenario2() : scenario3();
       Promise.resolve(run).catch((err) => { if (err !== CANCEL) console.error(err); });
     }
     const scenarioBar = document.getElementById("ccScenarios");
@@ -998,13 +1294,7 @@ export default function ChatCheckScripts() {
         if (!val) return;
         cInput.value = "";
         const gc = runGen;
-        if (activeScenario === 3) {
-          turnUser(val);
-          await wait(reduce ? 150 : 500).catch(() => {});
-          if (gc === runGen) bubbleAI("That scenario isn’t wired up yet — switch to Scenario 1 or 2.");
-          return;
-        }
-        if (activeScenario === 2) {
+        if (activeScenario === 2 || activeScenario === 3) {
           turnUser(val);
           const t = typingTurn();
           await wait(reduce ? 200 : 650).catch(() => {});

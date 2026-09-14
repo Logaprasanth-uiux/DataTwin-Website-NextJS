@@ -68,7 +68,7 @@ export default function ChatCheckPage() {
               Scenario 2 <span>· coconut oil</span>
             </button>
             <button className="cc-demo-b" type="button" data-scn="3">
-              Scenario 3 <span>· demo</span>
+              Scenario 3 <span>· coaching</span>
             </button>
           </div>
           <span className="cc-demo-note">Preview aid — not part of the product</span>
@@ -99,6 +99,27 @@ export default function ChatCheckPage() {
             </p>
           </div>
         </div>
+
+        {/* Scenario 3 only — the running list of everything uploaded in this
+            session, with replace/remove. Hidden (and unused) on Scenarios 1-2. */}
+        <aside className="cc-files" id="ccFiles" aria-label="Uploaded files" hidden>
+          <div className="cc-files-hd">
+            <span className="cc-files-title">Uploaded files</span>
+            <span className="cc-files-count" id="ccFilesCount">0</span>
+            <button className="cc-files-close" id="ccFilesClose" type="button" aria-label="Close">
+              <svg className="icon stroke" viewBox="0 0 24 24">
+                <use href="#ic-close" />
+              </svg>
+            </button>
+          </div>
+          <div className="cc-files-list" id="ccFilesList"></div>
+        </aside>
+        <button className="cc-files-tab" id="ccFilesTab" type="button" hidden>
+          <svg className="icon stroke" viewBox="0 0 24 24">
+            <use href="#ic-doc" />
+          </svg>
+          Files <span id="ccFilesTabCount">0</span>
+        </button>
       </div>
       <ChatCheckScripts />
     </>

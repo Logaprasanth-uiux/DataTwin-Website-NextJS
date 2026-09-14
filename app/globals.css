@@ -55,6 +55,37 @@
   --card-flat-hover: rgba(10,10,20,0.045);
   color-scheme: light;
 }
+/* Demo theme: homepage-only alternate palette (navy / gold / grey / white),
+   set on <html data-theme="alt"> only on /home-alt — see the ALT THEME
+   override block further down for the handful of component-level fixes it
+   needs beyond the token swap. */
+:root[data-theme="alt"]{
+  --bg:#FFFFFF;
+  --bg-panel:#FFFFFF;
+  --bg-panel-2:#F6F6F6;
+  --bg-sunken:#F6F6F6;
+  --ink:#041E3C;
+  --ink-soft:#4C5D73;
+  --ink-faint:#7C8794;
+  --line:#E4E6EA;
+  --line-strong:#C9CDD3;
+  --line-soft:#EDEFF2;
+  --brand:#041E3C;
+  --brand-2:#EA8B34;
+  --brand-violet:#041E3C;
+  --brand-ink:#FFFFFF;
+  --recover:#041E3C;
+  --accent-amber:#EA8B34;
+  --accent-lime:#EA8B34;
+  --danger:#710C10;
+  --pill-ink:#FFFFFF;
+  --glow: rgba(4,30,60,0.14);
+  --grid-line: rgba(4,30,60,0.05);
+  --grid-line-strong: rgba(4,30,60,0.09);
+  --card-flat: rgba(4,30,60,0.025);
+  --card-flat-hover: rgba(4,30,60,0.05);
+  color-scheme: light;
+}
 /* Drawer is deliberately always light, like the reference template —
    a bright panel that contrasts the dark page regardless of site theme. */
 :root{
@@ -179,6 +210,11 @@ svg.stroke{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;s
 .section{padding:120px 0;position:relative;overflow:hidden;border-top:1px solid var(--line-soft);}
 .section-tight{padding:80px 0;position:relative;border-top:1px solid var(--line-soft);}
 @media (max-width:900px){.section{padding:80px 0;} .section-tight{padding:56px 0;}}
+/* the two sections that alternate to the sunken panel color — same as an
+   inline background:var(--bg-panel-2) would do, just named so the alt theme
+   (see its override block) can recolor them without touching every other
+   .card / .cta-section that also reads --bg-panel-2. */
+.panel-section{background:var(--bg-panel-2);}
 
 /* first-visit entrance — subtle bottom-to-top lift, added to each section wrapper by JS */
 @media (prefers-reduced-motion: no-preference){
@@ -1149,6 +1185,7 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
   font-family:var(--font-mono),monospace;font-size:0.72rem;letter-spacing:.01em;
   color:var(--ink-faint);margin-bottom:12px;
 }
+.cc-card-p{font-size:0.86rem;color:var(--ink-soft);line-height:1.55;}
 
 /* ---- service picker ---- */
 .cc-choices{display:flex;flex-direction:column;gap:9px;}
@@ -1586,6 +1623,95 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 }
 .cc-sheet-blank{font-style:italic;color:var(--danger);}
 .cc-sheet-why{font-family:var(--font-mono),monospace;font-size:0.7rem;color:var(--accent-amber);}
+
+/* ---- Scenario 3 only : the uploaded-files side panel ----
+   Wide screens: a persistent strip on the right, chat narrows to make room.
+   Narrow screens: a slide-in drawer opened by a floating "Files" tab — same
+   mechanics as .cc-docview. Hidden entirely on Scenarios 1-2. */
+.cc-files[hidden]{display:none;}
+.cc-files{
+  position:fixed;top:0;right:0;bottom:0;z-index:16;
+  width:min(320px,88vw);display:flex;flex-direction:column;
+  background:var(--bg-panel);border-left:1px solid var(--line-strong);
+  box-shadow:-30px 0 70px -30px rgba(0,0,0,.5);
+  transform:translateX(100%);transition:transform .25s cubic-bezier(.2,.7,.2,1);
+}
+.cc-files.is-open{transform:translateX(0);}
+@media (max-width:899.98px){.cc-files{z-index:45;}}
+@media (min-width:900px){
+  .cc-files{width:280px;transform:none;box-shadow:none;transition:none;}
+  .cc-files-close{display:none!important;}
+  /* padding on the shell (not a margin on .est-main) — every flex child,
+     header included, gets 280px less width to work with, so the header no
+     longer paints over the panel's own title and the centered chat column
+     centers itself within the REMAINING space instead of hugging the panel */
+  .est-shell.cc-has-files{padding-right:280px;}
+  .est-shell.cc-has-files .est-composer{right:280px;}
+  /* .cc-more is position:fixed;left:50% — that centers it on the FULL
+     viewport, so once the panel claims 280px on the right it drifts off the
+     (now narrower) chat column and lands over the composer. Re-centre it on
+     the space that's actually left: shift the centre point half the panel's
+     width to the left. */
+  .est-shell.cc-has-files .cc-more{left:calc(50% - 140px);}
+}
+.cc-files-hd{
+  flex-shrink:0;display:flex;align-items:center;gap:8px;
+  padding:16px 16px 14px;border-bottom:1px solid var(--line);
+}
+.cc-files-title{font-weight:600;font-size:0.92rem;color:var(--ink);}
+.cc-files-count{
+  font-family:var(--font-mono),monospace;font-size:0.68rem;font-weight:700;color:var(--ink-faint);
+  background:var(--bg-sunken);border:1px solid var(--line);border-radius:100px;padding:1px 8px;
+}
+.cc-files-close{
+  margin-left:auto;flex-shrink:0;width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line-strong);color:var(--ink-soft);background:var(--bg-panel);
+}
+.cc-files-close:hover{border-color:var(--brand-2);color:var(--ink);}
+.cc-files-close svg{width:14px;height:14px;}
+.cc-files-list{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;}
+.cc-file{border:1px solid var(--line);border-radius:11px;padding:10px 11px;background:var(--bg-sunken);}
+.cc-file.is-pending{opacity:.7;}
+.cc-file-row{display:flex;align-items:center;gap:9px;}
+.cc-file-ic{
+  flex-shrink:0;width:26px;height:26px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--bg-panel);border:1px solid var(--line);color:var(--ink-faint);
+}
+.cc-file-ic svg{width:13px;height:13px;}
+.cc-file.is-ok .cc-file-ic{border-color:color-mix(in srgb,var(--accent-lime) 40%,var(--line));color:var(--accent-lime);}
+.cc-file.is-flag .cc-file-ic{border-color:color-mix(in srgb,var(--accent-amber) 40%,var(--line));color:var(--accent-amber);}
+.cc-file-tx{flex:1;min-width:0;}
+.cc-file-tx b{display:block;font-size:0.8rem;font-weight:600;color:var(--ink);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cc-file-tx span{display:block;font-size:0.68rem;color:var(--ink-faint);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cc-file-acts{display:flex;gap:6px;margin-top:9px;}
+.cc-file-act{
+  flex:1;padding:6px 8px;border-radius:8px;font-size:0.72rem;font-weight:600;
+  border:1px solid var(--line-strong);color:var(--ink-soft);background:var(--bg-panel);
+  transition:border-color .15s ease,color .15s ease,opacity .15s ease;
+}
+.cc-file-act:hover:not(:disabled){border-color:var(--brand-2);color:var(--ink);}
+.cc-file-act.is-danger:hover:not(:disabled){border-color:var(--danger);color:var(--danger);}
+.cc-file-act:disabled{opacity:.4;cursor:default;}
+.cc-file-note{
+  margin-top:8px;display:flex;align-items:flex-start;gap:6px;
+  padding:7px 9px;border-radius:8px;font-size:0.72rem;line-height:1.45;
+  color:var(--brand-2);background:color-mix(in srgb,var(--brand-2) 8%,transparent);
+  border:1px solid color-mix(in srgb,var(--brand-2) 30%,var(--line));
+}
+.cc-file-note svg{flex-shrink:0;margin-top:1px;}
+.cc-files-tab[hidden]{display:none;}
+.cc-files-tab{
+  position:fixed;right:16px;bottom:112px;z-index:30;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 14px;border-radius:100px;
+  font-size:0.8rem;font-weight:600;color:var(--brand-ink);
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  box-shadow:0 12px 28px -12px color-mix(in srgb,var(--brand-2) 55%,transparent);
+}
+.cc-files-tab svg{width:14px;height:14px;}
+@media (min-width:900px){.cc-files-tab{display:none!important;}}
 
 /* ============================= HOW DARP WORKS ============================= */
 .darp-section{position:relative;overflow:hidden;}
@@ -2183,6 +2309,173 @@ footer{position:relative;overflow:hidden;border-top:1px solid var(--line);paddin
 .demo-strip:hover .demo-strip-arrow{transform:translateX(4px);}
 @media (max-width:640px){
   .demo-strip{flex-wrap:wrap;border-radius:24px;}
+}
+
+/* ============================= ALT THEME — homepage color demo overrides ============================= */
+/* Everything above already recolors through the token system. These are the
+   few rules that mix --brand/--brand-2 as a gradient fill with white text on
+   top, or set --brand-2 as small text directly on a light panel — fine when
+   brand-2 is a saturated cyan/blue, not when it's a mid-tone gold. Solid navy
+   keeps the fill on-brand and keeps the text/label readable. */
+/* white-background contexts: solid navy fill reads clean against white/grey. */
+:root[data-theme="alt"] .btn-primary,
+:root[data-theme="alt"] .usecase-pill-cta,
+:root[data-theme="alt"] .demo-strip-tag{
+  background:var(--brand);
+}
+/* the soft blurred aurora/glow shapes read as a murky smudge on a white
+   page — drop them, keep the grid pattern (ledger-grid) wherever it's used. */
+:root[data-theme="alt"] .hero-aurora,
+:root[data-theme="alt"] .arc-glow,
+:root[data-theme="alt"] .glow-blob{
+  display:none;
+}
+/* hero lead line: back to a gradient, but navy→orange (the site's own two
+   brand colors) landed flat, and gold was the original complaint — instead
+   blend navy into a coral mixed from the warning red and the orange accent
+   (mixing red with white just desaturates it to a dusty rose; mixing it
+   with the orange keeps it saturated and gives the hero its own distinct
+   accent color without introducing a brand-new hex). */
+:root[data-theme="alt"] .hero-lead{
+  background:linear-gradient(100deg, var(--brand) 0%, color-mix(in srgb, var(--danger), var(--brand-2)) 100%);
+  -webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;
+}
+
+/* ---- dark panel sections (#recoverable, #problem, #next) ----
+   Three sections now alternate to a navy panel instead of white/grey, for
+   rhythm. Content that sits DIRECTLY on the section (section headings/
+   intro copy, the timeline, the problem cards) needs to flip to a
+   light-on-dark treatment. But .recov-list and .recov-close each carry
+   their OWN explicit light background (--bg-panel / --bg-panel-2) — they're
+   already white/light "cards" floating on the section, same idea as
+   .card.problem-grid — so the content inside THEM must stay on its normal
+   dark-on-light colors, not flip to white (that's what made the recoverable
+   numbers/text disappear: white text on a white card). */
+:root[data-theme="alt"] #recoverable,
+:root[data-theme="alt"] .panel-section{background:var(--brand);}
+:root[data-theme="alt"] #recoverable .section-head-center h2,
+:root[data-theme="alt"] .panel-section h2,
+:root[data-theme="alt"] .panel-section .tl-content h4{color:#fff;}
+:root[data-theme="alt"] .panel-section .section-head p,
+:root[data-theme="alt"] .panel-section .section-head-center p,
+:root[data-theme="alt"] .panel-section .tl-content p{color:rgba(255,255,255,.72);}
+/* the recov-list card itself stays its normal white — give it a visible
+   outline against the navy section instead of relying on contrast alone. */
+:root[data-theme="alt"] #recoverable .recov-list{border-color:var(--line-strong);}
+/* .problem-cta is an always-dark panel (not a light card) — its navy-
+   anchored .grad-text heading ("Analyse first. Record later.") fades to
+   invisible at both ends against its own dark background — dropped below in
+   favor of a flat solid color, which sidesteps the anchoring problem
+   entirely and reads as a plain accent color instead of a wash. */
+/* no more gradient type — .grad-text (headings) and .darp-letter /
+   .hero-stat-num (the same gradient technique, just not the shared class)
+   all go solid orange instead. The hero's own lead line keeps its separate
+   navy→coral treatment (.hero-lead), untouched by this. */
+:root[data-theme="alt"] .grad-text:not(.hero-lead),
+:root[data-theme="alt"] .darp-letter,
+:root[data-theme="alt"] .hero-stat-num,
+:root[data-theme="alt"] .of-right .of-seq b{
+  background:none;-webkit-background-clip:initial;background-clip:initial;
+  color:var(--brand-2);-webkit-text-fill-color:var(--brand-2);
+}
+/* rc-4 (control weakness — "the live risk") defaults to --accent-amber,
+   which we've mapped to the same orange as rc-1 (cash) — give risk its own
+   warning-red instead of doubling up on the cash row's color. */
+:root[data-theme="alt"] .recov-row.rc-4{--rc:var(--danger);}
+/* .recov-close carried a subtle grey glow-on-grey wash (--bg-panel-2 plus a
+   radial tint) that read as murky on top of navy — make it a clean white
+   card with just its existing outline, matching .recov-list / .card. */
+:root[data-theme="alt"] #recoverable .recov-close{
+  background:var(--bg-panel);border-color:var(--line-strong);
+}
+/* dark-panel contexts: a navy-filled button/tag disappears into the navy
+   section behind it — orange fill with navy text stands out instead. This
+   only applies to buttons sitting directly on the dark section (the
+   recov-cta button, the timeline nodes) — not .recov-list/.recov-close,
+   which stay on their normal white card. */
+:root[data-theme="alt"] .problem-cta-btn,
+:root[data-theme="alt"] #recoverable > .wrap > .recov-cta .btn-primary,
+:root[data-theme="alt"] #next .tl-node,
+:root[data-theme="alt"] #next .tl-step:last-child .tl-tag{
+  background:var(--brand-2);color:var(--brand);
+}
+:root[data-theme="alt"] #next .tl-node{
+  box-shadow:0 0 0 5px rgba(255,255,255,.14), 0 10px 24px -10px rgba(0,0,0,.4);
+}
+:root[data-theme="alt"] #next .tl-track-line{
+  background:var(--brand-2);
+  box-shadow:0 0 10px color-mix(in srgb, var(--brand-2) 50%, transparent);
+}
+/* the "most systems" side of the order-flip compare was already a dim
+   rgba(255,255,255,…) — bump it up so it doesn't read as merged into the
+   dark panel behind it. */
+:root[data-theme="alt"] .of-wrong .of-cap{color:rgba(255,255,255,.56);}
+:root[data-theme="alt"] .of-wrong .of-seq{color:rgba(255,255,255,.62);}
+/* the problem-section CTA panel is an intentionally-always-dark card (see
+   its own comment above) — flat navy, no radial glow (matches the
+   blur-removal above; this one's baked into the panel's own background
+   rather than a separate .arc-glow/.glow-blob element). */
+:root[data-theme="alt"] .problem-cta{
+  background:linear-gradient(155deg, #0a1830, #04101f);
+}
+/* same story on the second outcomes card — a baked-in radial tint reading
+   as a grey smudge on white; flatten it to the plain panel color. */
+:root[data-theme="alt"] .outcome-phase.p2{background:var(--bg-panel);}
+
+:root[data-theme="alt"] .eyebrow,
+:root[data-theme="alt"] .cmp.pop .cmp-label,
+:root[data-theme="alt"] .sol-card .tag,
+:root[data-theme="alt"] .outcome-phase-num,
+:root[data-theme="alt"] .cta-email a{
+  color:var(--brand);
+}
+/* no dark variant of this palette exists yet, so the toggle has nothing to
+   switch to on this page. */
+[data-theme="alt"] #themeToggle{display:none;}
+
+/* ---- brand mark swap (header / drawer / footer), alt theme only ---- */
+.brand-mark-alt{
+  display:none;align-items:center;gap:8px;
+  font-family:var(--font-body),sans-serif;font-weight:700;font-size:1.2rem;
+  color:var(--brand);white-space:nowrap;
+}
+.brand-mark-alt svg{width:22px;height:22px;color:var(--brand-2);flex-shrink:0;}
+:root[data-theme="alt"] .nav-logo img,
+:root[data-theme="alt"] .footer-brand > img{display:none;}
+:root[data-theme="alt"] .brand-mark-alt{display:flex;}
+/* the footer itself goes navy below — its wordmark needs to read white,
+   not the header's navy version. */
+:root[data-theme="alt"] .footer-brand-mark-alt{color:#fff;}
+:root[data-theme="alt"] .footer-brand-mark-alt svg{color:var(--brand-2);}
+
+/* ---- footer: primary CTA panel stays as-is (shared across every page),
+   but the footer itself goes navy to match the rest of the alt page ---- */
+:root[data-theme="alt"] footer{background:var(--brand);}
+:root[data-theme="alt"] footer .footer-brand p,
+:root[data-theme="alt"] footer .footer-col a,
+:root[data-theme="alt"] footer .footer-bottom{color:rgba(255,255,255,.72);}
+:root[data-theme="alt"] footer .footer-trust,
+:root[data-theme="alt"] footer .footer-col h5,
+:root[data-theme="alt"] footer .footer-bottom a{color:rgba(255,255,255,.5);}
+:root[data-theme="alt"] footer .footer-social a{border-color:rgba(255,255,255,.28);color:rgba(255,255,255,.72);}
+:root[data-theme="alt"] footer{border-top-color:transparent;}
+
+/* ============================= HOME/ALT PREVIEW SWITCH ============================= */
+.theme-switch-badge{
+  position:fixed;right:20px;bottom:20px;z-index:999;
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;border-radius:100px;
+  background:#111217;color:#fff;
+  font-size:0.82rem;font-weight:600;
+  box-shadow:0 10px 28px -8px rgba(0,0,0,.5);
+  text-decoration:none;
+  transition:transform .2s ease, background .2s ease;
+}
+.theme-switch-badge:hover{background:#22242c;transform:translateY(-2px);}
+.theme-switch-badge svg{width:15px;height:15px;flex-shrink:0;}
+@media (max-width:640px){
+  .theme-switch-badge{right:14px;bottom:14px;padding:10px 16px;font-size:.78rem;}
 }
 
 /* ============================= PLATFORM OVERVIEW — HERO ============================= */
