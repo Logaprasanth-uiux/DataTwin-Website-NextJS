@@ -14,6 +14,7 @@ import { useEffect } from "react";
 import {
   WELCOME,
   ASK_PROBLEM,
+  ASK_PROBLEM_EXAMPLES,
   SERVICES,
   RESULTS,
   answerFor,
@@ -80,11 +81,14 @@ export default function ChatCheckScripts() {
     }
     const CHECK =
       '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    const USER_AV =
+      '<div class="cc-av is-user" aria-hidden="true"><svg class="stroke" width="13" height="13" viewBox="0 0 24 24"><use href="#ic-user" /></svg></div>';
 
     const log = document.getElementById("ccLog")!;
     const statusEl = document.getElementById("ccStatus");
     const cForm = document.getElementById("ccComposerForm") as HTMLFormElement | null;
     const cInput = document.getElementById("ccComposerInput") as HTMLInputElement | null;
+    const examplesEl = document.getElementById("ccExamples") as HTMLElement | null;
 
     /* ---------- scroll placement ----------
        Short responses scroll to the bottom, as usual. A response taller than
@@ -207,7 +211,7 @@ export default function ChatCheckScripts() {
     function turnUser(text: string) {
       const row = document.createElement("div");
       row.className = "cc-turn is-user";
-      row.innerHTML = '<div class="cc-bubble">' + esc(text) + "</div>";
+      row.innerHTML = USER_AV + '<div class="cc-bubble">' + esc(text) + "</div>";
       log.appendChild(row);
       holdScroll = false;
       place(row);
@@ -316,6 +320,33 @@ export default function ChatCheckScripts() {
       return g !== runGen;
     }
 
+    /* ---------- example pills, pinned above the composer (scenario 1 only) ----
+       Shown once the opening lines finish; tapping one submits it exactly like
+       typing it in would. Cleared the moment a problem is actually submitted
+       (pill or typed), and on every scenario switch. */
+    function showExamples(examples: string[]) {
+      if (!examplesEl) return;
+      examplesEl.innerHTML = examples
+        .map((ex) => '<button class="cc-example" type="button">' + esc(ex) + "</button>")
+        .join("");
+      examplesEl.hidden = false;
+      examplesEl.querySelectorAll<HTMLButtonElement>(".cc-example").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          if (phase !== "problem") return;
+          const text = btn.textContent || "";
+          turnUser(text);
+          handleProblem(text).catch((e) => {
+            if (e !== CANCEL) console.error(e);
+          });
+        });
+      });
+    }
+    function hideExamples() {
+      if (!examplesEl) return;
+      examplesEl.hidden = true;
+      examplesEl.innerHTML = "";
+    }
+
     /* ---------- scenario 1 : the working flow — welcome + ask ---------- */
     async function scenario1() {
       const g = runGen;
@@ -325,12 +356,14 @@ export default function ChatCheckScripts() {
       if (stale(g)) return;
       await say(ASK_PROBLEM);
       if (stale(g)) return;
+      showExamples(ASK_PROBLEM_EXAMPLES);
       introResolve();
       if (cInput) cInput.focus();
     }
 
     /* ---------- step 2 : problem -> service picker ---------- */
     async function handleProblem(text: string) {
+      hideExamples();
       phase = "service";
       setStatus("Choosing a check");
       const ranked = rankServices(text);
@@ -1272,6 +1305,7 @@ export default function ChatCheckScripts() {
       log.innerHTML = "";
       resetState();
       hideFilesPanel(); // reset to hidden; scenario 3 reveals it once something's uploaded
+      hideExamples(); // reset to hidden; scenario 1 shows it once the intro finishes
       document.querySelectorAll<HTMLButtonElement>("#ccScenarios .cc-demo-b").forEach((b) => {
         b.classList.toggle("is-on", b.getAttribute("data-scn") === String(n));
       });

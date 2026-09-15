@@ -37,8 +37,15 @@ export type Report = {
 export const WELCOME =
   "Hi — I'm the DataTwin assistant. Tell me what you're looking at in a line or two, and I'll point you to the right check.";
 
-export const ASK_PROBLEM =
-  "For example: “we think we're leaving input credit on the table”, “rebate claims keep getting short-paid”, or “our close never ties out”.";
+export const ASK_PROBLEM = "A few examples, if it helps — or just type your own:";
+
+// shown as clickable pills above the composer while phase is "problem";
+// tapping one submits it exactly like typing it in would
+export const ASK_PROBLEM_EXAMPLES = [
+  "we think we're leaving input credit on the table",
+  "rebate claims keep getting short-paid",
+  "our close never ties out",
+];
 
 export const SERVICES: Service[] = [
   {

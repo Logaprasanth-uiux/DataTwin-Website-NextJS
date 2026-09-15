@@ -1107,6 +1107,20 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
   padding:14px 24px 16px;
 }
 .est-composer-inner{max-width:640px;margin:0 auto;}
+/* /chat-check only — example-problem pills pinned above the input (Scenario 1,
+   before the first message; same dashed-chip language as .cc-suggest) */
+.cc-examples[hidden]{display:none;}
+.cc-examples{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px;}
+/* .est-composer button{} (the round send button) targets any <button> in the
+   composer, including these — out-specific it with the parent class rather
+   than fight it with !important */
+.cc-examples .cc-example{
+  width:auto;height:auto;flex-shrink:0;border-radius:100px;
+  padding:7px 13px;font-size:0.82rem;font-weight:500;color:var(--ink-soft);
+  border:1px dashed var(--line-strong);background:var(--card-flat);
+  transition:border-color .15s ease,background .15s ease,color .15s ease;
+}
+.cc-examples .cc-example:hover{border-color:var(--brand-2);background:var(--card-flat-hover);color:var(--ink);}
 .est-composer form{
   display:flex;align-items:center;gap:10px;
   padding:8px 8px 8px 18px;border-radius:16px;
@@ -1129,6 +1143,83 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
 }
 
 /* ============================= /chat-check — conversational check ============================= */
+/* Themed to match the GST Discovery chat (/gst-discovery/chat) so DataTwin's
+   two chat surfaces read as one family — scoped to .cc-shell (present only on
+   this page's root wrapper) so /get-estimate, which shares some of the same
+   .est-* classes, is completely unaffected. --brand/--brand-2/--ink* are
+   already identical between the two design systems; only the neutral
+   backgrounds/lines and the status colours actually move. The font swap
+   (Plus Jakarta Sans, matching GST) lives in this route's layout.tsx. */
+.cc-shell{
+  --bg:#0B0B0F;
+  --bg-panel:#111116;
+  --bg-panel-2:#15151B;
+  --bg-sunken:#15151B;
+  --line:#1C1922;
+  --line-strong:#26212F;
+  --line-soft:#1C1922;
+  --accent-lime:#34D399;
+  --accent-amber:#F0A857;
+  --danger:#F2555B;
+}
+:root[data-theme="light"] .cc-shell{
+  --bg:#F6F6F7;
+  --bg-panel:#FAFAFB;
+  --bg-panel-2:#FDFDFD;
+  --bg-sunken:#FDFDFD;
+  --line:#E7E5EF;
+  --line-strong:#DEDCE6;
+  --line-soft:#E7E5EF;
+  --accent-lime:#0E9D63;
+  --accent-amber:#C97816;
+  --danger:#C8283A;
+}
+/* thin scrollbar, GST's touch */
+.cc-shell ::-webkit-scrollbar{width:8px;}
+.cc-shell ::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px;}
+.cc-shell ::-webkit-scrollbar-track{background:transparent;}
+/* status dot: keep the blue-while-working / lime-when-done distinction, add
+   GST's pulsing ring */
+.cc-shell .est-status .dot{box-shadow:none;animation:cc-dot-pulse-brand 1.8s ease-out infinite;}
+.cc-shell .est-status.done .dot{animation:cc-dot-pulse-lime 1.8s ease-out infinite;}
+@keyframes cc-dot-pulse-brand{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--brand-2) 55%,transparent);}
+  70%{box-shadow:0 0 0 7px transparent;}
+  100%{box-shadow:0 0 0 0 transparent;}
+}
+@keyframes cc-dot-pulse-lime{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent-lime) 55%,transparent);}
+  70%{box-shadow:0 0 0 7px transparent;}
+  100%{box-shadow:0 0 0 0 transparent;}
+}
+@media (prefers-reduced-motion:reduce){
+  .cc-shell .est-status .dot,.cc-shell .est-status.done .dot{animation:none;}
+}
+/* avatar: a quiet bordered box (GST's treatment) rather than a bold gradient
+   badge — DataTwin keeps its "DT" mark, just toned down to match */
+.cc-shell .cc-av{background:var(--bg-panel-2);border:1px solid var(--line-strong);color:var(--brand);}
+.cc-shell .cc-av.is-user{
+  background:color-mix(in srgb,var(--brand) 18%,var(--bg-panel-2));
+  border-color:color-mix(in srgb,var(--brand) 30%,var(--line-strong));
+  color:var(--ink);
+}
+/* composer: two separate pills (input + round send button) side by side,
+   rather than one wrapped pill-shaped bar — GST's layout. Positioning
+   (fixed, with the scroll-hint math built around it) is untouched. */
+.cc-shell .est-composer{background:var(--bg);border-top:1px solid var(--line-soft);}
+.cc-shell .est-composer form{
+  background:none;border:none;box-shadow:none;padding:0;gap:10px;
+}
+.cc-shell .est-composer input{
+  background:var(--bg-panel);border:1px solid var(--line-strong);border-radius:999px;
+  padding:12px 18px;
+}
+.cc-shell .est-composer input:focus{outline:none;border-color:var(--brand);}
+/* form button only — .cc-example pills sit outside the <form>, in #ccExamples */
+.cc-shell .est-composer form button{width:44px;height:44px;border-radius:50%;}
+/* cards: flatter, no colour-tinted shadow, slightly larger radius */
+.cc-shell .cc-card{border-radius:18px;padding:20px 22px;box-shadow:none;}
+
 .cc-main{max-width:720px;}
 .cc-log{display:flex;flex-direction:column;gap:14px;}
 
@@ -1144,6 +1235,7 @@ body.drawer-open .drawer{transform:translateX(0);box-shadow:-30px 0 80px -30px r
   font-family:var(--font-mono),monospace;font-size:0.58rem;font-weight:600;letter-spacing:.02em;
   color:var(--brand-ink);background:linear-gradient(135deg,var(--brand),var(--brand-2));
 }
+.cc-av.is-user{background:var(--bg-sunken);border:1px solid var(--line-strong);color:var(--ink-soft);}
 .cc-bubble{
   max-width:78%;padding:11px 15px;border-radius:15px;
   font-size:0.93rem;line-height:1.55;color:var(--ink);

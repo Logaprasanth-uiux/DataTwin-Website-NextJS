@@ -9,7 +9,7 @@ import ChatCheckScripts from "@/components/ChatCheckScripts";
 export default function ChatCheckPage() {
   return (
     <>
-      <div className="est-shell">
+      <div className="est-shell cc-shell">
         <header className="est-header">
           <a className="est-brand" href="/" aria-label="DataTwin home">
             <img src="/datatwin-logo.png" alt="DataTwin" />
@@ -80,6 +80,7 @@ export default function ChatCheckPage() {
 
         <div className="est-composer">
           <div className="est-composer-inner">
+            <div className="cc-examples" id="ccExamples" aria-label="Example problems" hidden></div>
             <form id="ccComposerForm" autoComplete="off">
               <input
                 id="ccComposerInput"
